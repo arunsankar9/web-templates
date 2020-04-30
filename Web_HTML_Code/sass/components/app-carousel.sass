@@ -1,0 +1,34 @@
+.app-carousel
+  border-radius: 4px
+  overflow: hidden
+  .slick-dots
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    margin: 0
+    padding: 0
+    margin-bottom: 30px
+    li
+      @include centerIt
+      width: 15px
+      height: 15px
+      border-radius: 50%
+      background: #ffffff
+      &.slick-active
+        background: $app-primary-color_1
+      & + li
+        margin-left: 8px
+      button
+        display: none
+  &-item
+    position: relative
+    &.slick-slide
+      outline-color: transparent
+    img
+      width: 100%
+      height: auto
+      object-fit: cover

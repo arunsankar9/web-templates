@@ -1,0 +1,61 @@
+.app-btn
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  height: 40px
+  min-width: 170px
+  width: max-content
+  padding: 0 45px
+  border-radius: 20px
+  background: $app-primary-color_3
+  @include setFont(14px,#ffffff,700)
+  text-decoration: none
+  letter-spacing: 0.6px
+  line-height: 1
+  white-space: nowrap
+  transition: .1s ease-in-out
+  border: 0
+  appearance: none
+  cursor: pointer
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.1)
+    opacity: 0
+    transition: .1s ease-in-out
+  &:hover
+    color: #ffffff
+    text-decoration: none
+    outline-color: transparent
+    &::before
+      opacity: 1
+      border-radius: inherit
+  &:focus
+    outline-color: transparent
+  &.disabled
+    pointer-events: none
+    user-select: none
+  &.app-btn--primary
+    background: $app-primary-color_1
+  &.app-btn--secondary
+    background: $app-primary-color_2
+  &.app-btn--dark
+    background: #2f2f2f
+  &.app-btn--light
+    background: #c2c2c2
+    color: #4c4c4c
+    &.app-btn--icon
+      color: #ffffff
+  &.app-btn--icon
+    padding: 0 30px
+    i
+      margin-right: 15px
+  &.app-btn--only-icon
+    min-width: 40px
+    padding: 0
+    border-radius: 50%

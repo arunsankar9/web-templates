@@ -1,0 +1,244 @@
+// $transition: .4s linear
+$transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s,opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+%defaultHide
+  visibility: hidden
+  opacity: 0
+  transition: $transition
+%defaultShow
+  visibility: visible
+  opacity: 1
+.team-members
+  overflow: hidden
+  margin-top: 65px
+  padding-bottom: 0
+  background: $app-primary-color_2
+  @include mq("desktop")
+    background: linear-gradient(180deg, $app-primary-color_2 550px, #ffffff 0, #ffffff calc(100% - 550px))
+    padding-bottom: 65px
+  .section-content
+    height: auto
+    @include mq("desktop")
+      height: 620px
+  &.color-inverted
+      margin-top: 0
+      background: #ffffff
+      @include mq("desktop")
+        background: linear-gradient(180deg, #ffffff 550px, $app-primary-color_2 0, $app-primary-color_2 calc(100% - 550px))
+      @media (max-width: 992px)
+        .team-members-item-name
+          color: #6e6e6e
+        .team-members-item-description
+          color: #a1a1a1
+        .app-social-links-wrapper a.app-social-link
+          color: #b8b8b8
+      span,p,a
+        color: #ffffff
+      .team-members-item::before
+        background-image: url('../img/team-member-hover-b.png')
+      .slick-dots li
+        background: #000000
+        &.slick-active
+          background: transparent
+          border-color: #000000
+  & + div
+    margin-top: 0
+  height: auto
+  &-item
+    display: flex
+    flex-direction: column
+    transform: unset
+    transition: $transition
+    &.js-team-member-h
+      @media (max-width: 991px)
+        height: unset !important
+    @include mq("desktop")
+      transform: translateY(100px)
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: -100px
+      width: 100%
+      height: 350px
+      transform: scale(1.2)
+      background-image: url('../img/team-member-hover.png')
+      background-size: contain
+      background-repeat: no-repeat
+      background-position: 0 29px
+      @extend %defaultHide
+      display: none
+      @include mq("desktop")
+        display: block
+    &:hover
+      @include mq("desktop")
+        transform: translateY(0)
+        &::before
+          visibility: visible
+          opacity: 1
+          top: 0
+        .team-members-item-figure
+          height: 415px
+          &::before 
+            opacity: 0
+        .app-social-links-wrapper,
+        .team-members-item-role
+          visibility: visible
+          opacity: 1
+    &-content
+      display: flex
+      flex-direction: column
+      transition: $transition
+    &-figure
+      display: block
+      margin: 0
+      width: 100%
+      position: relative
+      border-radius: 4px
+      overflow: hidden
+      transition: $transition
+      height: 250px
+      @include mq("desktop")
+        height: 315px
+      &::before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        background: $app-primary-color_2
+        opacity: .6
+        transition: $transition
+        display: none
+        @include mq("desktop")
+          display: block
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: center top
+    &-role
+      display: flex
+      align-items: center
+      position: absolute
+      
+      background: $app-primary-color_3
+      border-radius: 3px
+      color: #ffffff
+      @include setFont(14px,#ffffff,500)
+      white-space: nowrap
+      text-overflow: ellipsis
+      overflow: hidden
+      visibility: visible
+      opacity: 1
+      transition: $transition
+      left: 8px
+      right: 8px
+      bottom: 8px
+      width: calc(100% - 16px)
+      height: 40px
+      padding: 0 10px
+      @include mq("tablet")
+        left: 15px
+        right: 15px
+        bottom: 15px
+        width: calc(100% - 30px)
+        height: 40px
+        padding: 0 20px
+      @include mq("desktop")
+        visibility: hidden
+        opacity: 0
+    &-name
+      @include setFont(18px,#ffffff,700)
+      line-height: 1.39
+      transition: $transition
+      margin-top: 20px
+      @include mq("desktop")
+        color: #6e6e6e
+        margin-top: 65px
+    &-description
+      @include setFont(14px,#ffffff,normal)
+      letter-spacing: .3px
+      line-height: 1.57
+      margin: 0
+      margin-top: 15px
+      transition: $transition
+      @include mq("desktop")
+        color: #a1a1a1
+        margin-top: 30px
+    .app-social-links-wrapper
+      visibility: visible
+      opacity: 1
+      justify-content: center
+      margin-top: 20px
+      margin-bottom: 20px
+      a
+        @media (max-width: 992px)
+          color: #ffffff
+      @include mq("desktop")
+        margin-top: 30px
+        margin-bottom: unset
+        justify-content: flex-start
+        visibility: hidden
+        opacity: 0
+    .app-social-link:hover
+      color: $app-primary-color_3
+  &-wrapper
+    margin-top: -50px
+    @include mq("desktop")
+      margin-top: unset
+    & + .container
+      @media (max-width: 991px)
+        margin-top: -30px
+
+    .page-has-aside
+      .app-pagination
+        margin-top: -15px
+        @include mq("small")
+          margin-top: 0px
+        @include mq("tablet")
+          margin-top: 35px
+    & + * .app-pagination
+      @include mq("desktop")
+        margin-top: -4px
+    .team-members-item
+      &-wrapper
+        margin-bottom: 30px
+        @include mq("tablet")
+          margin-bottom: 30px
+        @include mq("desktop")
+          margin-bottom: unset
+        @media (max-width: 400px)
+          &:not(:last-of-type)
+            border-bottom: 1px solid #e4e4e4
+            padding-bottom: 30px
+      @include mq("desktop")
+        transform: translateY(50px)
+      .team-members-item-name
+        color: #6e6e6e
+      .team-members-item-description
+        color: #a1a1a1
+      .team-members-item-role
+        @media (max-width: 991px)
+          font-size: 12px
+      .app-social-links-wrapper
+        justify-content: flex-start
+        @media (max-width: 991px)
+          margin-top: 10px
+          margin-bottom: 0
+          .app-social-link + .app-social-link
+            @media (max-width: 575px)
+              margin-left: auto
+      .app-social-link
+        color: #b8b8b8
+      &::before
+        display: none
+      &:hover
+        @include mq("desktop")
+          transform: translateY(-50px)
+          .team-members-item-figure
+            box-shadow: 0px 10px 43px 0 rgba(0, 0, 0, 0.46)
+    .col-6
+      @media (max-width: 400px)
+        flex: 0 0 100%
+        max-width: 100%

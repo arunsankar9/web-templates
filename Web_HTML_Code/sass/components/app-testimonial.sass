@@ -1,0 +1,82 @@
+.app-testimonial
+  &-wrapper
+    position: relative
+    &.slick-slider
+      user-select: unset
+      outline-color: transparent
+  &-item
+    display: flex
+    flex-direction: column
+    align-items: center
+    &.slick-slide
+      outline-color: transparent
+    p.description
+      @include setFont(16px,#949494,500)
+      line-height: 1.44
+      margin: 0
+      text-align: center
+      position: relative
+      padding: 30px 10px 5px 10px
+      &::before,
+      &::after
+        content: "''"
+        position: absolute
+        @include setFont(100px,$app-primary-color_1,500)
+        line-height: .23
+        font-style: italic
+      &::before
+        top: 30px
+        left: -4px
+      &::after
+        bottom: -45px
+        right: 23px
+    &-content
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin-top: 55px
+      .testimonial-avatar
+        width: 70px
+        height: 70px
+        border-radius: 50%
+        object-fit: cover
+        margin-bottom: 25px
+        flex-shrink: 0
+      span.name
+        @include setFont(18px,$app-primary-color_1,700)
+        letter-spacing: .2px
+        line-height: 1.39
+        margin-bottom: 10px
+      span.subtitle
+        @include setFont(14px,#949494,500)
+        line-height: 1.64
+  &-navigation
+    display: flex
+    align-items: center
+    justify-content: space-between
+    position: absolute
+    top: 50%
+    width: 100%
+    width: 180px
+    left: 0
+    right: 0
+    margin: auto
+    transform: translateY(-50%)
+    transition: .2s ease-in-out
+    opacity: 1
+    &.hide-me
+      opacity: 0
+      transition: 0s
+
+    button.app-btn
+      background: transparent
+      min-width: unset
+      width: auto
+      height: auto
+      border-radius: 0
+      &:hover
+        i
+          color: $app-primary-color_1
+      i
+        color: #d1d1d1
+        font-size: 2em

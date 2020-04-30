@@ -1,0 +1,76 @@
+.app-tabnav
+  display: flex
+  flex-direction: column
+  border: 1px solid #c0c0c0
+  border-radius: 4px
+  overflow: hidden
+  position: relative
+  &:not(.app-tabnav--vert)
+    .nav-link:last-child
+      border-right: 0
+  &--content
+    padding: 15px
+    @include mq("desktop")
+      padding: 25px 25px 45px 25px
+    p
+      margin: 0
+      @include setFont(14px,#5e5e5e,normal)
+  .nav-link
+      @include centerIt
+      @include setFont(14px,#787878,600)
+      line-height: 1.79
+      letter-spacing: 0.6px
+      border-radius: 0
+      border-style: solid
+      border-color: #c0c0c0
+      border-width: 0 1px 1px 0
+      background: transparent
+      flex-grow: 1
+      width: auto
+      flex-shrink: 0
+      padding: 0 20px
+      min-height: 50px
+      text-align: center
+      @include mq("desktop")
+        min-height: 60px
+        padding: 0 40px
+      &.active
+        border-bottom: 0
+        background: transparent
+        color: $app-primary-color_1
+  &--navs
+    width: 100%
+    transition: .2s ease-in-out
+    scroll-behavior: smooth
+    .nav
+      flex-wrap: nowrap
+      overflow-x: hidden
+  &--vert
+    flex-direction: row
+    .app-tabnav--content
+      padding: 15px
+      @include mq("desktop")
+        padding: 40px 35px
+    a.nav-link
+      border-right: 1px solid #c0c0c0
+      border-bottom: 0
+      width: 100%
+      padding: 0
+      & + .nav-link
+        border-top: 1px solid #c0c0c0
+      &.active
+        border-right: 0
+    .nav-pills
+      height: 100%
+      flex-grow: 1
+    .app-tabnav--navs
+      display: flex
+      flex-direction: column
+      flex-shrink: 0
+      width: 80px
+      @include mq("small")
+        width: 100px
+      @include mq("desktop")
+        width: 140px
+      .nav
+        overflow: unset

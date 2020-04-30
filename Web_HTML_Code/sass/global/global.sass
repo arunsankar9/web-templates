@@ -1,0 +1,151 @@
+*
+  outline: none !important
+body
+  background: #f2f2f2
+  font-family: 'Rajdhani', sans-serif
+  &.body--white
+      background: #ffffff
+  &.body--home
+      background: #f4f7fc
+  &.navbar--fixed
+    padding-top: 90px
+    .app-navbar
+      position: fixed
+      top: 0
+      z-index: 99999
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+    .app-aside
+      top: 75px
+      @include mq("desktop")
+        top: 105px
+  &.mobile-menu-opened
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+.container
+  max-width: 1200px
+.real-fluid
+    padding-left: 0
+    padding-right: 0
+header
+  max-width: 100%
+section
+  width: 100%
+  max-width: 100%
+.bg--main
+  background: $app-primary-color_1 !important
+.bg--primary
+  background: $app-primary-color_2 !important
+.bg--secondary
+  background: $app-primary-color_3 !important
+.divider
+  width: 100%
+  height: 1px
+  background: #eaeaea
+  margin: 30px 0
+  @include mq("desktop")
+    margin: 60px 0
+  & + *
+    margin-top: 0
+.img-fluid
+  border-radius: 4px
+.app-elements-page
+  .app-design-guide-row
+    width: 100%
+    flex-grow: 1
+    margin-top: 50px
+    align-items: flex-start
+  .app-button-list
+    flex-wrap: wrap
+    margin-top: 20px
+    justify-content: space-between
+    @include mq("small")
+      justify-content: flex-start
+    @include mq("desktop")
+      margin-top: 50px
+      flex-wrap: nowrap
+      justify-content: center
+    button.app-btn
+      width: 100%
+      min-width: unset
+      margin-bottom: 15px
+      margin-right: 5px
+      @media (min-width: 400px)
+        width: 48%
+      @include mq("small")
+        margin-right: 15px
+        width: 30%
+      @include mq("desktop")
+        margin-bottom: unset
+  .app-tabnav--vert
+    margin-top: 30px
+    @include mq("tablet")
+      margin-top: unset
+.page-hero:not(.page-hero--nopull)
+  .page-has-aside
+  & + [class*='col'] aside.app-aside
+    @include mq("desktop")
+      margin-top: -50px
+.page-has-aside
+  .team-members-item-wrapper:nth-child(-n+3)
+    @include mq("desktop")
+      margin-top: 50px
+  &.page-aside--left
+    // @media (max-width: 991px)
+    @include mq("tablet")
+      order: 2
+  &.page-aside--right
+    // @media (max-width: 991px)
+    order: -1
+  .services-list-item-wrapper
+    & + .app-pagination
+      margin-top: 0
+      @include mq("tablet")
+        margin-top: 0
+      @include mq("desktop")
+        margin-top: 35px
+  .services-list-item
+    &:not(.services-list-item--vert)
+      @include mq("desktop")
+        .services-list-item-figure
+            width: 200px
+        .services-list-item-content
+          padding: 30px 30px 30px 50px
+        .services-list-item-icon
+          width: 80px
+          height: 80px
+      @include mq("large")
+        .services-list-item-figure
+            width: 250px
+  .app-pricing-item:not(.app-pricing-item--wide)
+    margin-top: 35px
+    @include mq("tablet")
+      margin-top: 115px
+    @include mq("desktop")
+      margin-top: 145px
+      @media (hover:hover)
+        &:hover
+          margin-top: 0
+  .app-pricing-item--wrapper:nth-last-child(-n+4)
+    margin-top: unset
+  .app-pricing-item--wrapper
+    @include mq("large")
+      margin-bottom: 60px
+  .app-pricing-item--wide
+    margin-top: 0 !important
+    margin-bottom: 50px
+    &:hover
+      margin-top: 0 !important
+    .app-pricing-item-content
+      flex-grow: 1
+  .app-design-guide-wrapper
+    padding: 15px 30px 50px 30px
+  .app-design-guide-colors
+    flex-wrap: wrap
+    @media (max-width: 991px)
+      margin-top: 25px
+    @include mq("desktop")
+      flex-wrap: nowrap
+    .color-item + .color-item
+      margin-top: 15px

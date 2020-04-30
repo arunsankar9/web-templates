@@ -1,0 +1,50 @@
+.headbar
+    width: 100%
+    height: auto
+    border-bottom: 1px solid #eaeaea
+    background: $app-primary-color_1
+    @include mq("tablet")
+        background: #ffffff
+    @include mq("desktop")
+      height: 45px
+    &-container
+        display: flex
+        justify-content: space-between
+        align-items: center
+        height: 100%
+        flex-wrap: wrap
+        padding: 5px 0
+        @include mq("desktop")
+          height: 45px
+          flex-wrap: nowrap
+          padding: unset
+    &-text
+        align-items: center
+        @include setFont(14px,#ffffff,normal)
+        display: none
+        @include mq("tablet")
+            display: flex
+            color: #919191
+    &-content
+        display: flex
+        align-items: center
+        .headbar-text
+            display: flex
+
+    &-mail-link
+        margin-left: 15px
+        text-decoration: none
+        @include setFont(14px,#ffffff,normal)
+        @include mq("tablet")
+            color: $app-primary-color_1
+        &:hover
+            text-decoration: none
+    .app-social-links-wrapper
+        display: none
+        @include mq("tablet")
+            margin-top: 10px
+            margin-bottom: 10px
+            display: inherit
+        @include mq("desktop")
+            margin-top: unset
+            margin-bottom: unset

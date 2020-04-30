@@ -1,0 +1,94 @@
+.section
+    &-title
+        &-wrapper
+            @include centerIt
+            flex-direction: column
+            margin-top: 30px
+            @include mq("desktop")
+                margin-top: 64px
+            &.mt-reduce
+                margin-top: 20px
+                @include mq("desktop")
+                    margin-top: 50px
+
+                & + .section-content
+                    margin-top: 20px
+                    @include mq("desktop")
+                        margin-top: 50px
+            &.light-bg
+                span.subtitle
+                    color: #515151
+                    &::after
+                        background: $app-primary-color_3
+                .section-title
+                    color: #000000
+                    &::after
+                        background: $app-primary-color_3
+            span.subtitle
+                @include setFont(16px,#f4f7fc,500)
+                letter-spacing: .3px
+                line-height: 1
+                position: relative
+                &::after
+                    content: ''
+                    position: absolute
+                    left: 50%
+                    bottom: 0
+                    transform: translateX(-50%)
+                    height: 3px
+                    width: 40px
+                    background: #ffffff
+                    display: none
+            .section-title
+                margin: 0
+                @include setFont(32px,#f4f7fc,700)
+                line-height: .78
+                position: relative
+                padding-bottom: 33px
+                margin-top: 30px
+                letter-spacing: unset
+                &::after
+                    content: ''
+                    position: absolute
+                    left: 50%
+                    bottom: 0
+                    transform: translateX(-50%)
+                    height: 3px
+                    width: 40px
+                    background: #ffffff
+    &-content
+        margin-top: 30px
+        @include mq("desktop")
+            margin-top: 64px
+        .slick-dots
+            display: flex
+            justify-content: center
+            align-items: center
+            margin: 0
+            padding: 0
+            margin: 15px 0
+            li
+                @include centerIt
+                width: 8px
+                height: 8px
+                border-radius: 50%
+                background: #ffffff
+                &.slick-active
+                    background: transparent
+                    border: 1px solid #ffffff
+
+                & + li
+                    margin-left: 4px
+                button
+                    display: none
+.title--underlined
+    position: relative
+    padding-bottom: 17px
+    &::after
+        content: ''
+        position: absolute
+        left: 0
+        bottom: 0
+        width: 40px
+        height: 3px
+        background: $app-primary-color_3

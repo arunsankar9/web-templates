@@ -1,0 +1,92 @@
+$transition: .1s ease-in-out
+.portfolio-items-wrapper
+  margin-bottom: -30px
+  margin-top: -50px
+  @include mq("tablet")
+    margin-top: unset
+.portfolio-list-item
+  display: flex
+  flex-direction: column
+  position: relative
+  border-radius: 4px
+  overflow: hidden
+  text-decoration: none
+  &--type2
+    .portfolio-list-item-content
+      span.title
+        font-size: 20px
+  &--type3
+    .portfolio-item-details
+      justify-content: space-between
+    .portfolio-list-item-content
+      @media (max-width: 1199px)
+        padding: 15px   
+      span.title
+        font-size: 18px
+    &:hover
+      span.title
+          color: $app-primary-color_3
+  &:hover
+    text-decoration: none
+    &::after
+      height: 2px
+    .read-more
+      color: $app-primary-color_3
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 0px
+    background: $app-primary-color_3
+    transition: $transition
+  figure.thumbnail
+    width: 100%
+    height: 295px
+    margin: 0
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &-content
+    display: flex
+    flex-direction: column
+    background: #ffffff
+    padding: 15px
+    @include mq("desktop")
+      padding: 30px 35px
+    span.title 
+      @include setFont(22px,#000000,500)
+      line-height: 1.14
+      margin-bottom: 15px
+      transition: $transition
+    .portfolio-item-details
+      display: flex
+      align-items: center
+      flex-wrap: wrap
+      @include mq("tablet")
+        flex-wrap: nowrap
+      span,a
+        @include setFont(12px,#9d9d9d,600)
+        line-height: 1
+        text-decoration: none
+        flex-shrink: 0
+        margin-right: 10px
+        margin-bottom: 5px
+        @include mq("tablet")
+          margin-right: unset
+          margin-bottom: unset
+        @include mq("desktop")
+          font-size: 14px
+
+        &:hover
+          text-decoration: none
+      * + *
+        @include mq("tablet")
+          margin-left: 25px
+      .read-more
+        @include mq("tablet")
+          margin-left: auto
+    &--wrapper
+    margin-bottom: 30px

@@ -1,0 +1,51 @@
+.app-download-box
+  display: flex
+  justify-content: space-between
+  border-radius: 4px
+  background: $app-primary-color_3
+  position: relative
+  padding: 15px 10px
+  flex-direction: column
+  align-items: flex-start
+  @media (min-width: 350px)
+    flex-direction: row
+    align-items: center
+  @include mq("tablet")
+    padding: 30px 45px 30px 30px
+  & > * + *
+    margin-top: 10px
+    @media (min-width: 350px)
+      margin-top: 0
+  & .box-icon
+    @media (min-width: 350px)
+      margin-left: 10px
+
+  &.app-download-box--dark
+    background: #424242
+  &.app-download-box--primary
+    background: $app-primary-color_1
+  &.app-download-box--secondary
+    background: $app-primary-color_2
+  &-content
+    display: flex
+    flex-direction: column
+    i
+      color: #ffffff
+      font-size: 2em
+      @include mq("tablet")
+        font-size: 3em
+    a.download-link
+      text-decoration: none
+      &:hover
+        color: #ffffff
+        text-decoration: none
+
+  .app-download-box-filename
+    @include setFont(15px,#ffffff,600)
+    line-height: 1.67
+  .app-download-box-title
+    @include setFont(15px,#ffffff,600)
+    line-height: 1.67
+    &--lighten
+      @include setFont(15px,rgba(#ffffff,.3),700)
+      line-height: 1.79

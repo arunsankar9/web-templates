@@ -1,0 +1,319 @@
+.app-aside
+  position: sticky
+  top: 15px
+  margin-top: 15px
+  @include mq("tablet")
+    margin-top: unset
+  &-widget
+    display: flex
+    flex-direction: column
+    background: #ffffff
+    border-radius: 4px
+    overflow: hidden
+    &.no-bg
+      background: transparent
+    & + .app-aside-widget
+      margin-top: 15px
+      @include mq("desktop")
+        margin-top: 30px
+    &-search
+      display: flex
+      align-items: center
+      margin: 0
+      padding: 0
+      background: $app-primary-color_1
+      padding: 0 25px 0 15px
+      .app-input
+        background: transparent
+        border: 0
+        color: #ffffff
+        padding: 0
+        flex-grow: 1
+        font-size: 14px
+        font-weight: 600
+        padding-right: 15px
+        @include input-placeholder
+          color: #ffffff
+          letter-spacing: 2.8px
+      button.app-aside-widget-search-submit
+        width: 15px
+        height: auto
+        min-width: unset
+        justify-content: flex-end
+        &:hover
+          background: $app-primary-color_1
+    &-title
+      display: flex
+      align-items: center
+      height: 64px
+      padding-left: 20px
+      position: relative
+      width: 100%
+      &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: 0
+        width: 2px
+        height: 100%
+        background: $app-primary-color_1
+      span.title
+        @include setFont(16px,$app-primary-color_1,500)
+        line-height: 1.56
+        letter-spacing: 3.2px
+    &-content
+      display: flex
+      flex-direction: column
+      position: relative
+      &.js-aside-slider.slick-slider
+        user-select: unset
+      .app-download-box
+        flex-direction: column
+        align-items: flex-start
+        padding: 15px
+        margin: 0
+        @include mq("desktop")
+          padding: 35px 80px 50px 30px
+        &-content
+          &.title-box
+            span
+              line-height: 1
+          a.download-link
+            &:hover
+              color: rgba(255,255,255,.7)
+        .app-download-box-title--lighten
+          color: #ffffff
+        &-content.title-box + div
+          margin-top: 20px
+        &-content + .app-download-box-content
+          margin-top: 10px
+        .box-icon
+          position: absolute
+          right: 15px
+          margin: 0
+          top: 15px
+          @include mq("desktop")
+            top: 35px
+          i
+            @media (max-width: 991px)
+              font-size: 2em
+    &-rich-menu
+      &-item
+        display: flex
+        text-decoration: none
+        border-top: 1px solid #f7f7f7
+        position: relative
+        z-index: 1
+        padding: 10px
+        @include mq("desktop")
+          padding: 15px
+        &::after
+          content: ''
+          position: absolute
+          left: 0
+          bottom: 0
+          width: 100%
+          height: 0px
+          background: $app-primary-color_1
+          transition: .1s ease-in-out
+          z-index: -1
+          display: none
+          @include mq("desktop")
+            display: block
+        &:hover
+          text-decoration: none
+          &::after
+            height: 47px
+          .date
+            color: #ffffff
+        figure
+          margin: 0
+          flex-shrink: 0
+          margin-right: 10px
+          width: 70px
+          height: 60px
+          @include mq("desktop")
+            width: 100px
+            height: 90px
+          img
+            width: 100%
+            height: 100%
+            object-fit: cover
+        &-content
+          display: flex
+          flex-direction: column
+          & .title
+            @include setFont(14px,#252525,normal)
+            line-height: 1.43
+            letter-spacing: 0.6px
+            margin-bottom: 15px
+            @include mq("desktop")
+              margin-bottom: 22px
+          & .date
+            @include setFont(12px,#aaaaaa,500)
+            transition: .1s ease-in-out
+            line-height: 1
+            @include mq("desktop")
+              line-height: 2
+    &-menu
+      &-item
+        display: flex
+        align-items: center
+        height: 50px
+        padding-left: 20px
+        padding-right: 20px
+        text-decoration: none
+        transition: .2s ease-in-out
+        border-top: 1px solid #f7f7f7
+        background-image: none
+        .page-menu-item-title
+          @include setFont(15px,#6d6d6d,500)
+          line-height: 1.6
+          letter-spacing: 0.6px
+          white-space: nowrap
+          text-overflow: ellipsis
+          overflow: hidden
+        .menu-item-title
+          @include setFont(15px,#6d6d6d,normal)
+          line-height: 1.6
+          letter-spacing: 0.6px
+          white-space: nowrap
+          text-overflow: ellipsis
+          overflow: hidden
+          margin-right: 10px
+        .menu-item-count
+          @include centerIt
+          width: 32px
+          height: 32px
+          border-radius: 50%
+          background: #f7f7fd
+          @include setFont(12px,rgba(37, 37, 37, 0.47),500)
+          margin-left: auto
+          transition: .2s ease-in-out
+          flex-shrink: 0
+        i
+          color: #6d6d6d
+          margin-right: 15px
+        &:hover
+          text-decoration: none
+          color: darken(#6d6d6d,5)
+          padding-left: 25px
+          background-image: linear-gradient(to right, #ffffff, #f7f7fd)
+          .menu-item-count
+            background: #ffffff
+    &-abox
+      @include centerIt
+      border-top: 1px solid #f7f7f7
+      padding: 15px
+      @include mq("tablet")
+        padding: 20px
+      @include mq("desktop")
+        padding: 40px
+      img
+        max-width: 100%
+        height: auto
+      a
+        text-decoration: none
+        &:hover
+          text-decoration: none
+    &-userbox
+      display: flex
+      padding: 23px 20px
+      figure
+        margin: 0
+        width: 70px
+        height: 70px
+        margin-right: 12px
+        img
+          width: 100%
+          height: 100%
+          object-fit: cover
+      &-content
+        display: flex
+        flex-direction: column
+        padding-top: 5px
+        span.role
+          @include setFont(10px,#848484,500)
+          margin-bottom: 14px
+          line-height: 1
+          letter-spacing: 2px
+        span.name
+          @include setFont(16px,$app-primary-color_1,700)
+          line-height: 1
+          letter-spacing: 0.3px
+          margin-bottom: 10px
+    &-detailsbox.flat-content-detailsbox
+      float: unset
+      width: 100%
+      background: $app-primary-color_1
+    &-slide
+      width: 100%
+      position: relative
+      height: 400px
+      @include mq("tablet")
+        height: 475px
+      &::after
+        content: ''
+        position: absolute
+        left: 0
+        bottom: 0
+        width: 100%
+        height: 100%
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent)
+      .slide-img
+        width: 100%
+        height: 100%
+        object-fit: cover
+      &-content
+        display: flex
+        flex-direction: column
+        position: absolute
+        left: 25px
+        bottom: 45px
+        right: 80px
+        z-index: 1
+        span.title
+          @include setFont(16px,#ffffff,500)
+          letter-spacing: 3.2px
+          line-height: 1.56
+          margin-bottom: 13px
+        p.description
+          @include setFont(14px,#b4b4b4,500)
+          letter-spacing: .3px
+          line-height: 1.71
+          margin: 0
+    .aside-carousel-navigation
+      display: flex
+      flex-direction: column
+      position: absolute
+      right: 19px
+      bottom: 22px
+      z-index: 19
+      &-btn
+        display: block
+        text-align: center
+        width: 36px
+        height: 36px
+        border-radius: 50%
+        min-width: unset
+        background: transparent
+        border: 3px solid #ffffff
+        padding: 0
+        i
+          color: #ffffff
+          font-size: 1.5em
+        & + .aside-carousel-navigation-btn
+          margin-top: 13px
+        &:hover,
+        &:active,
+        &:focus
+          background: #ffffff
+          i
+            color: #969696
+    &.flat-widget
+      .app-aside-widget-title
+        height: 47px
+        &::after
+          display: none
+        span.title
+          @include setFont(15px,#3f3f3f,600)

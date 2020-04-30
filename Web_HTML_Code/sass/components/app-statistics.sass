@@ -1,0 +1,119 @@
+$transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s,opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+.app-statistics
+    &-wrapper
+        width: 100%
+        background: #ffffff
+        height: auto
+        margin-top: 30px
+        padding-top: 30px
+        @include mq("desktop")
+          height: 180px
+          margin-top: 128px
+          padding-top: unset
+    &-item
+        @include centerIt
+        position: relative
+        height: 180px
+        border-radius: 4px
+        cursor: pointer
+        margin-bottom: 30px
+        @include mq("tablet")
+            height: 160px
+        @include mq("desktop")
+          margin-bottom: unset
+          height: 180px
+        &:hover
+            @include mq("desktop")
+                .app-statistics-item-icon
+                    visibility: visible
+                    opacity: 1
+                .app-statistics-item-figure
+                    visibility: visible
+                    transform: translateY(-64px)
+                    opacity: 1
+                span.title,
+                span.amount
+                    color: #ffffff
+        &-figure
+            position: absolute
+            left: 0
+            top: 0
+            width: 100%
+            z-index: 1
+            transition: $transition
+            border-radius: 4px
+            overflow: hidden
+            visibility: visible
+            transform: none
+            opacity: 1
+            height: 180px
+            @include mq("tablet")
+                height: 160px
+            @include mq("desktop")
+              visibility: hidden
+              transform: translateY(-32px)
+              opacity: 0
+              height: 265px
+            &::before
+                content: ''
+                position: absolute
+                left: 0
+                top: 0
+                width: 100%
+                height: 100%
+                background: $app-primary-color_2
+                z-index: 2
+                opacity: .8
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+        &-content
+            @include centerIt
+            flex-direction: column
+            position: relative
+            z-index: 3
+            padding: 0 5px
+            margin-top: 20px
+            @include mq("tablet")
+                margin-top: 50px
+            @include mq("desktop")
+              padding: unset
+              margin-top: unset
+            span.amount
+                @include setFont(35px,#ffffff,700)
+                letter-spacing: 2.7px
+                line-height: 1
+                transition: $transition
+                @include mq("tablet")
+                  font-size: 45px
+                @include mq("desktop")
+                  color: #404040
+            span.title
+                @include setFont(16px,false,500)
+                letter-spacing: .3px
+                line-height: 1.38
+                transition: $transition
+                color: #ffffff
+                margin-top: 5px
+                text-align: center
+                @include mq("desktop")
+                  color: #b1b1b1
+                  margin-top: unset
+                  text-align: unset
+        &-icon
+            color: #ffffff
+            font-size: 2em
+            visibility: visible
+            opacity: 1
+            position: absolute
+            top: 15px
+            left: 50%
+            transform: translateX(-50%)
+            z-index: 3
+            transition: $transition
+            @include mq("desktop")
+              visibility: hidden
+              opacity: 0
+              top: 30px
+              font-size: 3em

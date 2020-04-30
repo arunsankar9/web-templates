@@ -1,0 +1,50 @@
+.flat-content-detailsbox
+  height: auto
+  background: $app-primary-color_1
+  border-radius: 4px
+  display: flex
+  flex-wrap: wrap
+  margin: 0 15px 20px 0
+  width: 100%
+  padding: 15px 15px 0 15px
+  @include mq("small")
+    padding: 15px
+    display: block
+    width: 200px
+    margin: 0 15px 5px 0
+    float: left
+  @include mq("desktop")
+    padding: 30px
+    margin: 0 30px 25px 0
+  span.title
+    display: block
+    @include setFont(15px,#ffffff,600)
+    line-height: 1.67
+    margin-bottom: 20px
+    flex-basis: 100%
+    text-align: center
+    @include mq("small")
+      text-align: unset
+      flex-basis: unset
+      margin-bottom: 30px
+  &-item
+    display: flex
+    flex-direction: column
+    width: 49%
+    margin-bottom: 15px
+    @include mq("small")
+      margin-bottom: unset
+      width: unset
+    & + .flat-content-detailsbox-item
+      @include mq("small")
+        margin-top: 30px
+    .item-title
+      @include setFont(13px,rgba(#ffffff,.3),700)
+      line-height: 1.79
+      @include mq("small")
+        font-size: 14px
+    .item-content
+      @include setFont(15px,#ffffff,500)
+      line-height: 1.5
+      @include mq("small")
+        font-size: 16px

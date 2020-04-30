@@ -1,0 +1,167 @@
+.services-list-item
+  display: flex
+  justify-content: space-between
+  border-radius: 4px
+  overflow: hidden
+  height: auto
+  $transition: .2s ease-in-out
+  transition: $transition
+  flex-direction: column
+  text-decoration: none
+  &:hover
+    text-decoration: none
+  @include mq("desktop")
+    flex-direction: row
+  &--vert
+    overflow: visible
+    height: 100%
+    &:hover
+      box-shadow: 0px 13px 50px 0 rgba(255, 117, 6, 0.31)
+    .services-list-item-content
+      height: 100%
+      padding: 40px 10px 20px 10px
+      @include mq("desktop")
+        padding: 55px 10px 20px 10px
+      @include mq("large")
+        padding: 95px 30px 40px 30px
+      align-items: center
+      span.title
+        font-size: 18px
+        margin-bottom: 15px
+        text-align: center
+        @include mq("tablet")
+          font-size: 22px
+          margin-bottom: 25px
+      p.description
+        text-align: left
+        font-size: 14px
+        @include mq("tablet")
+          text-align: center
+          font-size: 16px
+      .read-more
+        margin-top: auto
+    .services-list-item-icon
+      width: 50px
+      height: 50px
+      left: 50%
+      top: 0
+      transform: translateX(-50%) translateY(-50%)
+      box-shadow: none
+      background: #f2f2f2
+      @include mq("tablet")
+        height: 70px
+        width: 70px
+      @include mq("desktop")
+        height: 82px
+        width: 82px
+      i
+        color: #8c8c8c
+    &-wrapper
+      margin-top: 41px
+  &--narrow
+    flex-direction: column
+    @include mq("desktop")
+      flex-direction: row-reverse
+    .services-list-item-figure
+      width: 100%
+      @include mq("desktop")
+        width: 205px
+    .services-list-item-content
+      padding: 20px
+      justify-content: center
+      @include mq("desktop")
+        padding: 105px 45px 105px 70px
+      span.title
+        margin-bottom: 25px
+      p.description
+        margin-bottom: 30px
+        @include mq("desktop")
+          margin-bottom: 55px
+  &:hover
+    .services-list-item-icon
+      background: $app-primary-color_3
+      i
+        color: #ffffff
+    .services-list-item-content
+      &::after
+        height: 2px
+      .read-more
+        color: $app-primary-color_3
+  &-wrapper
+      margin-bottom: 15px
+      @include mq("tablet")
+        margin-bottom: 30px
+  &-figure
+    @include centerIt
+    width: 100%
+    height: 200px
+    flex-shrink: 0
+    margin: 0
+    @include mq("desktop")
+      width: 470px
+      height: auto
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &-content
+    display: flex
+    flex-direction: column
+    padding: 20px
+    background: #ffffff
+    position: relative
+    @include mq("desktop")
+      padding: 48px 75px 48px 100px
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 0
+      background: $app-primary-color_3
+      transition: $transition
+    span.title
+      @include setFont(22px,#000000,700)
+      line-height: 18px
+      margin-bottom: 15px
+      @include mq("tablet")
+        margin-bottom: 40px
+      @include mq("desktop")
+        margin-bottom: 60px
+    p.description
+      margin: 0
+      @include setFont(16px,#525252,300)
+      line-height: 1.5
+      letter-spacing: .3px
+      margin-bottom: 30px
+    .read-more
+      @include setFont(14px,#9d9d9d,600)
+      line-height: 9px
+      text-decoration: none
+      transition: $transition
+  &-icon
+    @include centerIt
+    border-radius: 50%
+    background: #ffffff
+    position: absolute
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+    transition: $transition
+    width: 50px
+    height: 50px
+    top: -60px
+    left: 15px
+    transform: none
+    @include mq("desktop")
+      width: 102px
+      height: 102px
+      top: 50%
+      left: 0
+      transform: translateX(-50%) translateY(-50%)
+
+    i
+      color: $app-primary-color_3
+      transition: $transition
+      font-size: 2em
+      @include mq("desktop")
+        font-size: 3em

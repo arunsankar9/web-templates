@@ -1,0 +1,141 @@
+.about-us-content
+    &-container
+      background: #ffffff
+      border-radius: 4px
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+    &-wrapper
+      display: flex
+      flex-direction: column
+      padding: 15px 10px
+      @include mq("tablet")
+        padding: 30px 30px
+        flex-direction: row
+      @include mq("desktop")
+        padding: 50px 70px
+      figure
+        margin: 0
+        flex-shrink: 0
+        width: 100%
+        height: 350px
+        @include mq("tablet")
+          height: auto
+          width: 300px
+        @include mq("desktop")
+          width: 500px
+        img
+          width: 100%
+          height: 100%
+          object-fit: cover
+    &-main
+      display: flex
+      flex-direction: column
+      padding-top: 20px
+      padding-bottom: 20px
+      margin-left: 0
+      @include mq("tablet")
+        padding-top: 65px
+        padding-bottom: 65px
+        margin-left: 30px
+      h2.title
+        @include setFont(28px,$app-primary-color_1,700)
+        line-height: 0.89
+        letter-spacing: unset
+        margin: 0
+      span.subtitle
+        @include setFont(20px,#000000,500)
+        line-height: 1.25
+        margin-top: 15px
+        @include mq("tablet")
+          margin-top: 30px
+      &-text
+        margin: 0
+        @include setFont(16px,#525252,normal)
+        line-height: 1.56
+        margin-top: 20px
+        @include mq("tablet")
+          margin-top: 30px
+        &.figure
+          display: flex
+      .author-box
+        margin-top: 25px
+        &-name
+        color: #828282
+    &-bottom
+      display: flex
+      align-items: center
+      height: auto
+      border-top: 1px solid $app-primary-color_3
+      @include mq("tablet")
+        height: 155px
+      &-item
+        display: flex
+        cursor: pointer
+        background: #ffffff
+        $transition: .2s ease-in-out
+        transition: $transition
+        width: 100%
+        padding: 10px 15px
+        flex-direction: column
+        height: auto
+        align-items: flex-start
+        @include mq("tablet")
+          width: 25%
+          padding: 0 35px
+          flex-direction: row
+          height: 155px
+          align-items: center
+        &.slick-slide
+          display: flex
+        &:hover
+          background: $app-primary-color_3
+          i
+            color: #ffffff
+          .item-content
+            span.title,
+            p.description
+              color: #ffffff
+        i
+          font-size: 2em
+          color: $app-primary-color_3
+          transition: $transition
+          @include mq("tablet")
+            font-size: 3.5em
+        .item-content
+          display: flex
+          flex-direction: column
+          margin-left: 0
+          margin-top: 15px
+          @include mq("tablet")
+            margin-left: 30px
+            margin-top: unset
+          span.title
+            @include setFont(18px,#000000,700)
+            line-height: 1.39
+            margin-bottom: 15px
+            line-height: 1
+            transition: $transition
+          p.description
+            display: inline-block
+            @include setFont(14px,#525252,300)
+            line-height: 1.29
+            letter-spacing: 0.3px
+            margin: 0
+            transition: $transition
+            height: 3.87em
+            @include mq("desktop")
+              height: unset
+.about-us-section
+  .slick-dots li
+    background: #000000
+    &.slick-active
+      border-color: #000000
+  &.about-us-section--overflow
+    margin-bottom: -85px
+    .slick-dots li
+      background: #ffffff
+      &.slick-active
+        background: transparent
+        border-color: #ffffff
+    & + *
+      padding-top: 145px
+      margin-top: 0

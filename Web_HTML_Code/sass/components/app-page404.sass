@@ -1,0 +1,66 @@
+.page-404-wrapper
+  background: #ffffff
+  border-radius: 4px
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding-top: 30px
+  margin-bottom: 50px
+  @include mq("desktop")
+    padding-top: 145px
+    margin-bottom: 70px
+  p.description
+    @include setFont(16px,#949494,500)
+    line-height: 1.44
+    margin: 0
+    text-align: center
+    margin-top: 15px
+    padding: 0 15px
+    @include mq("desktop")
+      margin-top: 95px
+      padding: 0 75px
+  a.app-btn
+    transform: translateY(50%)
+    margin-top: 10px
+    @include mq("desktop")
+      margin-top: 30px
+  .title,
+  .title-shadow
+    font-size: 150px
+    @include mq("tablet")
+      font-size: 250px
+
+  .title-shadow
+    position: absolute
+    left: auto
+    right: auto
+    font-weight: bold
+    display: inline-block
+    line-height: 1
+    margin: 0
+    padding: 0
+    text-align: center
+    text-shadow: 5px 8px 0 rgba(199, 199, 199, 0.65)
+    @include mq("tablet")
+      text-shadow: 8px 13px 0 rgba(199, 199, 199, 0.65)
+  .title 
+      font-weight: bold
+      line-height: 1
+      position: relative
+      display: inline-block
+      margin: 0
+      padding: 0
+      text-align: center
+      /* Color fallback */
+      color: $app-primary-color_1
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+  .title::before 
+      content: ''
+      position: absolute
+      z-index: -2
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-image: inherit

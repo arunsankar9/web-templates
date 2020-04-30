@@ -1,0 +1,112 @@
+.latest-news
+  background: #efefef
+  padding-bottom: 15px
+  @include mq("desktop")
+    padding-bottom: 64px
+  & + *
+    margin-top: 0
+  &-box
+    display: flex
+    flex-direction: column
+    text-decoration: none
+    border-radius: 4px
+    overflow: hidden
+    margin-bottom: 15px
+    @include mq("desktop")
+      margin-bottom: unset
+    &:hover
+      text-decoration: none
+    figure
+      margin: 0
+      width: 100%
+      height: 210px
+      flex-shrink: 0
+      @include mq("desktop")
+        height: 310px
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+    &-content
+      display: flex
+      flex-direction: column
+      padding: 15px 10px 5px 10px
+      height: auto
+      background: #ffffff
+      @include mq("desktop")
+        padding: 24px 70px
+        height: 173px
+      span.title
+        @include setFont(16px,#000000,700)
+        margin-bottom: 10px
+        line-height: 1
+        @include mq("desktop")
+          margin-bottom: 20px
+      p.description
+        @include setFont(16px,#525252,300)
+        line-height: 1.5
+        letter-spacing: 0.3px
+        margin: 0
+        margin-bottom: 15px
+        @include mq("desktop")
+          margin-bottom: 20px
+      .latest-news-box-info
+        display: flex
+        align-items: center
+        margin-top: auto
+        flex-wrap: wrap
+        justify-content: space-between
+        @include mq("desktop")
+          flex-wrap: nowrap
+          justify-content: flex-start
+        .info-text
+          @include setFont(14px,#868686,600)
+          line-height: 1
+          text-decoration: none
+          margin-bottom: 10px
+          @include mq("desktop")
+            margin-bottom: unset
+          & + .info-text
+            margin-left: unset
+            @include mq("desktop")
+              margin-left: 45px
+          &:last-of-type
+            @include mq("desktop")
+              margin-left: auto
+          &:hover
+            text-decoration: none
+            color: darken(#868686,5)
+    &.latest-news-box--small
+      flex-direction: row
+      background: #ffffff
+      height: auto
+      @include mq("desktop")
+        height: 140px
+      & + .latest-news-box--small
+        @include mq("desktop")
+          margin-top: 30px
+      figure
+        width: 130px
+        height: auto
+        @include mq("desktop")
+          height: 100%
+          width: 170px
+      .latest-news-box-content
+        padding: 15px 10px 5px 10px
+        height: 100%
+        @include mq("desktop")
+          padding: 18px 15px 18px 30px
+        span.title
+          margin-bottom: 13px
+          @include mq("tablet")
+            margin-bottom: 18px
+        p.description
+          line-height: 1.4
+          font-size: 14px
+          margin-bottom: 10px
+          letter-spacing: 0.3px
+          @include mq("tablet")
+            margin-bottom: auto
+        .info-text:last-of-type
+          @include mq("tablet")
+            margin-left: 45px

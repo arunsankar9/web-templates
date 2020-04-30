@@ -1,0 +1,115 @@
+$transition: .2s ease-in-out
+.app-contact-wrapper
+  display: flex
+  flex-direction: column
+  @include mq("tablet")
+    flex-direction: row
+  form.contact-form-wrapper
+    display: flex
+    flex-direction: column
+    margin: 0
+    flex-grow: 1
+    background: #ffffff
+    padding: 20px 15px
+    @include mq("tablet")
+      padding: 35px 25px
+    @include mq("desktop")
+      padding: 95px 70px 50px 70px
+    .input-row
+        display: flex
+        align-items: center
+        border-radius: 0
+        textarea
+          min-height: 145px
+        input,
+        textarea
+          width: 100%
+          color: $app-primary-color_1
+          @include input-placeholder
+            color: #aaaaaa
+            font-weight: 500
+            font-size: 14px
+          &:focus
+            border-color: $app-primary-color_1
+        & + .input-row
+          margin-top: 15px
+        button[type="submit"]
+          border-radius: 0
+          @include setFont(14px,#ffffff,600)
+          letter-spacing: .3px
+  .contact-form-details
+      position: relative
+      flex-shrink: 0
+      @include centerIt
+      flex-direction: column
+      padding: 20px 15px
+      width: 100%
+      @include mq("tablet")
+        padding: 35px 25px
+        width: 400px
+      @include mq("desktop")
+        padding: 95px 70px 95px 100px
+        width: 600px
+      &::before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        background: rgba($app-primary-color_1,.8)
+        z-index: 2
+      &-bg
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+        z-index: 1
+        mix-blend-mode: luminosity
+      &-item
+        display: flex
+        align-items: center
+        z-index: 3
+        background: #ffffff
+        width: 100%
+        border: 3px solid #ffffff
+        transition: $transition
+        padding: 15px 20px
+        @include mq("desktop")
+          padding: 35px 40px
+        &:hover
+          background: transparent
+          .item-content
+            span.subtitle
+              color: rgba(255,255,255,.5)
+            span.title
+              color: #ffffff
+          i
+            color: #ffffff
+        & + .contact-form-details-item
+          margin-top: 30px
+          @include mq("tablet")
+            margin-top: 40px
+        i
+          font-size: 2em
+          color: $app-primary-color_1
+          transition: $transition
+          margin-right: 20px
+          @include mq("tablet")
+            margin-right: 35px
+        .item-content
+          display: flex
+          flex-direction: column
+          span.title
+            @include setFont(18px,#252525,500)
+            letter-spacing: .4px
+            line-height: 1.39
+            margin-bottom: 5px
+            transition: $transition
+          span.subtitle
+            @include setFont(14px,#aaaaaa,normal)
+            letter-spacing: .6px
+            line-height: 1.57
+            transition: $transition

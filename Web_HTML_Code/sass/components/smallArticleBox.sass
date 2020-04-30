@@ -1,0 +1,105 @@
+.small-article-box
+  @include centerIt
+  flex-direction: column
+  position: relative
+  height: 200px
+  background: #ffffff
+  text-decoration: none
+  border-radius: 4px
+  margin-top: 50px
+  @include mq("tablet")
+    margin-top: 64px
+  &:hover
+    text-decoration: none
+    .small-article-thumbnail
+      opacity: 1
+    span.small-article-title
+      color: #ffffff
+    .small-article-btn
+      background: $app-primary-color_3
+  .small-article-thumbnail
+    @include centerIt
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    margin: 0
+    z-index: 1
+    transition: .2s ease-in-out
+    opacity: 1
+    border-radius: 4px
+    overflow: hidden
+    @include mq("desktop")
+      opacity: 0
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background: rgba(#000000,.6)
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background: rgba($app-primary-color_2,.65)
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      mix-blend-mode: luminosity
+  .small-article-btn
+    display: inline-flex
+    position: absolute
+    top: 50%
+    z-index: 2
+    background: $app-primary-color_2
+    padding: 0 30px
+    min-width: 120px
+    @include setFont(11px,#ffffff,700)
+    letter-spacing: 1.1px
+    transition: .2s ease-in-out
+    @include mq("desktop")
+      min-width: unset
+      padding: 0 20px
+  &.prev
+    .small-article-btn
+      left: 50%
+      top: 0
+      transform: translateX(-50%) translateY(-50%)
+      @include mq("desktop")
+        top: 50%
+        left: 0
+        transform: translateX(-50%) translateY(-50%)
+  &.next
+    .small-article-btn
+      right: 50%
+      top: 0
+      transform: translateX(50%) translateY(-50%)
+      @include mq("desktop")
+        right: 0
+        top: 50%
+        transform: translateX(50%) translateY(-50%)
+  span.small-article-date
+    font-size: 14px
+    font-weight: 700
+    color: #cacaca
+    letter-spacing: 2.4px
+    z-index: 2
+  span.small-article-title
+    width: 250px
+    font-size: 22px
+    font-weight: normal
+    letter-spacing: .4px
+    line-height: 1.5
+    text-align: center
+    margin-top: 25px
+    z-index: 2
+    color: #ffffff
+    @include mq("desktop")
+      color: #4a4a4a

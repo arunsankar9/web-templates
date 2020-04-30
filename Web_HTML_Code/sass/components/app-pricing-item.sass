@@ -1,0 +1,211 @@
+$transition: .2s ease-in-out
+.app-pricing-item
+  display: flex
+  flex-direction: column
+  margin-top: 70px
+  transition: $transition
+  text-decoration: none
+  @include mq("desktop")
+    margin-top: 95px
+  &:hover
+    text-decoration: none
+    @media (hover:hover)
+      @include mq("desktop")
+        margin-top: -50px
+        box-shadow: 0px 7px 59px 0 rgba(0, 0, 0, 0.1)
+        .app-pricing-item-heading
+          padding-top: 235px
+          background: $app-primary-color_3
+          .item-icon
+            transform: translateX(-50%)
+            top: 95px
+            i
+              color: $app-primary-color_3
+    .select-plan-btn
+      background: $app-primary-color_3
+      color: #ffffff
+  &--wrapper
+    @media (max-width: 576px)
+      &:nth-child(2n)
+        padding-left: 5px
+      &:nth-child(2n+1)
+        padding-right: 5px
+    &:nth-last-child(-n+4)
+      @include mq("large")
+        margin-top: 110px
+  &-heading
+    @include centerIt
+    flex-direction: column
+    background: $app-primary-color_1
+    position: relative
+    border-radius: 4px 4px 0 0
+    transition: $transition
+    height: auto
+    padding: 60px 10px 35px 10px
+    @include mq("tablet")
+      padding: 90px 10px 65px 10px
+    
+    span.item-icon
+      @include centerIt
+      border-radius: 50%
+      background: #ffffff
+      position: absolute
+      left: 50%
+      top: 0
+      transform: translateX(-50%) translateY(-50%)
+      transition: $transition
+      z-index: 1
+      width: 80px
+      height: 80px
+      @include mq("tablet")
+        width: 100px
+        height: 100px
+      i
+        color: $app-primary-color_1
+        font-size: 2em
+        transition: $transition
+    span.item-title
+      @include setFont(14px,#ffffff,500)
+      letter-spacing: .3px
+      margin-bottom: 20px
+      line-height: 1
+      @media (min-width: 350px)
+        font-size: 20px
+      @include mq("tablet")
+        font-size: 25px
+    .price-wrapper
+      display: flex
+      span.price
+        @include setFont(35px,#ffffff,500)
+        letter-spacing: .7px
+        line-height: .7
+        @media (min-width: 350px)
+          font-size: 50px
+        @include mq("desktop")
+          font-size: 70px
+      span.symbol
+        @include setFont(16px,#ffffff,500)
+        line-height: .8
+        @media (min-width: 350px)
+          font-size: 30px
+      span.amount
+        @include setFont(13px,#ffffff,500)
+        letter-spacing: .2px
+        line-height: 1
+        align-self: flex-end
+        @media (min-width: 350px)
+          font-size: 16px
+  &-content
+    display: flex
+    flex-direction: column
+    padding: 15px 10px
+    background: #ffffff
+    border-radius: 0 0 4px 4px
+    @include mq("tablet")
+      padding: 50px 35px 30px 35px
+    &-row
+      display: flex
+      align-items: center
+      justify-content: space-between
+      & + .app-pricing-item-content-row
+        margin-top: 20px
+        @include mq("tablet")
+          margin-top: 30px
+      span.title
+        @include setFont(14px,#949494,500)
+        line-height: 1.44
+        z-index: 2
+        position: relative
+        @media (min-width: 350px)
+          font-size: 16px
+      span.val
+        @include setFont(16px,#949494,600)
+        line-height: 1.44
+    p.description
+      @include setFont(12px,#949494,500)
+      line-height: 1.57
+      margin: 0
+      text-align: center
+      margin-bottom: 15px
+      margin-top: 20px
+      @media (min-width: 350px)
+        font-size: 14px
+      @include mq("tablet")
+        margin-bottom: 30px
+        margin-top: 60px
+
+    .select-plan-btn
+      background: #f2f2ef
+      @include setFont(14px,#b5b5b5,600)
+      letter-spacing: .6px
+      width: 100%
+      padding: 0 15px
+      min-width: unset
+      @media (min-width: 350px)
+        padding: 0 45px
+        font-size: 16px
+      @include mq("tablet")
+        min-width: 170px
+
+      &:hover
+        background: $app-primary-color_3
+        color: #ffffff
+  &--wide
+    flex-direction: column
+    margin-top: 50px
+    @include mq("desktop")
+      margin-top: 50px
+      flex-direction: row
+    .app-pricing-item-content
+      border-radius: 0 4px 4px 0
+      padding: 15px 10px
+      @include mq("small")
+        padding: 40px 40px 25px 35px
+
+      p.description
+        margin: 30px 0
+    .app-pricing-item-heading
+    &:hover
+      @media (hover: hover)
+        @include mq("desktop")
+          margin-top: 50px
+          .app-pricing-item-heading
+            padding-top: 0
+            .item-icon
+              transform: translateX(50%) translateY(-50%)
+              margin: 0
+              top: 50%
+    .app-pricing-item-heading
+      width: 100%
+      padding: 0
+      flex-shrink: 0
+      padding: 30px 10px
+      border-radius: 4px 4px 0 0
+      @include mq("desktop")
+        padding: 0
+        width: 220px
+        border-radius: 4px 0 0 4px
+      @include mq("large")
+        width: 300px
+      .item-icon
+        left: unset
+        right: 10px
+        top: 0
+        transform: translateX(0) translateY(-50%)
+        width: 60px
+        height: 60px
+        @include mq("tablet")
+          width: 80px
+          height: 80px
+        @include mq("desktop")
+          right: 0
+          top: 50%
+          transform: translateX(50%) translateY(-50%)
+        @include mq("large")
+          width: 100px
+          height: 100px
+    &-wrapper
+      @include mq("desktop")
+        &:nth-last-child(-n+2)
+            .app-pricing-item--wide
+              margin-top: 35px

@@ -1,0 +1,116 @@
+.featured-services
+    background: $app-primary-color_3
+    $bottom-offset: 135px
+    $margin-top: 64px
+    position: relative
+    // margin-bottom: 30px
+    @include mq("desktop")
+        margin-bottom: 105px
+    &::after
+        content: ''
+        position: absolute
+        left: 0
+        top: 100%
+        height: 105px
+        width: 100%
+        background: #ffffff
+        z-index: -1
+    .section-content
+        transform: none
+        margin-top: 30px
+        @include mq("desktop")
+            transform: translateY($bottom-offset)
+            margin-top: - ($bottom-offset - $margin-top)
+    &-item
+        display: flex
+        flex-direction: column
+        background: #ffffff
+        border-radius: 4px
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.06)
+        z-index: 2
+        position: relative
+        $transition: .2s ease-in-out
+        height: auto
+        padding: 15px
+        margin-bottom: unset
+        text-decoration: none
+        &:hover
+            text-decoration: none
+        @include mq("desktop")
+            margin-bottom: 30px
+        @include mq("large")
+            height: 290px
+            padding: 30px
+
+        &.featured-services-item--no-description
+            align-items: center
+            height: auto
+            @media (max-width: 991px)
+                margin-bottom: 30px
+            .featured-services-item-content
+                align-items: center
+        &:hover
+            @include mq("desktop")
+                .featured-services-item-figure
+                    opacity: 1
+                .featured-services-item-content
+                    i,
+                    span.title,
+                    p.description,
+                    .featured-services-item-link
+                        color: #ffffff
+        &-figure
+            margin: 0
+            position: absolute
+            width: 100%
+            height: 100%
+            left: 0
+            top: 0
+            opacity: 0
+            transition: $transition
+            z-index: 1
+            &::after
+                content: ''
+                position: absolute
+                left: 0
+                top: 0
+                width: 100%
+                height: 100%
+                background-image: linear-gradient(to bottom, $app-primary-color_3, #000000)
+                opacity: .7
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+        &-content
+            display: flex
+            flex-direction: column
+            position: relative
+            z-index: 2
+            i
+                color: $app-primary-color_3
+                font-size: 3em
+                margin-bottom: 32px
+                transition: $transition
+            span.title
+                @include setFont(22px,#000000,700)
+                line-height: 1.14
+                margin-bottom: 20px
+                transition: $transition
+            p.description
+                margin: 0
+                @include setFont(16px,#525252,300)
+                letter-spacing: .3px
+                line-height: 1.5
+                margin-bottom: 30px
+                transition: $transition
+        &-link
+            display: inline-flex
+            align-items: center
+            @include setFont(14px,#9d9d9d,600)
+            line-height: 1.79
+            text-decoration: none
+            transition: $transition
+            &:hover
+                text-decoration: none

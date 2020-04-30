@@ -1,0 +1,65 @@
+.page-hero
+  width: 100%
+  $height: 180px
+  $heightMd: 265px
+  position: relative
+  margin-bottom: -50px
+  height: $height
+  @include mq("tablet")
+    height: $heightMd
+  &.full-height
+    height: 100%
+    & + .app-offer-box
+      margin-top: 0
+    .page-hero-cover
+      height: 100%
+    .page-hero-wrapper
+      height: 130px
+      padding-bottom: unset
+      @include mq("tablet")
+        height: 215px
+  &.page-hero--nopull
+    margin-bottom: 0
+  &-cover
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: $height
+    @include mq("tablet")
+      height: $heightMd
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 100%
+      background-image: linear-gradient(to top, rgba(0,0,0,.7), transparent)
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &-wrapper
+    display: flex
+    justify-content: center
+    flex-direction: column
+    padding-left: 0
+    height: $height
+    padding-bottom: 50px
+    @include mq("tablet")
+      height: $heightMd
+      padding-left: 65px
+      padding-bottom: unset
+    span.subtitle
+      @include setFont(16px,#ffffff,normal)
+      line-height: 1.14
+      margin-bottom: 10px
+      @include mq("tablet")
+        font-size: 22px
+        margin-bottom: 20px
+    h2.title
+      @include setFont(40px,#ffffff,700)
+      line-height: 0.83
+      @include mq("tablet")
+        font-size: 60px

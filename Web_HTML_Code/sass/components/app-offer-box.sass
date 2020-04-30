@@ -1,0 +1,39 @@
+.app-offer-box
+  width: 100%
+  padding: 30px 0
+  background: $app-primary-color_2
+  margin-top: 30px
+  @include mq("tablet")
+    padding: 60px 0
+    margin-top: 64px
+  &-content
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+    align-items: flex-start
+    @include mq("tablet")
+      flex-direction: row
+      align-items: center
+  &-left
+    span.title
+      display: block
+      @include setFont(30px,#ffffff,700)
+      line-height: 1
+      @include mq("tablet")
+        line-height: 0.83
+    p.description
+      @include setFont(16px,#ffffff,300)
+      margin: 0
+      margin-top: 15px
+      line-height: 1.5
+      letter-spacing: 0.3px
+      @include mq("tablet")
+        margin-top: 30px
+  &-right
+    margin-top: 15px
+    margin-left: auto
+    margin-right: auto
+    @include mq("tablet")
+      margin-top: unset
+      margin-left: unset
+      margin-right: unset

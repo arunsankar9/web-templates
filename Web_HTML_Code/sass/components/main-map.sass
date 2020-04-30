@@ -1,0 +1,217 @@
+.main-map
+  $heightLg: 600px
+  &-wrapper
+    position: relative
+    height: auto
+    max-width: 100%
+    overflow: hidden
+    @include mq("desktop")
+      height: $heightLg
+
+  &-map
+    border: 0
+    width: 100%
+    background: gray
+    left: 0
+    top: 0
+    z-index: 0
+    position: relative
+    height: 250px
+    @include mq("desktop")
+      position: absolute
+      height: 100%
+    & + .container
+      position: relative
+  &-form
+    width: 100%
+    background: #ffffff
+    display: flex
+    flex-wrap: wrap
+    z-index: 2
+    position: relative
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.07)
+    padding: 20px 15px
+    height: auto
+    flex-direction: column
+    @include mq("tablet")
+      flex-direction: row
+      padding: 30px 50px
+    @include mq("desktop")
+      display: none
+      height: 405px
+      padding: 65px 100px
+    &-title-wrapper
+      @include centerIt
+      width: 100%
+      margin-bottom: 30px
+      @include mq("tablet")
+        margin-bottom: 60px
+      span.title
+        display: block
+        width: 100%
+        text-align: center
+        @include setFont(22px,#000000,700)
+        line-height: 1
+      span.form-close
+        @include centerIt
+        margin-left: auto
+        color: rgb(207,212,217)
+        cursor: pointer
+        transform: none
+        display: none
+        @include mq("desktop")
+          display: flex
+          transform: translateX(55px)
+        &:hover
+          color: darken(rgb(207,212,217),10)
+    &-item
+      display: flex
+      align-items: center
+      $gutter_size: 20px
+      $gutter_sizeLg: 35px
+      $number_of_columns: 3
+      $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_sizeLg
+      width: 100%
+      @include mq("tablet")
+        width: calc((100% - #{$total_gutter_space})/#{$number_of_columns})
+      position: relative
+      .app-input
+        width: 100%
+      &--textarea.main-map-form-item
+        flex-direction: column
+        width: 100%
+        margin-top: 20px
+        @include mq("desktop")
+          margin-top: 30px
+      & + .main-map-form-item:not(.main-map-form-item--textarea)
+        margin-top: 20px
+        @include mq("tablet")
+          margin-left: auto
+          margin-top: unset
+        @include mq("desktop")
+          margin-left: $gutter-sizeLg
+    &-submit
+      @include centerIt
+      width: 57px
+      height: 57px
+      border-radius: 50%
+      border: 2px solid $app-primary-color_3
+      color: $app-primary-color_3
+      background: #ffffff
+      cursor: pointer
+      transition: .2s ease-in-out
+      position: relative
+      transform: none
+      left: unset
+      bottom: unset
+      margin-left: auto
+      margin-right: auto
+      margin-top: 20px
+      @include mq("desktop")
+        transform: translateX(-50%) translateY(50%)
+        position: absolute
+        left: 50%
+        bottom: 0
+        margin-left: unset
+        margin-right: unset
+        margin-top: unset
+      i
+        font-size: 1.5em
+      &:hover
+        background: darken(#ffffff,5)
+    &.form-active
+      display: flex
+      animation-name: op
+      animation-duration: .3s
+      animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55)
+      & + .main-map-form-trigger
+        &::before,
+        &::after
+          display: none
+  &-content
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    align-items: center
+    z-index: 2
+    width: 100%
+    position: relative
+    top: unset
+    @include mq("desktop")
+      position: absolute
+      top: 95px
+
+  &-form-trigger
+    width: 85px
+    height: 85px
+    box-shadow: 0 0 57px 0 rgba(0, 0, 0, 0.22)
+    position: relative
+    font-size: 2em
+    position: absolute
+    z-index: 2
+    left: 50%
+    transform: translateX(-50%) translateY(50%)
+    z-index: 2
+    z-index: 0
+    top: calc(412px - 92px)
+    display: none
+    @include mq("desktop")
+      display: flex
+    &:active,
+    &:focus
+      box-shadow: none
+      outline: none
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translateX(-50%) translateY(-50%)
+      border: 2px solid transparent
+      border-radius: 50%
+      animation: pulse 3s
+      animation-iteration-count: infinite
+      animation-timing-function: ease-in-out
+      animation-fill-mode: forwards
+      z-index: -1
+      border-color: rgba($app-primary-color_3,.6)
+    &::before
+      width: 111px
+      height: 111px
+    &::after
+      width: 133px
+      height: 133px
+  &-bottom-bar
+    background: #e5e5e5
+    &-wrapper
+      display: flex
+      justify-content: space-between
+      align-items: flex-start
+      padding: 20px 0
+      flex-direction: column
+      @include mq("desktop")
+        flex-direction: row
+        padding: 25px 0
+        align-items: center
+    &-item
+      display: flex
+      align-items: center
+      & + .main-map-bottom-bar-item
+        margin-top: 15px
+        @include mq("desktop")
+          margin-top: unset
+      i
+        width: 1em
+        color: $app-primary-color_3
+        text-align: right
+        @include mq("desktop")
+          text-align: unset
+          width: unset
+      .title
+        @include setFont(18px,#000000,600)
+        line-height: 1
+        text-decoration: none
+        margin-left: 10px
+        @include mq("desktop")
+          line-height: 1.39

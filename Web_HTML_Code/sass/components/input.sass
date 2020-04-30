@@ -1,0 +1,46 @@
+.app-input
+  display: flex
+  align-items: center
+  height: 50px
+  @include setFont(16px,$app-primary-color_3,500)
+  border-color: #ececec
+  border-width: 1px
+  border-style: solid
+  padding: 0 30px
+  position: relative
+  transition: .1s ease-in-out
+  appearance: none
+  @include input-placeholder
+    color: #797979
+    font-weight: 500
+  &-select
+    appearance: none
+    cursor: pointer
+    padding-right: 35px
+    color: #797979
+    &-arrow
+      position: absolute
+      right: 20px
+      top: 50%
+      transform: translateY(-50%)
+      font-size: 1.2em
+      color: #d2d2d2
+      pointer-events: none
+  &:focus
+    border-color: $app-primary-color_3
+textarea.app-input
+  resize: none
+  padding-top: 25px
+  padding-bottom: 25px
+  min-height: 120px
+input.app-input,
+input.app-input:focus,
+select.app-input,
+select.app-input:focus,
+textarea.app-input,
+textarea.app-input:focus
+  outline: none
+  box-shadow: none
+  border-radius: 0
+  font-family: inherit
+

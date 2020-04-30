@@ -1,0 +1,163 @@
+.comments-section
+  .section-content
+    margin-top: 30px
+  .section-title-wrapper
+    margin-top: 30px
+    align-items: flex-start
+    .section-title
+      margin-top: 0
+      padding-bottom: 0
+      margin-bottom: 15px
+      &::after
+        display: none
+    span.subtitle
+      @include setFont(16px,#858585,500)
+      padding-bottom: 18px
+      &::after
+        display: block
+        left: 0
+        transform: none
+  form.comment-form
+    display: flex
+    flex-wrap: wrap
+    .input-row
+      $gutter_size: 15px
+      $number_of_columns: 2
+      $total_gutter_space: ( $number_of_columns - 1 ) * $gutter_size
+      width: calc((100% - #{$total_gutter_space})/#{$number_of_columns})
+      @include mq("tablet")
+        $gutter_size--md: 30px
+        $number_of_columns--md: 2
+        $total_gutter_space--md: ( $number_of_columns--md - 1 ) * $gutter_size--md
+        width: calc((100% - #{$total_gutter_space--md})/#{$number_of_columns--md})
+      button.app-btn[type='submit']
+          border-radius: 0
+          @include setFont(16px,#ffffff,600)
+          letter-spacing: 1.6px
+      &.full-row
+          width: 100%
+          margin-left: 0
+          margin-top: 15px
+          @include mq("tablet")
+            margin-top: 30px
+      & + .input-row:not(.full-row)
+          margin-left: 15px
+          @include mq("tablet")
+            margin-left: 30px
+      input
+          height: 50px
+          @media (max-width: 400px)
+            padding: 0 10px
+      textarea
+          padding: 20px 35px
+          min-height: 90px
+      input,textarea
+          width: 100%
+          border-radius: 0
+          border-color: transparent
+          @include setFont(14px,$app-primary-color_1,normal)
+          @include input-placeholder
+              color: #313131
+              font-weight: 500
+          &:focus
+              border-color: $app-primary-color_1
+  .app-comment-box
+    border-radius: 4px
+    background: #ffffff
+    position: relative
+    display: block
+    padding: 10px 15px
+    @include mq("desktop")
+      padding: 35px 40px 45px 30px
+      display: flex
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 0px
+      background: $app-primary-color_1
+      transition: .1s ease-in-out
+    &:hover
+      @media (hover: hover)
+        &::after
+          height: 2px
+    & + .app-comment-box
+      margin-top: 30px
+    &.comment--reply
+      margin-left: 50px
+      @include mq("desktop")
+        margin-left: 100px
+    figure.avatar
+      @include centerIt
+      margin: 0
+      width: 70px
+      height: 70px
+      flex-shrink: 0
+      float: left
+      margin-right: 10px
+      @include mq("desktop")
+        margin-right: 20px
+        float: unset
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+    &-content
+      flex-direction: column
+      padding-top: 5px
+      display: block
+      @include mq("desktop")
+        display: flex
+      .comment-head
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 10px
+        .date
+          @include setFont(14px,#939393,600)
+          letter-spacing: .3px
+          line-height: 1
+        .reply
+          @include setFont(12px,#939393,500)
+          letter-spacing: .2px
+          text-decoration: none
+          line-height: 1
+          &:hover
+            text-decoration: none
+            color: $app-primary-color_1
+      .comment-person
+        display: flex
+        margin-bottom: 10px
+        flex-direction: column
+        align-items: flex-start
+        @include mq("small")
+          flex-direction: row
+          align-items: center
+        @include mq("tablet")
+          margin-bottom: 20px
+        .name
+          @include setFont(14px,#242424,600)
+          letter-spacing: 1.6px
+          line-height: 1.2
+          @include mq("small")
+            font-size: 16px
+        .role
+          @include setFont(11px,#939393,600)
+          letter-spacing: .3px
+          line-height: 1
+          margin-left: 0
+          margin-top: 10px
+          @include mq("small")
+            font-size: 14px
+            margin-top: 0
+            margin-left: 30px
+      p.description
+        @include setFont(13px,#757575,normal)
+        letter-spacing: .3px
+        margin: 0
+        @include mq("small")
+          font-size: 14px
+        & + p
+          margin-top: 20px

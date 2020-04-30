@@ -1,0 +1,14 @@
+.app-social-links-wrapper
+  display: flex
+  align-items: center
+  .app-social-link
+    @include centerIt
+    text-decoration: none 
+    color: #b8b8b8
+    i
+        font-size: .8em
+    &:hover
+        color: $app-primary-color_1
+        text-decoration: none
+    & + .app-social-link
+        margin-left: 25px

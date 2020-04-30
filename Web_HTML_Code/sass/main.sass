@@ -1,0 +1,8309 @@
+/*
+ *  ------------------------------------------------------------------
+ *  Table of contents
+ *
+ *  1. Global styles
+ *    - General styles
+ *    - Button styles
+ *    - Animations
+ *  2. Header
+ *  3. Footer
+ *  4. Components
+ *  -------------------------------------------------------------------
+
+/*
+ *-------------------------------------------------------
+ *#1.1 General styles
+ *-------------------------------------------------------
+
+*
+  outline: none !important
+
+body
+  background: #f2f2f2
+  font-family: 'Poppins', sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-smoothing: antialiased
+  &.body--white
+    background: #ffffff
+  &.body--home
+    background: #f4f7fc
+  &.navbar--fixed
+    padding-top: 90px
+    .app-navbar
+      position: fixed
+      top: 0
+      z-index: 99999
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+    .app-aside
+      top: 75px
+  &.mobile-menu-opened
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+
+.container
+  max-width: 1200px
+
+.real-fluid
+  padding-left: 0
+  padding-right: 0
+
+header
+  max-width: 100%
+
+section
+  width: 100%
+  max-width: 100%
+
+.bg--main
+  background: #175de3 !important
+
+.bg--primary
+  background: #072867 !important
+
+.bg--secondary
+  background: #ff7506 !important
+
+.divider, .divider-2
+  width: 100%
+  height: 1px
+  background: #eaeaea
+  margin: 30px 0
+
+.divider + *, .divider-2 + *
+  margin-top: 0
+
+.img-fluid
+  border-radius: 4px
+
+.mt-6
+  margin-top: 4rem !important
+
+.mb-6
+  margin-bottom: 4rem !important
+
+@media all and (max-width: 992px)
+  .mt-6, .container.main-contentbox
+    margin-top: 2rem !important
+  .mb-6, .main-contentbox.mb-6
+    margin-bottom: 2rem !important
+
+.app-elements-page
+  .app-design-guide-row
+    width: 100%
+    -webkit-flex-grow: 1
+    -ms-flex-positive: 1
+    flex-grow: 1
+    margin-top: 50px
+    -webkit-align-items: flex-start
+    -ms-flex-align: start
+    align-items: flex-start
+  .app-button-list
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    margin-top: 20px
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+    button.app-btn
+      width: 100%
+      min-width: auto
+      margin-bottom: 15px
+      margin-right: 5px
+  .app-tabnav--vert
+    margin-top: 30px
+
+.tab-section
+  margin-bottom: 64px
+
+.page-has-aside
+  &.page-aside--right
+    -webkit-order: -1
+    -ms-flex-order: -1
+    order: -1
+  .services-list-item-wrapper + .app-pagination
+    margin-top: 0
+
+.price-has-aside
+  margin-top: 50px
+
+.page-has-aside
+  .app-pricing-item--wrapper:nth-last-child(-n+4)
+    margin-top: 0
+  .app-pricing-item--wide
+    margin-top: 0 !important
+    margin-bottom: 50px
+    &:hover
+      margin-top: 0 !important
+    .app-pricing-item-content
+      -webkit-flex-grow: 1
+      -ms-flex-positive: 1
+      flex-grow: 1
+  .app-design-guide-wrapper
+    padding: 15px 30px 50px 30px
+  .app-design-guide-colors
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+
+select::-ms-expand
+  display: none
+
+.ie-object-fit
+  background-size: cover
+  background-position: center center
+  overflow: hidden
+  img
+    display: none
+
+.app-input
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  height: 50px
+  font-size: 15px
+  color: #ff7506
+  font-weight: 500
+  border-color: #ececec
+  border-width: 1px
+  border-style: solid
+  padding: 0 30px
+  position: relative
+  transition: .1s ease-in-out
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  &.placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &::-webkit-input-placeholder
+    color: #797979
+    font-weight: 500
+
+.app-input-select
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  cursor: pointer
+  padding-right: 35px
+  color: #797979
+
+.app-input-select-arrow
+  position: absolute
+  right: 20px
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+  transform: translateY(-50%)
+  font-size: 1.2em
+  color: #d2d2d2
+  pointer-events: none
+
+.app-input:focus
+  border-color: #ff7506
+
+textarea.app-input
+  resize: none
+  padding-top: 25px
+  padding-bottom: 25px
+  min-height: 120px
+
+input.app-input, select.app-input, textarea.app-input
+  outline: none
+  box-shadow: none
+  border-radius: 0
+  font-family: inherit
+  &:focus
+    outline: none
+    box-shadow: none
+    border-radius: 0
+    font-family: inherit
+
+/*
+ *-------------------------------------------------------
+ *#1.2 Button styles
+ *-------------------------------------------------------
+
+.app-btn
+  display: -webkit-inline-flex
+  display: -ms-inline-flexbox
+  display: inline-flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  height: 40px
+  min-width: 170px
+  width: auto
+  padding: 0 45px
+  border-radius: 20px
+  background: #ff7506
+  font-size: 13px
+  color: #ffffff
+  font-weight: 700
+  text-decoration: none
+  line-height: 1
+  white-space: nowrap
+  transition: .1s ease-in-out
+  border: 0
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  cursor: pointer
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.1)
+    opacity: 0
+    transition: .1s ease-in-out
+  &:hover
+    color: #ffffff
+    text-decoration: none
+    outline-color: transparent
+    &::before
+      opacity: 1
+      border-radius: inherit
+  &:focus
+    outline-color: transparent
+  &.disabled
+    pointer-events: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+  &.app-btn--primary
+    background: #175de3
+  &.app-btn--secondary
+    background: #072867
+  &.app-btn--dark
+    background: #2f2f2f
+  &.app-btn--light
+    background: #c2c2c2
+    color: #4c4c4c
+    &.app-btn--icon
+      color: #ffffff
+  &.app-btn--icon
+    padding: 0 30px
+    i
+      margin-right: 15px
+  &.app-btn--only-icon
+    min-width: 40px
+    padding: 0
+    border-radius: 50%
+
+/*
+ *-------------------------------------------------------
+ *#1.3 Animations
+ *-------------------------------------------------------
+
+@-webkit-keyframes focus-in-contract
+  0%
+    -webkit-filter: blur(12px)
+    filter: blur(12px)
+    opacity: 0
+
+  100%
+    -webkit-filter: blur(0px)
+    filter: blur(0px)
+    opacity: 1
+
+
+@keyframes focus-in-contract
+  0%
+    -webkit-filter: blur(12px)
+    filter: blur(12px)
+    opacity: 0
+
+  100%
+    -webkit-filter: blur(0px)
+    filter: blur(0px)
+    opacity: 1
+
+
+@-webkit-keyframes slide-in-top
+  0%
+    -webkit-transform: translateY(-100%)
+    transform: translateY(-100%)
+    opacity: 0
+
+  100%
+    -webkit-transform: translateY(0)
+    transform: translateY(0)
+    opacity: 1
+
+
+@keyframes slide-in-top
+  0%
+    -webkit-transform: translateY(-100%)
+    transform: translateY(-100%)
+    opacity: 0
+
+  100%
+    -webkit-transform: translateY(0)
+    transform: translateY(0)
+    opacity: 1
+
+
+@-webkit-keyframes op
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@keyframes op
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@-webkit-keyframes fade-in-fwd
+  0%
+    -webkit-transform: translateZ(-80px)
+    transform: translateZ(-80px)
+    opacity: 0
+
+  100%
+    -webkit-transform: translateZ(0)
+    transform: translateZ(0)
+    opacity: 1
+
+
+@keyframes fade-in-fwd
+  0%
+    -webkit-transform: translateZ(-80px)
+    transform: translateZ(-80px)
+    opacity: 0
+
+  100%
+    -webkit-transform: translateZ(0)
+    transform: translateZ(0)
+    opacity: 1
+
+
+@-webkit-keyframes pulse
+  0%
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0)
+    transform: translateX(-50%) translateY(-50%) scale(0)
+    opacity: 1
+
+  95%
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1)
+    transform: translateX(-50%) translateY(-50%) scale(1)
+    opacity: .5
+
+  100%
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1)
+    transform: translateX(-50%) translateY(-50%) scale(1)
+    opacity: 0
+
+
+@keyframes pulse
+  0%
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0)
+    transform: translateX(-50%) translateY(-50%) scale(0)
+    opacity: 1
+
+  95%
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1)
+    transform: translateX(-50%) translateY(-50%) scale(1)
+    opacity: .5
+
+  100%
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1)
+    transform: translateX(-50%) translateY(-50%) scale(1)
+    opacity: 0
+
+
+@-webkit-keyframes scale-in-ver-top
+  0%
+    -webkit-transform: scaleY(0)
+    transform: scaleY(0)
+    -webkit-transform-origin: 100% 0%
+    transform-origin: 100% 0%
+    opacity: 1
+
+  100%
+    -webkit-transform: scaleY(1)
+    transform: scaleY(1)
+    -webkit-transform-origin: 100% 0%
+    transform-origin: 100% 0%
+    opacity: 1
+
+
+@keyframes scale-in-ver-top
+  0%
+    -webkit-transform: scaleY(0)
+    transform: scaleY(0)
+    -webkit-transform-origin: 100% 0%
+    transform-origin: 100% 0%
+    opacity: 1
+
+  100%
+    -webkit-transform: scaleY(1)
+    transform: scaleY(1)
+    -webkit-transform-origin: 100% 0%
+    transform-origin: 100% 0%
+    opacity: 1
+
+
+@-webkit-keyframes fade-in
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@keyframes fade-in
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+/*
+ *-------------------------------------------------------
+ *#2 Header
+ *-------------------------------------------------------
+
+.headbar
+  width: 100%
+  height: auto
+  border-bottom: 1px solid #eaeaea
+  background: #175de3
+
+.headbar-container
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  height: 100%
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  padding: 5px 0
+
+.headbar-text
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  font-size: 13px
+  color: #ffffff
+  font-weight: normal
+  display: none
+
+.headbar-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  .headbar-text
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+
+.headbar-mail-link
+  margin-left: 15px
+  text-decoration: none
+  font-size: 13px
+  color: #ffffff
+  font-weight: normal
+  &:hover
+    text-decoration: none
+
+.headbar .app-social-links-wrapper
+  display: none
+
+.app-navbar
+  position: relative
+  width: 100%
+  height: 60px
+  background: #ffffff
+  -webkit-transform: none
+  -ms-transform: none
+  transform: none
+  box-shadow: none
+  -webkit-animation: none
+  animation: none
+
+.app-navbar-container
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  height: 60px
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+
+.app-navbar-logo
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  width: auto
+  height: 40px
+  img
+    max-width: 100%
+    height: 100%
+    object-fit: contain
+
+.app-navbar-ul
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  margin: 0
+  padding: 0
+  margin-left: auto
+  transition: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  opacity: 1
+  -webkit-flex-basis: 100%
+  -ms-flex-preferred-size: 100%
+  flex-basis: 100%
+  -webkit-order: 3
+  -ms-flex-order: 3
+  order: 3
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  border-top: 1px solid #eaeaea
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  opacity: 0
+  visibility: hidden
+  transition: none
+  background: #ffffff
+  position: absolute
+  left: 0
+  top: 60px
+  width: 100%
+  z-index: 20
+  &.menu-open
+    opacity: 1
+    visibility: visible
+    overflow-y: auto
+    scroll-behavior: smooth
+  &.hide-me
+    opacity: 0
+
+.app-navbar-logo.hide-me
+  opacity: 0
+
+.app-navbar-ul-link
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  list-style: none
+  position: relative
+  height: 50px
+  width: 100%
+  padding: 10px 15px
+  -webkit-flex-shrink: 0
+  -ms-flex-negative: 0
+  flex-shrink: 0
+  &.has-child
+    position: relative
+    z-index: 2
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    -webkit-align-items: flex-start
+    -ms-flex-align: start
+    align-items: flex-start
+    &[dropdown-visible='true']
+      height: auto
+      .app-navbar-dropdown
+        height: auto
+        margin: 10px 0
+    &:hover
+      .app-navbar-dropdown
+        opacity: 1
+        visibility: visible
+        -webkit-transform: translateY(-10px)
+        -ms-transform: translateY(-10px)
+        transform: translateY(-10px)
+      > a
+        color: #175de3
+    > a
+      padding-right: 15px
+      &::after
+        content: '\f107'
+        font-family: "Font Awesome 5 Free"
+        font-weight: 900
+        position: absolute
+        right: 0
+        top: 50%
+        -webkit-transform: translateY(-50%)
+        -ms-transform: translateY(-50%)
+        transform: translateY(-50%)
+        font-size: .7em
+        color: #3d3d3d
+    &.active > a::after
+      color: #175de3
+    .app-navbar-dropdown
+      position: relative
+      left: inherit
+      top: inherit
+      -webkit-transform: none
+      -ms-transform: none
+      transform: none
+      min-width: 200px
+      opacity: 0
+      visibility: hidden
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      z-index: 1
+      border-radius: 4px
+      overflow: hidden
+      margin: 0
+      height: 0
+      transition: all .2s ease-in-out
+      width: 100%
+      background: transparent
+      box-shadow: none
+      pointer-events: none
+      &.navbar-dropdown-opened
+        opacity: 1
+        visibility: visible
+        -webkit-transform: none
+        -ms-transform: none
+        transform: none
+        pointer-events: inherit
+      a
+        display: -webkit-flex
+        display: -ms-flexbox
+        display: flex
+        -webkit-justify-content: flex-start
+        -ms-flex-pack: start
+        justify-content: flex-start
+        -webkit-align-items: center
+        -ms-flex-align: center
+        align-items: center
+        font-size: 14px
+        color: #3d3d3d
+        font-weight: 500
+        text-decoration: none
+        padding: 10px 15px
+        white-space: nowrap
+        height: auto
+        &:hover
+          background: #f5f5f5
+        + a
+          border-top: 1px solid #f5f5f5
+  &.active
+    a
+      color: #175de3
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 50%
+      -webkit-transform: translateX(-50%)
+      -ms-transform: translateX(-50%)
+      transform: translateX(-50%)
+      width: 39%
+      height: 3px
+      background: #175de3
+      display: none
+  a
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    font-size: 15px
+    color: #3d3d3d
+    font-weight: 500
+    text-decoration: none
+    position: relative
+    height: 100%
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    width: 100%
+    height: auto
+    &:not([href]):not([tabindex])
+      &:focus, &:hover
+        color: #175de3
+    &:hover
+      color: #175de3
+      &::after
+        color: #175de3
+  + .app-navbar-ul-link
+    margin-left: 0
+    border-top: 1px solid #e8e8e8
+
+.app-navbar-search
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  z-index: 21
+  margin-left: auto
+  button
+    &.app-navbar-search-btn.app-btn
+      display: block
+      text-align: center
+      opacity: 1
+      pointer-events: inherit
+      transition: .2s ease-in-out
+      i
+        color: #000000
+      &.hide-me
+        opacity: 0
+        pointer-events: none
+    &.app-navbar-search-btn-close
+      background: transparent
+      position: absolute
+      right: 0
+      transition: .2s ease-in-out
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      margin-right: 15px
+      &:focus, &:active, &:hover
+        background: transparent
+      i
+        color: #555
+        font-size: 2em
+  input
+    border: 0
+    width: 100%
+    color: #000000
+    border-radius: 0
+    background: #ffffff
+    height: 50px
+    padding: 0
+    &:focus
+      border-radius: 0
+  .input-wrapper
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    width: 0px
+    opacity: 0
+    pointer-events: none
+    position: absolute
+    left: 0
+    z-index: 1
+    top: 100%
+    border-top: 1px solid #eaeaea
+    transition: none
+    &.active
+      width: 100%
+      opacity: 1
+      pointer-events: inherit
+      input
+        padding-right: 50px
+        padding-left: 30px
+
+.app-navbar-trigger
+  display: block
+  text-align: center
+  margin-left: 15px
+  -webkit-order: 2
+  -ms-flex-order: 2
+  order: 2
+
+/*
+ *-------------------------------------------------------
+ *#2.2 Header Variations
+ *-------------------------------------------------------
+/* Logo Left
+
+.app-navbar-ul.left-menu
+  margin-left: 0
+  margin-right: auto
+  width: 100%
+
+/* Logo Right
+
+.logo-right .app-navbar-ul
+  margin-left: 0
+  margin-right: auto
+
+/* Logo Centered
+
+.logo-centered .app-navbar-ul.left-menu
+  margin-left: 0
+  margin-right: auto
+  width: inherit
+
+.app-navbar-ul.right-menu
+  margin-right: 0
+  margin-left: auto
+
+/* Transparent Header
+@media (min-width: 992px)
+  .transparent-header
+    margin-bottom: -135px
+  .transparent-header-m-top .app-navbar
+    margin-top: 32px
+  .transparent-header
+    .app-navbar, .app-navbar-ul
+      background: transparent
+    .headbar
+      background: transparent
+      border-bottom: 1px solid
+      z-index: 1
+      position: relative
+    .app-navbar-logo
+      z-index: 1
+
+@media (max-width: 992px)
+  .transparent-header
+    position: relative
+    z-index: 1
+    .app-navbar
+      background: transparent
+      margin-bottom: -90px
+  .transparent-slider.slide-type-1
+    .slide-item
+      padding-top: 90px
+    .slide-background
+      top: 0
+      left: 0
+  .transparent-header .app-navbar-search button.app-navbar-search-btn.app-btn i
+    color: #ffffff
+
+/* Headbar With Logo
+
+.headbar.headbar-with-logo
+  height: auto
+
+.headbar-with-logo .headbar-container
+  height: auto
+  padding: 15px 0px
+
+.headbar-items
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  align-items: center
+  justify-content: center
+
+.headbar-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 15px
+  i
+    font-size: 24px
+    margin: 10px
+  span
+    &.title, &.subtitle
+      display: block
+    &.title
+      color: #252525
+      font-weight: 500
+      line-height: 1.39
+      margin-bottom: 5px
+      font-size: 14px
+    &.subtitle
+      font-size: 13px
+      color: #aaaaaa
+      font-weight: normal
+      line-height: 1.57
+
+.headbar-with-logo .headbar-content
+  flex: 1
+  align-items: flex-end
+  justify-content: flex-end
+  margin-right: 15px
+
+@media screen and (max-width: 767px)
+  .headbar-with-logo
+    .headbar-logo
+      flex: 100%
+      margin-bottom: 15px
+    .headbar-content
+      flex: 100%
+      align-items: center
+      justify-content: center
+      margin-right: 0px
+    .headbar-items
+      flex-direction: row
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      align-items: center
+      width: 100%
+    .headbar-item i
+      color: #fff
+  .headbar-item span.title, .headbar-with-logo .headbar-item span.subtitle
+    color: #fff
+  .headbar-item
+    padding: 5px
+    align-items: center
+    justify-content: center
+    width: 33%
+  .headbar-with-logo .headbar-item
+    .title, .subtitle
+      display: none
+
+/* Big Socials
+
+.app-social-links-wrapper.big-social-icons .app-social-link i
+  font-size: 1.0em
+
+/* Mega Menu
+@media all and (min-width: 992px)
+  .body--home.navbar--fixed .app-navbar-ul-link.has-child.has-mega-menu .app-navbar-dropdown
+    margin-top: -35px
+    position: absolute
+  .app-navbar-ul-link.has-child.has-mega-menu
+    .app-navbar-dropdown
+      width: 100%
+      display: table
+      text-align: center
+      padding: 30px
+      opacity: 0
+      visibility: hidden
+    &:hover .app-navbar-dropdown
+      opacity: 1
+      visibility: visible
+    .app-navbar-dropdown a
+      display: block
+      margin-right: 5px
+      text-align: left
+      text-overflow: ellipsis
+      overflow: hidden
+
+@media all and (min-width: 992px)
+  .app-navbar-ul-link.has-child.has-mega-menu .app-navbar-dropdown
+    position: absolute
+
+@media all and (min-width: 1440px)
+  .app-navbar-ul-link.has-child.has-mega-menu .app-navbar-dropdown, .logo-centered .app-navbar-ul-link.has-child.has-mega-menu .app-navbar-dropdown
+    width: 1065px
+
+@media all and (min-width: 1024px)
+  .app-navbar-ul-link.has-child.has-mega-menu .app-navbar-dropdown
+    width: 954px
+  .logo-centered
+    .app-navbar-ul-link.has-child.has-mega-menu .app-navbar-dropdown
+      width: 1170px
+    .app-navbar-logo
+      margin-left: 30px
+      margin-right: 30px
+
+/* Slider Varitaions
+
+.slide-type-1
+  *
+    outline: 0
+  .slide-item
+    height: 600px
+    overflow: hidden
+    position: relative
+  &.transparent-slider .slide-item
+    height: 800px
+    overflow: hidden
+    position: relative
+  .slide-background
+    position: absolute
+    width: 100%
+    height: 100%
+    background-size: cover
+    img
+      display: none
+  .posrel
+    position: relative
+    z-index: 99
+  .slide-item img
+    max-width: 100%
+  h2
+    font-weight: 700
+    font-size: 76px
+    color: #2A2623
+    text-align: right
+    line-height: 71px
+  p
+    margin-top: 30px
+    text-align: right
+  .button-main-color
+    color: #fff
+    background-color: #FF7507
+    padding: 8px 30px
+    border-radius: 100px
+    font-weight: 600
+    &:hover
+      background-color: #000
+      text-decoration: none
+      color: #fff
+
+[aria-disabled="true"]
+  opacity: .4
+
+.slide-type-1
+  .slick-next
+    position: absolute
+    top: 50%
+    right: 64px
+    height: 50px
+    width: 50px
+  .slick-prev
+    position: absolute
+    top: 50%
+    left: 64px
+    height: 50px
+    width: 50px
+  .slick-next, .slick-prev
+    display: table
+    width: 70px
+    height: 70px
+    background: rgba(0, 0, 0, 0.1)
+    cursor: pointer
+    z-index: 9
+    border: none
+    outline: 0
+    text-align: center
+    line-height: 70px
+    font-size: 18px
+    transition: 300ms all
+    opacity: 0
+  &:hover
+    .slick-next, .slick-prev
+      opacity: 1
+  .slick-next:hover
+    background: #175de3
+  .slick-prev
+    &:hover
+      background: #175de3
+    img
+      margin-left: -3px
+  .slick-next img
+    margin-right: -3px
+    width: 15px
+    height: auto
+  .slick-prev img
+    width: 15px
+    height: auto
+
+@media all and (max-width: 768px)
+  .slide-type-1
+    p
+      display: none
+    h2
+      font-size: 24px
+      line-height: 32px
+    .button-main-color
+      padding: 5px 10px
+      font-size: 13px
+    .slide-item, &.transparent-slider .slide-item
+      height: initial
+      margin-bottom: 0px
+    .slick-next
+      width: 45px
+      height: 45px
+      line-height: 45px
+    .slick-prev
+      width: 45px
+      height: 45px
+      line-height: 45px
+      left: 30px
+    .slick-next
+      right: 30px
+
+/*
+ *-------------------------------------------------------
+ *#3 Footer
+ *-------------------------------------------------------
+
+.app-footer
+  width: 100%
+  background: #072867
+  position: relative
+  z-index: 19
+
+.app-footer-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding: 30px 0
+  a.app-footer-text:hover
+    color: #d9d9d9
+  .app-footer-text
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    text-decoration: none
+    font-size: 13px
+    color: #ffffff
+    font-weight: 500
+    line-height: 1.2
+    margin-top: 15px
+    margin-right: 5px
+    &:hover
+      text-decoration: none
+      color: #ffffff
+  a.app-social-link
+    color: #ffffff
+    &:hover
+      color: #ff7506
+
+.app-footer .app-social-links-wrapper
+  -webkit-flex-basis: 100%
+  -ms-flex-preferred-size: 100%
+  flex-basis: 100%
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+
+.app-footer-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+
+/*
+ *-------------------------------------------------------
+ *#4 Components
+ *-------------------------------------------------------
+
+.app-pagination
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  width: 100%
+  margin-top: 30px
+
+.services-list-pagination.app-pagination
+  margin-top: 0px
+
+ul.pagination
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  margin: 0
+  padding: 0
+  border-radius: 0
+  li.page-item
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    width: auto
+    height: 35px
+    background: none
+    outline: none
+    border: 2px solid transparent
+    .page-link
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      outline: none
+      box-shadow: none
+      padding: 0 5px
+      width: 100%
+      height: 100%
+      font-size: 15px
+      font-weight: 500
+      color: #aaaaaa
+      line-height: 1
+      background: none
+      border: 0
+      border-radius: 0
+      &:hover
+        color: #1a1a1a
+    &.pagination-navigation a
+      color: #1a1a1a
+      font-weight: 600
+    &.disabled a
+      opacity: .5
+      pointer-events: none
+      -webkit-user-select: none
+      -moz-user-select: none
+      -ms-user-select: none
+      user-select: none
+    + .page-item
+      margin-left: 5px
+    &.active
+      border-color: #ff7506
+      .page-link
+        color: #ff7506
+
+.app-social-links-wrapper
+  display: block
+  align-items: center
+  .app-social-link
+    display: block
+    float: left
+    color: #b8b8b8
+    i
+      font-size: .8em
+    &:hover
+      color: #175de3
+      text-decoration: none
+    + .app-social-link
+      margin-left: 25px
+
+.app-statistics-wrapper
+  width: 100%
+  background: #ffffff
+  height: auto
+  margin-top: 64px
+  padding-top: 64px
+
+@media all and (max-width: 992px)
+  .app-statistics-wrapper
+    margin-top: 32px
+    padding-top: 32px
+
+.app-statistics-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  position: relative
+  height: 180px
+  border-radius: 4px
+  cursor: pointer
+  margin-bottom: 30px
+
+.app-statistics-item-figure
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  z-index: 1
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  border-radius: 4px
+  overflow: hidden
+  visibility: visible
+  -webkit-transform: none
+  -ms-transform: none
+  transform: none
+  opacity: 1
+  height: 180px
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: #072867
+    z-index: 2
+    opacity: .8
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.app-statistics-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  position: relative
+  z-index: 3
+  padding: 0 5px
+  margin-top: 20px
+  span
+    &.amount
+      font-size: 33px
+      color: #ffffff
+      font-weight: 700
+      line-height: 1
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    &.title
+      font-size: 15px
+      font-weight: 500
+      line-height: 1.38
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+      color: #ffffff
+      margin-top: 5px
+      text-align: center
+
+/* App Statics Alternative type-2
+@media screen and (min-width: 992px)
+  .app-statistics-wrapper.app-statistics-type-2
+    margin-top: 64px
+
+.app-statistics-type-2
+  .app-statistics-item, .app-statistics-item-figure
+    height: 380px
+
+.app-statistics-wrapper.app-statistics-type-2 .app-statistics-item, .app-statistics-type-2 .app-statistics-item-figure
+  border-radius: 0px
+
+.app-statics-item-read-more:hover
+  text-decoration: none
+
+.app-statistics-type-2
+  .app-statistics-item-content
+    padding: 130px 65px
+    -webkit-align-items: flex-start
+    -ms-flex-align: flex-start
+    align-items: flex-start
+    flex: 100%
+    width: 100%
+    &:hover
+      text-transform: none
+    p
+      width: 100%
+      color: #828282
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    a.app-statics-item-read-more
+      color: #ffffff
+      visibility: hidden
+      font-size: 13px
+      font-weight: 600
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    span
+      &.amount
+        color: #a9aaaa
+      &.title
+        color: #505050
+        margin-bottom: 25px
+  .app-statistics-item-figure, .app-statistics-item:hover .app-statistics-item-figure
+    -webkit-transform: none
+    -ms-transform: none
+    transform: none
+  .app-statistics-item-icon
+    left: 85px
+  .app-statistics-item-figure::before
+    background: #FF7507
+  .app-statistics-item:hover
+    span
+      &.title, &.amount
+        color: #ffffff
+        visibility: visible
+    p, a
+      color: #ffffff
+      visibility: visible
+
+@media all and (max-width: 1025px)
+  .app-statistics-wrapper.app-statistics-type-2
+    height: auto
+    .app-statistics-item, .app-statistics-item-figure
+      border-radius: 0px
+
+@media all and (min-width: 1025px)
+  .app-statistics-wrapper.app-statistics-type-2
+    height: 390px
+  .app-statistics-type-2
+    .app-statistics-item, .app-statistics-item-figure
+      height: 390px
+
+@media all and (max-width: 992px)
+  .app-statistics-type-2
+    .app-statistics-item-icon
+      top: 30px
+      font-size: 3em
+    .app-statistics-item
+      span
+        &.title, &.amount
+          color: #ffffff
+          visibility: visible
+      p, a
+        color: #ffffff
+        visibility: visible
+
+/* App Statics Alternative End
+
+/* App Statics Alternative type-3
+
+.app-statistics-type-3
+  &.app-statistics-wrapper
+    background: initial
+    margin-bottom: 64px
+  .app-statistics-item
+    overflow: hidden
+    .app-statistics-item-figure
+      border-top: 600px solid transparent
+      border-bottom: 600px solid transparent
+      border-right: 600px solid #15324d
+      top: -720px
+      z-index: 0
+      left: -300px
+      transition: none
+    &:hover
+      .app-statistics-item-figure
+        -webkit-transform: rotate(65deg)
+        -ms-transform: rotate(65deg)
+        transform: rotate(65deg)
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+      .app-statistics-item-content
+        span.title
+          margin-bottom: 85px
+        padding: 40px 65px
+    height: 380px
+  .app-statistics-item-figure
+    height: 380px
+  .app-statistics-item-content
+    padding: 130px 65px
+    -webkit-align-items: flex-start
+    -ms-flex-align: flex-start
+    align-items: flex-start
+    flex: 100%
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    height: 100%
+    text-decoration: none
+    width: 100%
+    p
+      color: #828282
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+      font-size: 14px
+      width: 100%
+    span.read-more-link
+      color: #ffffff
+      visibility: hidden
+      font-size: 13px
+      font-weight: 600
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    &:hover span.read-more-link
+      visibility: visible
+    span
+      &.amount
+        color: #a9aaaa
+      &.title
+        color: #505050
+        margin-bottom: 25px
+  .app-statistics-item-figure::before
+    background: inherit
+  .app-statistics-item
+    &:hover
+      span.amount, p, a
+        color: #ffffff
+        visibility: visible
+      span.title
+        color: #e19421
+      background: #e19421
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+
+@media all and (max-width: 1025px)
+  .app-statistics-wrapper.app-statistics-type-3
+    height: auto
+    .app-statistics-item, .app-statistics-item-figure
+      border-radius: 0px
+  .app-statistics-type-3 .app-statistics-item:hover .app-statistics-item-figure
+    -webkit-transform: rotate(76deg)
+    -ms-transform: rotate(76deg)
+    transform: rotate(76deg)
+
+@media all and (min-width: 1025px)
+  .app-statistics-wrapper.app-statistics-type-3
+    height: 390px
+  .app-statistics-type-3
+    .app-statistics-item, .app-statistics-item-figure
+      height: 390px
+
+@media all and (max-width: 992px)
+  .app-statistics-type-3
+    .app-statistics-item-icon
+      top: 30px
+      font-size: 3em
+    .app-statistics-item
+      span.amount, p, a
+        color: #ffffff
+        visibility: visible
+    .app-statistics-item-figure
+      visibility: visible
+      opacity: 1
+    .app-statistics-item
+      .app-statistics-item-figure
+        -webkit-transform: rotate(73deg)
+        -ms-transform: rotate(73deg)
+        transform: rotate(73deg)
+      .app-statistics-item-content
+        span.title
+          margin-bottom: 85px
+        padding: 40px 65px
+      span.amount, p, a
+        color: #ffffff
+        visibility: visible
+      background: #e19421
+      span.title
+        color: #e19421
+    .app-statistics-item-content
+      margin-top: 25px
+      span.read-more-link
+        visibility: visible
+
+@media all and (min-width: 992px)
+  .app-statistics-type-3.app-statistics-wrapper .app-statistics-item
+    background: #fff
+
+/* App Statics Alternative End
+
+/* App Statics Alternative type-4
+
+.app-statistics-wrapper.app-statistics-type-4
+  margin-top: 0px
+  padding-top: 0px
+
+.app-statistics-type-4
+  a
+    text-decoration: none
+  .app-statistics-item, .app-statistics-item-figure
+    border-radius: 0px
+  .app-statistics-item, .app-statistics-item-figure
+    height: 380px
+  .app-statistics-image-wrapper
+    max-height: 380px
+    img
+      opacity: 0
+  .app-statistics-item-content
+    padding: 0px 40px
+    -webkit-align-items: flex-start
+    -ms-flex-align: flex-start
+    align-items: flex-start
+    flex: 100%
+    height: 100%
+    width: 100%
+    p
+      width: 100%
+      color: #828282
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    span.read-more-link
+      color: #ffffff
+      visibility: hidden
+      font-size: 13px
+      font-weight: 600
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    &:hover span.read-more-link
+      color: #771a13
+      visibility: visible
+    span
+      &.amount
+        color: #d6352a
+        font-weight: 300
+        line-height: 42px
+        font-size: 36px
+      &.title
+        color: #505050
+        margin-bottom: 25px
+  .app-statistics-item-figure, .app-statistics-item:hover .app-statistics-item-figure
+    -webkit-transform: none
+    -ms-transform: none
+    transform: none
+  .app-statistics-item-icon
+    left: 95px
+  .app-statistics-item-figure::before
+    background: #d6352a
+    opacity: 1
+  .app-statistics-item:hover
+    span.amount, p
+      color: #ffffff
+      visibility: visible
+    span.title
+      color: #771a13
+      visibility: visible
+  span.read-more-link
+    color: #771a13
+    visibility: visible
+  .app-statistics-image-wrapper
+    overflow: hidden
+
+@media all and (max-width: 1025px)
+  .app-statistics-wrapper.app-statistics-type-4
+    height: auto
+    .app-statistics-item, .app-statistics-item-figure
+      border-radius: 0px
+  .app-statistics-image-wrapper img
+    width: 100%
+    margin-bottom: 30px
+  .app-statistics-type-4 .app-statistics-item-content a.app-statics-item-read-more
+    visibility: visible
+
+@media all and (min-width: 1025px)
+  .app-statistics-wrapper.app-statistics-type-4
+    height: 390px
+  .app-statistics-type-4
+    .app-statistics-item, .app-statistics-item-figure
+      height: 390px
+    .app-statistics-image-wrapper
+      max-height: 390px
+
+@media all and (max-width: 992px)
+  .app-statistics-type-4
+    .app-statistics-item-icon
+      top: 30px
+      font-size: 3em
+    .app-statistics-item
+      span
+        &.title, &.amount
+          color: #ffffff
+          visibility: visible
+      p, a
+        color: #ffffff
+        visibility: visible
+
+/* App Statics Alternative End
+
+/* Services Type 2
+
+.featured-services-type-2
+  a
+    text-decoration: none
+  .services-list-item-wrapper
+    margin-bottom: 64px
+  .services-list-item-content::after
+    background: #d6352a
+  .services-list-item--vert
+    .services-list-item-icon
+      background: #fff
+      box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1)
+      transition: 0s ease-in-out
+      i
+        font-size: 34px
+    .services-list-item-content
+      &:hover .services-list-item-icon
+        width: auto
+        height: auto
+        background: #d6352a
+        padding: 10px
+        border-radius: 50%
+        width: 104px
+        height: 104px
+        &:after
+          content: " "
+          position: absolute
+          top: -20px
+          bottom: -20px
+          right: -20px
+          left: -20px
+          border: 2px solid #d6352a
+          border-radius: 50%
+      padding: 105px 30px 60px 30px
+  .read-more-wrapper
+    position: absolute
+    overflow: hidden
+    width: 100%
+    height: 150px
+    bottom: 0px
+    right: 0px
+  .services-list-item--vert .services-list-item-content
+    .read-more
+      margin-top: auto
+      width: 80px
+      height: 150px
+      transform: rotate(45deg)
+      position: absolute
+      bottom: -50px
+      right: -15px
+      background: #d9d9d9
+    &:hover .read-more
+      background: #d6352a
+      i
+        color: #ffffff
+    .read-more i
+      position: absolute
+      right: 30px
+      transform: rotate(45deg)
+      bottom: 70px
+      color: #ffffff
+
+/* Services Type 2 End
+
+/* Services Type 3
+
+.featured-services-type-3
+  margin-bottom: 64px
+  overflow: hidden
+  .section-title-wrapper
+    margin-top: 0px
+    span.subtitle
+      color: #535353
+      font-weight: 600
+      line-height: 22px
+      font-size: 16px
+    .section-title
+      font-size: 28px
+      line-height: 1
+      font-weight: 600
+      font-style: normal
+      font-stretch: normal
+      line-height: 25px
+      text-align: left
+      color: #32d87f
+      &::after
+        background: #d9d9d9
+  .featured-services-item-type-3
+    background: #ffffff
+    box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1)
+    .featured-services-item-type-3-content
+      padding: 15px 15px 45px 15px
+  .slick-slide
+    margin-bottom: 45px
+  .featured-services-item-type-3
+    figure
+      height: 140px
+      overflow: hidden
+      width: 100%
+    span
+      &.title
+        color: #4f4f4f
+        font-size: 16px
+        line-height: 22px
+        text-align: center
+        display: block
+        font-weight: 800
+        margin-bottom: 15px
+      &.description
+        color: #4f4f4f
+        font-size: 14px
+        line-height: 22px
+        text-align: center
+        display: block
+        font-weight: 300
+    .icon
+      font-size: 22px
+      padding: 34px
+      margin: 0 auto
+      background: #ffffff
+      box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.1)
+      border-radius: 50%
+      height: 90px
+      width: 90px
+      display: flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      position: absolute
+      left: 0
+      right: 0
+      bottom: -45px
+      i
+        color: #949494
+        margin: 0 auto
+  .slick-center .featured-services-item-type-3
+    figure
+      height: 230px
+    background: #32d87f
+    span
+      &.title, &.description
+        color: #ffffff
+    .icon
+      i
+        color: #ffffff
+      background: #2f313e
+
+@media (max-width: 992px)
+  .featured-services-type-3
+    margin-bottom: 32px
+    overflow: hidden
+
+/* Center Item
+
+.featured-services-item-type-3 a
+  text-decoration: none
+
+/* Center Item End
+
+.featured-services-type-3
+  .slick-next
+    position: absolute
+    top: 30%
+    right: -30px
+    height: 50px
+    width: 50px
+  .slick-prev
+    position: absolute
+    top: 30%
+    left: -30px
+    height: 50px
+    width: 50px
+  .slick-next, .slick-prev
+    color: #32d87f
+    cursor: pointer
+    z-index: 999
+    border: none
+    outline: 0
+    text-align: center
+    line-height: 50px
+    font-size: 18px
+    transition: 300ms all
+    opacity: 0
+  &:hover
+    .slick-next, .slick-prev
+      opacity: 1
+
+/* Services Type 3 End
+
+/* Services Type 4
+
+.featured-services-type-4
+  margin-bottom: 64px
+  .section-title-wrapper
+    margin-top: 0px
+    span.subtitle
+      color: #535353
+      font-weight: 600
+      line-height: 22px
+      font-size: 16px
+    .section-title
+      font-size: 28px
+      line-height: 1
+      font-weight: 600
+      font-style: normal
+      font-stretch: normal
+      line-height: 25px
+      text-align: left
+      color: #32d87f
+      &::after
+        background: #d9d9d9
+  .featured-services-item-type-4
+    background: #fff
+    margin-bottom: 30px
+    position: relative
+    height: 190px
+    overflow: hidden
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    align-content: flex-start
+    -webkit-align-items: flex-start
+    -ms-flex-align: flex-start
+    align-items: flex-start
+    flex: 100%
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: flex-start
+    justify-content: flex-start
+  .featured-services-item-type-4-content
+    text-decoration: none
+  .featured-services-item-type-4
+    .featured-services-item-type-4-content
+      padding: 30px 15px
+      position: relative
+      height: 100%
+    figure
+      position: absolute
+      left: 0px
+      right: 0px
+      bottom: 0px
+      top: 0px
+      visibility: hidden
+      margin: inherit
+      &:after
+        position: absolute
+        top: 0px
+        bottom: 0px
+        left: 0px
+        right: 0px
+        opacity: 0.7
+        content: ""
+        background: #000000
+    &:hover figure
+      visibility: visible
+    span.title
+      color: #4f4f4f
+      font-size: 14px
+      line-height: 22px
+      display: block
+      font-weight: 800
+      margin-bottom: 15px
+      position: relative
+    &:hover span.title
+      color: #ffffff
+    span.description
+      color: #4f4f4f
+      font-size: 14px
+      line-height: 22px
+      display: block
+      font-weight: 300
+      position: relative
+    &:hover span.description
+      color: #a4a4a4
+    .featured-services-item-type-4-icon
+      position: relative
+      height: 100%
+      padding: 30px
+    &:hover .featured-services-item-type-4-icon
+      background: #85bbdf
+    .icon
+      font-size: 22px
+      display: inline-block
+      position: relative
+      i
+        color: #949494
+    &:hover .icon i
+      color: #ffffff
+
+@media (max-width: 992px)
+  .featured-services-type-4
+    margin-bottom: 32px
+
+/* Services Type 4 End
+
+/* Services Type 5 Start
+
+.featured-services-type-5
+  margin-top: 30px
+  background: #ffffff
+  padding: 0px 0px 64px 0px
+  a
+    text-decoration: none
+  .section-title-wrapper
+    span.subtitle
+      color: #535353
+      font-weight: 600
+      line-height: 22px
+      font-size: 16px
+    .section-title
+      font-size: 28px
+      line-height: 1
+      font-weight: 600
+      font-style: normal
+      font-stretch: normal
+      line-height: 25px
+      text-align: left
+      color: #ff7506
+      &::after
+        background: #d9d9d9
+
+.featured-services-item-type-5
+  margin-bottom: 64px
+  .featured-services-item-type-5-icon
+    width: 130px
+    height: 130px
+    background: #4f4f4f
+    border-radius: 50%
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 50px
+    margin-left: auto
+    margin-right: auto
+    position: relative
+    transition: all 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+
+.nav-link.active.show .featured-services-item-type-5 .featured-services-item-type-5-icon
+  background: #ff7506
+  z-index: 1
+
+.featured-services-item-type-5
+  &:hover .featured-services-item-type-5-icon
+    background: #ff7506
+    z-index: 1
+  .featured-services-item-type-5-icon:after
+    width: 0
+    height: 0
+    border-top: 20px solid #ff7506
+    border-left: 20px solid transparent
+    border-right: 20px solid transparent
+    content: " "
+    bottom: 0px
+    position: absolute
+    visibility: hidden
+    opacity: 0
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.1s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    z-index: 0
+    margin: 0 auto
+    left: 0
+    right: 0
+
+.nav-link.active.show .featured-services-item-type-5 .featured-services-item-type-5-icon:after, .featured-services-item-type-5:hover .featured-services-item-type-5-icon:after
+  visibility: visible
+  opacity: 1
+  bottom: -15px
+
+.featured-services-type-5 .featured-services-item-type-5 .icon i
+  font-size: 34px
+  color: #ffffff
+
+.nav-link.active.show .featured-services-type-5 .featured-services-item-type-5 .icon i
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+
+.featured-services-type-5 .featured-services-item-type-5
+  &:hover .icon i
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  span.title
+    font-size: 15px
+    font-weight: 600
+    line-height: 22px
+    display: table
+    margin: 0 auto
+    color: #bebebe
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    text-align: center
+    word-break: break-word
+  &:hover span.title
+    color: #ff7506
+
+@media all and (max-width: 426px)
+  .featured-services-item-type-5
+    .featured-services-item-type-5-icon
+      width: 65px
+      height: 65px
+    .nav-link
+      .featured-services-item-type-5-content
+        display: none
+      padding: 5px
+    margin-bottom: 30px
+  .nav-link.active.show .featured-services-item-type-5 .featured-services-item-type-5-icon:after, .featured-services-item-type-5:hover .featured-services-item-type-5-icon:after
+    bottom: -10px
+  .featured-services-type-5
+    .nav-item, a
+      padding-left: 5px
+      padding-right: 5px
+
+/* Bottom Content
+
+.featured-services-item-type-5-bottom
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  margin-bottom: 65px
+  padding: 0px 15px
+  .icon i
+    font-size: 34px
+    color: #949494
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  &:hover .icon i
+    color: #ff7506
+  .featured-services-item-type-5-content
+    padding: 0px 35px
+
+.featured-services-type-5 .featured-services-item-type-5-bottom
+  span.title
+    font-size: 15px
+    font-weight: 400
+    line-height: 22px
+    color: #bebebe
+    display: block
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    margin-bottom: 20px
+  &:hover span.title
+    color: #ff7506
+
+.featured-services-item-type-5-bottom span.description
+  line-height: 22px
+  text-align: left
+  color: #828282
+
+@media (min-width: 1024px)
+  .featured-services-item-type-5-bottom:last-child
+    margin-bottom: 0px
+
+/* Services Type 5 Start
+
+/* Team Members Type 2 Start
+
+.team-members.team-members-type-2
+  padding-bottom: 0px
+
+.team-members-type-2
+  background-size: contain
+  background-repeat: no-repeat
+  margin-bottom: 64px
+  .section-title-wrapper
+    .section-title
+      line-height: 1
+      color: #ff7506
+    .subtitle
+      color: #363636
+    .section-title::after
+      background-color: #e8e8e8
+  .team-members-item
+    transform: none
+  .team-members-item-type-2
+    .team-members-item-figure::before
+      background: initial
+      transition: none
+    &:hover .team-members-item-figure::before
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.95) 100%)
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.95) 100%)
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.95) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 )
+      opacity: 1
+
+.team-members-item-type-2
+  position: relative
+  .team-members-item-figure
+    height: 415px
+  .team-members-item-content
+    width: 100%
+    position: absolute
+    bottom: 0px
+    padding: 30px 15px
+    visibility: hidden
+    opacity: 0
+    *
+      visibility: hidden
+      opacity: 0
+  &:hover
+    .team-members-item-content, .team-members-item-role, .team-members-item-content *
+      visibility: visible
+      opacity: 1
+  .team-members-item-content
+    .team-members-item-name
+      margin-bottom: 0px
+      color: #ffffff
+      margin-top: 0px
+    .team-members-item-role
+      position: static
+      margin-bottom: 15px
+      font-size: 14px
+      padding: 15px
+      width: 100%
+    .team-members-item-description
+      margin: 15px 0px 30px 0px
+    .app-social-links-wrapper
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      a.app-social-link
+        padding: 0px 2px
+        &:hover
+          color: #ff7506
+  .app-social-links-wrapper .app-social-link + .app-social-link
+    margin-left: 15px
+
+@media all and (max-width: 992px)
+  .team-members-item-type-2
+    margin-bottom: 30px
+  .team-members-type-2 .team-members-item-type-2 .team-members-item-figure::before
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.95) 100%)
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.95) 100%)
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.95) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 )
+    opacity: 1
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    display: block
+  .team-members-item-type-2
+    .team-members-item-content, .team-members-item-role, .team-members-item-content *
+      visibility: visible
+      opacity: 1
+
+/* Team Members Type 2 End
+
+/* Team Members Type 3 Start
+
+.team-members-type-3
+  background-size: contain
+  background-repeat: no-repeat
+  margin-bottom: 180px
+  background: #ffffff
+  .section-content
+    margin-bottom: -90px
+  .section-title-wrapper
+    .section-title
+      line-height: 1
+      color: #ff7506
+    .subtitle
+      color: #363636
+    .section-title::after
+      background-color: #e8e8e8
+  .team-members-item
+    transform: none
+  .team-members-item-type-3 .team-members-item-figure::before
+    background: initial
+    transition: none
+
+.team-members-item-type-3
+  position: relative
+  .team-members-item-figure
+    border: 0px solid #ff7506
+    height: 314px
+  &:hover .team-members-item-figure
+    border: 2px solid #ff7506
+    border-radius: 4px
+  .team-members-item-role
+    visibility: visible
+    opacity: 1
+    position: static
+    width: 100%
+    height: auto
+    padding: 0px
+    font-weight: 300
+    background: transparent
+    transition: none
+  &:hover .team-members-item-role
+    margin-bottom: 20px
+  .team-members-item-content
+    position: absolute
+    padding: 15px
+    background: #2e2e2e
+    width: 90%
+    left: 0
+    right: 0
+    margin: 0 auto
+    bottom: -15px
+  &:hover .team-members-item-content
+    bottom: -56px
+    background: #ff7506
+  .team-members-item-content .app-social-links-wrapper
+    visibility: hidden
+    opacity: 0
+    display: none
+  &:hover .team-members-item-content .app-social-links-wrapper
+    visibility: visible
+    opacity: 1
+    display: flex
+  .team-members-item-content
+    .team-members-item-name
+      margin-top: 0px
+      color: #ffffff
+      margin-bottom: 5px
+    .app-social-links-wrapper
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      a.app-social-link
+        padding: 0px 2px
+        &:hover
+          color: #2e2e2e
+  .app-social-links-wrapper .app-social-link
+    color: #ffffff
+    + .app-social-link
+      margin-left: 15px
+
+@media all and (max-width: 992px)
+  .team-members-item-type-3
+    margin-bottom: 90px
+
+/* Team Members Type 3 End
+
+/* Timeline Type 1 Start
+
+.timeline-type-1
+  margin-bottom: 64px
+  .section-title-wrapper
+    -webkit-align-items: inherit
+    -ms-flex-align: inherit
+    align-items: inherit
+    padding-left: 100px
+    .subtitle
+      color: #363636
+      font-size: 15px
+      font-weight: 500
+      line-height: 1
+      position: relative
+    .section-title
+      &::after
+        -webkit-transform: translateX(0)
+        -ms-transform: translateX(0)
+        transform: translateX(0)
+        left: 0px
+        background: #e2e2e2
+      line-height: 1
+      color: #ff7506
+
+.timeline-list
+  list-style: none
+  padding-left: 0px
+  background: #fff
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: flex-start
+  -ms-flex-pack: flex-start
+  justify-content: flex-start
+  -webkit-align-items: flex-start
+  -ms-flex-align: flex-start
+  align-items: flex-start
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  height: 100%
+  margin-bottom: 0px
+  padding: 0px 30px
+  .timeline-list-item
+    padding: 30px 0px
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: flex-start
+    justify-content: flex-start
+    -webkit-align-items: flex-start
+    -ms-flex-align: flex-start
+    align-items: flex-start
+    width: 100%
+    border-bottom: 1px solid rgb(245, 248, 252)
+    &:last-child
+      border-bottom: 0px
+    .item-date i
+      position: absolute
+      right: -10px
+      z-index: 1
+      top: 15px
+      background: #ffffff
+      padding: 5px
+      border-radius: 50%
+      color: #ff7506
+      font-size: 10px
+      opacity: 0
+      visibility: hidden
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    &:hover .item-date i, &.active .item-date i
+      opacity: 1
+      visibility: visible
+    .item-content
+      color: #828282
+    .item-date
+      position: absolute
+      min-width: 100px
+      padding: 12px
+      margin-right: 20px
+      text-align: center
+      background: #7e7e7e
+      color: #ffffff
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      left: -100px
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    &:hover .item-date
+      background: #ff7506
+    .item-title
+      font-weight: 600
+      color: #949494
+      margin: 0px 0px 14px 0px
+      display: block
+      color: #949494
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    &:hover .item-title
+      color: #ff7506
+
+.timeline-image
+  overflow: hidden
+  height: 100%
+  img
+    height: 100%
+
+@media all and (max-width: 426px)
+  .timeline-list .timeline-list-item .item-date
+    position: relative
+    left: 0px
+  .timeline-type-1 .section-title-wrapper
+    padding-left: 15px
+
+/* Timeline Type 1 End
+
+/* Timeline Type 2 Start
+
+.timeline-type-2
+  margin-bottom: 64px
+  .section-content
+    margin-top: 0px
+  .timeline-list
+    margin-left: 0px
+  ul.timeline-list:after
+    left: 20px
+  .section-title-wrapper
+    background: #ffffff
+    margin-top: 82px
+    width: 100%
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: flex-start
+    -ms-flex-align: flex-start
+    align-items: flex-start
+    writing-mode: vertical-rl
+    -ms-writing-mode: tb-rl
+    text-orientation: mixed
+    .section-title
+      line-height: 1
+      margin-top: 0px
+      color: #ff7506
+      margin-right: 20px
+    .subtitle
+      color: #363636
+    .section-title::after
+      content: ''
+      position: absolute
+      left: -20px
+      -webkit-transform: translateX(-50%)
+      -ms-transform: translateX(-50%)
+      transform: translateX(-50%)
+      height: 40px
+      width: 3px
+      background: #e2e2e2
+      top: 0px
+  .timeline-list .timeline-list-item .item-date
+    left: -100px
+
+@media all and (max-width: 1024px)
+  .timeline-type-2
+    .timeline-list .timeline-list-item .item-date
+      position: relative
+      left: 0px
+    ul.timeline-list:after
+      margin-left: 80px
+    .timeline-list .timeline-list-item .item-content
+      padding: 12px 20px
+
+@media all and (max-width: 768px)
+  .timeline-type-2
+    .timeline-list-row
+      -webkit-flex-direction: column-reverse
+      /* Safari 6.1+
+      -ms-flex-direction: column
+      flex-direction: column-reverse
+    .section-title-wrapper
+      writing-mode: horizontal-tb
+      -ms-writing-mode: lr-tb
+      margin-top: 0px
+      padding: 30px 15px
+      span.subtitle
+        margin-bottom: 15px
+      .section-title::after
+        width: 40px
+        height: 3px
+        bottom: 0px
+        top: auto
+        left: 0px
+        -webkit-transform: none
+        transform: none
+    .timeline-list
+      margin-left: 0px
+    ul.timeline-list:after
+      margin-left: 100px
+      left: 0px
+    .timeline-image img
+      width: 100%
+    .timeline-list
+      .timeline-list-item .item-date
+        margin-left: 0px
+      padding-left: 0px
+
+@media all and (min-width: 1025px)
+  .timeline-type-2 .section-content
+    padding-left: 100px
+
+/* Timeline Type 2 End
+/* Testimonials Type 1
+
+.testimonials-type-1
+  background: #072867
+  .section-content
+    margin-top: 0px
+    .timeline-list-row
+      margin-top: 0px
+
+.testimonail-description .testimonail-description p
+  color: #ffffff
+
+.testimonials-type-1
+  .testimonial-item
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    padding-top: 130px
+    padding-bottom: 170px
+    padding-left: 15px
+    padding-right: 15px
+    &:before
+      content: "\f10d"
+      font-family: "Font Awesome 5 Free"
+      font-weight: 900
+      color: #d1a77d
+      top: 25px
+      position: absolute
+      font-size: 25px
+      opacity: 0
+      visibility: hidden
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  .slick-center .testimonial-item:before
+    opacity: 1
+    visibility: visible
+  .testimonial-item:after
+    content: "\f10e"
+    font-family: "Font Awesome 5 Free"
+    font-weight: 900
+    color: #d1a77d
+    bottom: 25px
+    position: absolute
+    font-size: 25px
+    opacity: 0
+    right: 15px
+    visibility: hidden
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  .slick-center .testimonial-item:after
+    opacity: 1
+    visibility: visible
+  .testimonial-item
+    .customer-image
+      margin: 0px 15px
+      img
+        border-radius: 50%
+    .testimonail-customer-name
+      color: #d1a77d
+      line-height: 1.57
+      font-size: 14px
+      display: block
+    .testimonail-customer-brand
+      display: block
+      color: #585858
+      line-height: 2.2
+      font-size: 9px
+
+ul.stars
+  padding-left: 0px
+  list-style: none
+  margin-top: 20px
+  margin-bottom: 20px
+  li
+    display: inline-block
+
+.testimonials-type-1
+  ul.stars li i
+    color: #d1a77d
+  .section-content .slick-dots
+    position: absolute
+    left: 0px
+    right: 0px
+    bottom: 55px
+  .slick-slide.slick-active:last-of-type
+    border-right: 0px solid #f3f3f3
+  .section-content
+    .slick-dots li
+      + li
+        margin-left: 8px
+        width: 20px
+        border-radius: 4px
+        height: 4px
+      margin-left: 8px
+      width: 20px
+      border-radius: 4px
+      height: 4px
+      &.slick-active
+        margin-left: 8px
+        width: 20px
+        border-radius: 4px
+        height: 4px
+        background: #d1a77d
+        border: 0px
+    .testimonail-content
+      padding-right: 15px
+
+.no-gutters .slick-track > div[class*=col-]
+  padding-right: 0
+  padding-left: 0
+
+@media all and (min-width: 768px)
+  .testimonials-type-1 .slick-slide.slick-active.slick-center .testimonial-item
+    border-right: 1px solid rgba(243, 243, 243, 0.1)
+    border-left: 1px solid rgba(243, 243, 243, 0.1)
+    box-sizing: border-box
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+
+/* Testimonials Type 1 End
+/* Sub Container
+@media all and (max-width: 992px)
+  .sub-container
+    margin-bottom: 32px
+  .row div[class^="col"]:last-child .sub-container
+    margin-bottom: 0px
+
+/* Sub Container End
+
+.app-statistics-item-icon
+  color: #ffffff
+  font-size: 2em
+  visibility: visible
+  opacity: 1
+  position: absolute
+  top: 15px
+  left: 50%
+  -webkit-transform: translateX(-50%)
+  -ms-transform: translateX(-50%)
+  transform: translateX(-50%)
+  z-index: 3
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+
+.app-author-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  background: #ffffff
+  margin-top: 30px
+  position: relative
+  padding: 10px 15px
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 0px
+    background: #175de3
+    transition: .1s ease-in-out
+  &:hover::after
+    height: 2px
+  figure
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    margin: 0
+    width: 70px
+    height: 70px
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    margin-right: 10px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.app-author-box-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding-top: 5px
+  .author-head-info
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    margin-bottom: 10px
+    .name
+      font-size: 13px
+      color: #242424
+      font-weight: 600
+      line-height: 1
+    .role
+      font-size: 10px
+      color: #939393
+      font-weight: 600
+      line-height: 1
+      margin-left: 30px
+  p.description
+    margin: 0
+    font-size: 12px
+    color: #757575
+    font-weight: normal
+    line-height: 1.3
+    margin-bottom: 10px
+
+.app-offer-box
+  width: 100%
+  padding: 30px 0
+  background: #072867
+  margin-top: 30px
+
+.app-offer-box-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+
+.app-offer-box-left
+  span.title
+    display: block
+    font-size: 28px
+    color: #ffffff
+    font-weight: 700
+    line-height: 1.2
+  p.description
+    font-size: 15px
+    color: #ffffff
+    font-weight: 300
+    margin: 0
+    margin-top: 15px
+    line-height: 1.5
+
+.app-offer-box-right
+  margin-top: 15px
+  margin-left: auto
+  margin-right: auto
+
+.app-brands
+  background: #ffffff
+  box-shadow: 0px 15px 40px 0 rgba(0, 0, 0, 0.1)
+  height: 130px
+  width: 100%
+
+.brands
+  text-align: center
+
+.app-brands-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: flex-start
+  -ms-flex-pack: start
+  justify-content: flex-start
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  height: 130px
+
+.app-brands-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  width: 100%
+  figure
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    margin: 0
+    img
+      max-width: 100%
+      height: auto
+
+.app-tab-filter
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  width: 100%
+  margin: 0
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  height: 150px
+  -webkit-transform: translateY(100%)
+  -ms-transform: translateY(100%)
+  transform: translateY(100%)
+  background: #fff
+  border-top: 1px solid #e9e9e9
+  transition: .2s ease-in-out
+  overflow-y: scroll
+  -webkit-overflow-scrolling: touch
+  scroll-behavior: smooth
+  -webkit-justify-content: flex-start
+  -ms-flex-pack: start
+  justify-content: flex-start
+  padding: 5px 0
+  + .mobile-tab-toggle .mobile-tab-toggle-btn
+    &.open-tab
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+    &.hide-tab
+      display: none
+  &.show-me
+    -webkit-transform: translateY(0)
+    -ms-transform: translateY(0)
+    transform: translateY(0)
+    + .mobile-tab-toggle .mobile-tab-toggle-btn
+      &.open-tab
+        display: none
+      &.hide-tab
+        display: -webkit-flex
+        display: -ms-flexbox
+        display: flex
+
+.app-tab-filter-wrapper
+  .mobile-tab-toggle
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    width: 100%
+    height: 65px
+    background: #fff
+    border-top: 1px solid #e9e9e9
+    position: relative
+    z-index: 2
+  .mobile-tab-toggle-btn
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    width: 40px
+    height: 40px
+    border-width: 1px
+    border-style: solid
+    border-color: #175de3
+    i
+      font-size: 1em
+      color: #175de3
+    &.hide-tab
+      display: none
+
+.app-tab-filter-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  font-size: 15px
+  color: #4e4e4e
+  font-weight: 500
+  cursor: pointer
+  position: relative
+  &.active
+    color: #175de3
+    font-weight: 700
+  &:hover
+    color: #175de3
+
+.app-accordion
+  &.bordered-accordion
+    border: 1px solid #c5c5c5
+    border-radius: 4px
+    .card
+      + .card
+        margin-top: 0
+        .card-header
+          border-top: 1px solid #c5c5c5
+      .card-header .accordion-link
+        padding: 0 40px 0 15px
+      .card-body
+        padding: 20px 15px
+  .card
+    background: #ffffff
+    border-radius: 4px
+    border: 0
+    &:first-of-type
+      border-radius: 4px
+    &:not(:first-of-type)
+      &:not(:last-of-type)
+        border-radius: 4px
+      .card-header:first-child
+        border-radius: 4px 4px 0 0
+    + .card
+      margin-top: 20px
+    .card-header
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      position: relative
+      border: 0
+      background: #ffffff
+      margin-bottom: 0
+      min-height: 64px
+      border-radius: 4px 4px 0 0
+      padding: 0
+      transition: 0.1s ease-in-out
+      &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: 0
+        width: 2px
+        height: 100%
+        background: #175de3
+      &:hover
+        background: #175de3
+        .accordion-link
+          color: #ffffff
+          &[aria-expanded='true']
+            color: #ffffff
+        .accordion-icon i
+          color: #ffffff
+      .accordion-link
+        font-size: 15px
+        color: #4e4e4e
+        font-weight: 500
+        background: transparent
+        border-radius: 0
+        padding: 0
+        outline-color: transparent
+        box-shadow: none
+        width: 100%
+        height: 100%
+        -webkit-justify-content: flex-start
+        -ms-flex-pack: start
+        justify-content: flex-start
+        transition: 0.1s ease-in-out
+        text-align: left
+        white-space: normal
+        line-height: 1.56
+        padding: 0 45px 0 20px
+        &:hover, &:focus
+          outline-color: transparent
+          box-shadow: none
+          background: transparent
+        &:hover::before, &:focus::before
+          opacity: 0
+        &[aria-expanded='false'] + .accordion-icon i
+          &.accordion-on
+            display: -webkit-flex
+            display: -ms-flexbox
+            display: flex
+          &.accordion-off
+            display: none
+        &[aria-expanded='true']
+          color: #175de3
+          + .accordion-icon i
+            &.accordion-off
+              display: -webkit-flex
+              display: -ms-flexbox
+              display: flex
+            &.accordion-on
+              display: none
+      .accordion-icon
+        display: -webkit-flex
+        display: -ms-flexbox
+        display: flex
+        -webkit-justify-content: center
+        -ms-flex-pack: center
+        justify-content: center
+        -webkit-align-items: center
+        -ms-flex-align: center
+        align-items: center
+        transition: 0.1s ease-in-out
+        pointer-events: none
+        position: absolute
+        top: 50%
+        -webkit-transform: translateY(-50%)
+        -ms-transform: translateY(-50%)
+        transform: translateY(-50%)
+        right: 20px
+        i
+          color: #175de3
+          transition: 0.1s ease-in-out
+          font-size: 1.5em
+    .card-body
+      border-radius: 0 0 4px 4px
+      padding: 10px 15px
+      p
+        font-size: 15px
+        color: #949494
+        font-weight: 500
+        margin: 0
+        + p
+          margin-top: 20px
+    .collapse.show
+      border-top: 1px solid #f7f7f7
+
+.app-pricing-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  margin-top: 70px
+  transition: 0.2s ease-in-out
+  text-decoration: none
+  &:hover
+    text-decoration: none
+    .select-plan-btn
+      background: #ff7506
+      color: #ffffff
+
+.app-pricing-item-heading
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  background: #175de3
+  position: relative
+  border-radius: 4px 4px 0 0
+  transition: 0.2s ease-in-out
+  height: auto
+  padding: 60px 10px 35px 10px
+  span
+    &.item-icon
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      border-radius: 50%
+      background: #ffffff
+      position: absolute
+      left: 50%
+      top: 0
+      -webkit-transform: translateX(-50%) translateY(-50%)
+      -ms-transform: translateX(-50%) translateY(-50%)
+      transform: translateX(-50%) translateY(-50%)
+      transition: 0.2s ease-in-out
+      z-index: 1
+      width: 80px
+      height: 80px
+      i
+        color: #175de3
+        font-size: 2em
+        transition: 0.2s ease-in-out
+    &.item-title
+      font-size: 13px
+      color: #ffffff
+      font-weight: 500
+      margin-bottom: 20px
+      line-height: 1
+  .price-wrapper
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    span
+      &.price
+        font-size: 33px
+        color: #ffffff
+        font-weight: 500
+        line-height: .7
+      &.symbol
+        font-size: 15px
+        color: #ffffff
+        font-weight: 500
+        line-height: .8
+      &.amount
+        font-size: 12px
+        color: #ffffff
+        font-weight: 500
+        line-height: 1
+        -webkit-align-self: flex-end
+        -ms-flex-item-align: end
+        align-self: flex-end
+
+.app-pricing-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding: 15px 10px
+  background: #ffffff
+  border-radius: 0 0 4px 4px
+  width: 100%
+
+.app-pricing-item-content-row
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  + .app-pricing-item-content-row
+    margin-top: 20px
+  span
+    &.title
+      font-size: 13px
+      color: #949494
+      font-weight: 500
+      line-height: 1.44
+      z-index: 2
+      position: relative
+    &.val
+      font-size: 15px
+      color: #949494
+      font-weight: 600
+      line-height: 1.44
+
+.app-pricing-item-content
+  p.description
+    font-size: 11px
+    color: #949494
+    font-weight: 500
+    line-height: 1.57
+    margin: 0
+    text-align: center
+    margin-bottom: 15px
+    margin-top: 20px
+  .select-plan-btn
+    background: #f2f2ef
+    font-size: 13px
+    color: #b5b5b5
+    font-weight: 600
+    width: 100%
+    padding: 0 15px
+    min-width: inherit
+    &:hover
+      background: #ff7506
+      color: #ffffff
+
+.app-pricing-item--wide
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  margin-top: 50px
+  .app-pricing-item-content
+    border-radius: 0 4px 4px 0
+    padding: 15px 10px
+    p.description
+      margin: 30px 0
+  .app-pricing-item-heading
+    width: 100%
+    padding: 0
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    padding: 30px 10px
+    border-radius: 4px 4px 0 0
+    .item-icon
+      left: inherit
+      right: 10px
+      top: 0
+      -webkit-transform: translateX(0) translateY(-50%)
+      -ms-transform: translateX(0) translateY(-50%)
+      transform: translateX(0) translateY(-50%)
+      width: 60px
+      height: 60px
+
+.app-contact-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  form.contact-form-wrapper
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    margin: 0
+    -webkit-flex-grow: 1
+    -ms-flex-positive: 1
+    flex-grow: 1
+    background: #ffffff
+    padding: 20px 15px
+    .input-row
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      border-radius: 0
+      textarea
+        min-height: 145px
+      input, textarea
+        width: 100%
+        color: #175de3
+      input.placeholder, textarea.placeholder, input:-moz-placeholder, textarea:-moz-placeholder, input::-moz-placeholder, textarea::-moz-placeholder, input:-ms-input-placeholder, textarea:-ms-input-placeholder, input::-webkit-input-placeholder, textarea::-webkit-input-placeholder
+        color: #aaaaaa
+        font-weight: 500
+        font-size: 13px
+      input:focus, textarea:focus
+        border-color: #175de3
+      + .input-row
+        margin-top: 15px
+      button[type="submit"]
+        border-radius: 0
+        font-size: 13px
+        color: #ffffff
+        font-weight: 600
+  .contact-form-details
+    position: relative
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    padding: 20px 15px
+    width: 100%
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background: rgba(23, 93, 227, 0.8)
+      z-index: 2
+  .contact-form-details-bg
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    z-index: 1
+    mix-blend-mode: luminosity
+  .contact-form-details-item
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    z-index: 3
+    background: #ffffff
+    width: 100%
+    border: 3px solid #ffffff
+    transition: 0.2s ease-in-out
+    padding: 15px 20px
+    &:hover
+      background: transparent
+      .item-content span
+        &.subtitle
+          color: rgba(255, 255, 255, 0.5)
+        &.title
+          color: #ffffff
+      i
+        color: #ffffff
+    + .contact-form-details-item
+      margin-top: 30px
+    i
+      font-size: 2em
+      color: #175de3
+      transition: 0.2s ease-in-out
+      margin-right: 20px
+    .item-content
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      span
+        &.title
+          font-size: 16px
+          color: #252525
+          font-weight: 500
+          line-height: 1.39
+          margin-bottom: 5px
+          transition: 0.2s ease-in-out
+        &.subtitle
+          font-size: 13px
+          color: #aaaaaa
+          font-weight: normal
+          line-height: 1.57
+          transition: 0.2s ease-in-out
+
+.app-design-guide-heading-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: flex-start
+  -ms-flex-pack: start
+  justify-content: flex-start
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  width: 100%
+
+.app-design-guide span
+  &.row-title
+    display: block
+    font-size: 20px
+    color: #175de3
+    font-weight: 500
+    margin-top: 45px
+  &.chars
+    font-size: 20px
+    color: #181818
+    font-weight: 500
+    word-break: break-all
+
+.app-design-guide-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  background: #ffffff
+  padding: 15px
+
+.app-design-guide-subrow
+  width: 100%
+  margin-top: 20px
+
+.app-design-guide-row
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  justify-content-align-items: center
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  margin-top: 30px
+  width: 100%
+  p
+    width: 100%
+    -webkit-flex-basis: 100%
+    -ms-flex-preferred-size: 100%
+    flex-basis: 100%
+    margin-top: 25px
+  span.detail
+    font-size: 16px
+    color: #181818
+    font-weight: 500
+  .chars-wrapper * + *
+    margin-left: 10px
+
+.app-design-guide-colors
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  margin-top: 50px
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  -webkit-justify-content: flex-start
+  -ms-flex-pack: start
+  justify-content: flex-start
+  -webkit-flex-basis: 100%
+  -ms-flex-preferred-size: 100%
+  flex-basis: 100%
+  .color-item
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    + .color-item
+      margin-top: 20px
+    span.color
+      border-radius: 50%
+      -webkit-flex-shrink: 0
+      -ms-flex-negative: 0
+      flex-shrink: 0
+      width: 50px
+      height: 50px
+      margin-right: 15px
+    .color-item-content
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      span
+        + span
+          margin-top: 10px
+        &.hex
+          font-size: 18px
+          color: #181818
+          font-weight: 500
+          line-height: .96
+        &.color-detail
+          font-size: 13px
+          color: #181818
+          font-weight: 500
+          line-height: 1
+
+h1
+  font-size: 44px
+  color: #181818
+  font-weight: 600
+
+h2
+  font-size: 30px
+  color: #181818
+  font-weight: 600
+
+h3
+  font-size: 22px
+  color: #181818
+  font-weight: 600
+
+h4
+  font-size: 15px
+  color: #181818
+  font-weight: 600
+
+h5
+  font-size: 14px
+  color: #181818
+  font-weight: 600
+
+p
+  font-size: 14px
+  color: #515151
+  font-weight: normal
+  line-height: 1.67
+
+.text-fw--light
+  font-weight: 300 !important
+
+.text-fw--regular
+  font-weight: normal !important
+
+.text-fw--medium
+  font-weight: 500 !important
+
+.text-fw--semi-bold
+  font-weight: 600 !important
+
+.text-fw--bold
+  font-weight: 700 !important
+
+.app-tabnav
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  border: 1px solid #c0c0c0
+  border-radius: 4px
+  overflow: hidden
+  position: relative
+  &:not(.app-tabnav--vert) .nav-link:last-child
+    border-right: 0
+
+.app-tabnav--content
+  padding: 15px
+  p
+    margin: 0
+    font-size: 13px
+    color: #5e5e5e
+    font-weight: normal
+
+.app-tabnav .nav-link
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  font-size: 13px
+  color: #787878
+  font-weight: 600
+  line-height: 1.79
+  border-radius: 0
+  border-style: solid
+  border-color: #c0c0c0
+  border-width: 0 1px 1px 0
+  background: transparent
+  -webkit-flex-grow: 1
+  -ms-flex-positive: 1
+  flex-grow: 1
+  width: auto
+  -webkit-flex-shrink: 0
+  -ms-flex-negative: 0
+  flex-shrink: 0
+  padding: 0 20px
+  min-height: 50px
+  text-align: center
+  &.active
+    border-bottom: 0
+    background: transparent
+    color: #175de3
+
+.app-tabnav--navs
+  width: 100%
+  transition: .2s ease-in-out
+  scroll-behavior: smooth
+  .nav
+    -webkit-flex-wrap: nowrap
+    -ms-flex-wrap: nowrap
+    flex-wrap: nowrap
+    overflow-x: hidden
+
+.app-tabnav--vert
+  -webkit-flex-direction: row
+  -ms-flex-direction: row
+  flex-direction: row
+  .app-tabnav--content
+    padding: 15px
+  a.nav-link
+    border-right: 1px solid #c0c0c0
+    border-bottom: 0
+    width: 100%
+    padding: 0
+    + .nav-link
+      border-top: 1px solid #c0c0c0
+    &.active
+      border-right: 0
+  .nav-pills
+    height: 100%
+    -webkit-flex-grow: 1
+    -ms-flex-positive: 1
+    flex-grow: 1
+  .app-tabnav--navs
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    width: 80px
+    .nav
+      overflow: auto
+
+.app-testimonial-wrapper
+  position: relative
+  &.slick-slider
+    -webkit-user-select: auto
+    -moz-user-select: auto
+    -ms-user-select: auto
+    user-select: auto
+    outline-color: transparent
+
+.app-testimonial-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  &.slick-slide
+    outline-color: transparent
+  p.description
+    font-size: 15px
+    color: #949494
+    font-weight: 500
+    line-height: 1.44
+    margin: 0
+    text-align: center
+    position: relative
+    padding: 30px 10px 5px 10px
+    &::before, &::after
+      content: "''"
+      position: absolute
+      font-size: 100px
+      color: #175de3
+      font-weight: 500
+      line-height: .23
+      font-style: italic
+    &::before
+      top: 30px
+      left: -4px
+    &::after
+      bottom: -45px
+      right: 23px
+
+.app-testimonial-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  margin-top: 55px
+  .testimonial-avatar
+    width: 70px
+    height: 70px
+    border-radius: 50%
+    object-fit: cover
+    margin-bottom: 25px
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+  span
+    &.name
+      font-size: 16px
+      color: #175de3
+      font-weight: 700
+      line-height: 1.39
+      margin-bottom: 10px
+    &.subtitle
+      font-size: 13px
+      color: #949494
+      font-weight: 500
+      line-height: 1.64
+
+.app-testimonial-navigation
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  position: absolute
+  top: 50%
+  width: 100%
+  width: 180px
+  left: 0
+  right: 0
+  margin: auto
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+  transform: translateY(-50%)
+  transition: .2s ease-in-out
+  opacity: 1
+  &.hide-me
+    opacity: 0
+    transition: 0s
+  button.app-btn
+    background: transparent
+    min-width: auto
+    width: auto
+    height: auto
+    border-radius: 0
+    &:hover
+      background: none
+      &::before
+        display: none
+      i
+        color: #175de3
+    i
+      color: #d1d1d1
+      font-size: 2em
+      position: relative
+
+.alert
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  border: 0
+  border-radius: 4px
+  padding: 15px 35px
+  font-size: 14px
+  color: #ffffff
+  font-weight: 500
+  line-height: 1.67
+  min-height: 50px
+  button.close
+    font-size: 13px
+    color: #ffffff
+    font-weight: 700
+    text-shadow: none
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    opacity: 1
+
+.alert-default
+  color: #ffffff
+  background-color: #ff7506
+  border-color: #ff7506
+
+.alert-primary
+  color: #ffffff
+  background-color: #175de3
+  border-color: #175de3
+
+.alert-secondary
+  color: #ffffff
+  background-color: #072867
+  border-color: #072867
+
+.alert-success
+  color: #ffffff
+  background-color: #11b672
+  border-color: #11b672
+
+.alert-danger
+  color: #ffffff
+  background-color: #cd3757
+  border-color: #cd3757
+
+.alert-warning
+  color: #ffffff
+  background-color: #eab946
+  border-color: #eab946
+
+.alert-info
+  color: #ffffff
+  background-color: #1565c0
+  border-color: #1565c0
+
+.alert-dark
+  color: #ffffff
+  background-color: #494e4f
+  border-color: #494e4f
+
+.alert-light
+  color: #ffffff
+  background-color: #9a9a9a
+  border-color: #9a9a9a
+
+.app-carousel
+  border-radius: 4px
+  overflow: hidden
+  .slick-dots
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    margin: 0
+    padding: 0
+    margin-bottom: 30px
+    li
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      width: 15px
+      height: 15px
+      border-radius: 50%
+      background: #ffffff
+      &.slick-active
+        background: #175de3
+      + li
+        margin-left: 8px
+      button
+        display: none
+
+.app-carousel-item
+  position: relative
+  &.slick-slide
+    outline-color: transparent
+  img
+    width: 100%
+    height: auto
+    object-fit: cover
+
+.page-404-wrapper
+  background: #ffffff
+  border-radius: 4px
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  padding-top: 30px
+  margin-bottom: 50px
+  p.description
+    font-size: 15px
+    color: #949494
+    font-weight: 500
+    line-height: 1.44
+    margin: 0
+    text-align: center
+    margin-top: 15px
+    padding: 0 15px
+    width: 100%
+  a.app-btn
+    -webkit-transform: translateY(50%)
+    -ms-transform: translateY(50%)
+    transform: translateY(50%)
+    margin-top: 10px
+  .title
+    font-size: 150px
+  .title-shadow
+    font-size: 150px
+    position: absolute
+    left: auto
+    right: auto
+    font-weight: 600
+    display: inline-block
+    line-height: 1
+    margin: 0
+    padding: 0
+    text-align: center
+    text-shadow: 5px 8px 0 rgba(199, 199, 199, 0.65)
+  .title
+    font-weight: 600
+    line-height: 1
+    position: relative
+    display: inline-block
+    margin: 0
+    padding: 0
+    text-align: center
+    /* Color fallback
+    color: #175de3
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    &::before
+      content: ''
+      position: absolute
+      z-index: -2
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-image: inherit
+
+.flat-content-detailsbox
+  height: auto
+  background: #175de3
+  border-radius: 4px
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  margin: 0 15px 20px 0
+  width: 100%
+  padding: 15px 15px 0 15px
+  span.title
+    display: block
+    font-size: 14px
+    color: #ffffff
+    font-weight: 600
+    line-height: 1.67
+    margin-bottom: 20px
+    -webkit-flex-basis: 100%
+    -ms-flex-preferred-size: 100%
+    flex-basis: 100%
+    text-align: center
+
+.flat-content-detailsbox-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  width: 49%
+  margin-bottom: 15px
+  .item-title
+    font-size: 12px
+    color: rgb(221, 225, 232)
+    font-weight: 700
+    line-height: 1.79
+  .item-content
+    font-size: 14px
+    color: #ffffff
+    font-weight: 500
+    line-height: 1.5
+
+.section-title-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  margin-top: 30px
+  &.mt-reduce
+    margin-top: 20px
+    + .section-content
+      margin-top: 20px
+  &.light-bg
+    span.subtitle
+      color: #515151
+      &::after
+        background: #ff7506
+    .section-title
+      color: #000000
+      &::after
+        background: #ff7506
+  span.subtitle
+    font-size: 15px
+    color: #f4f7fc
+    font-weight: 500
+    line-height: 1
+    position: relative
+    &::after
+      content: ''
+      position: absolute
+      left: 50%
+      bottom: 0
+      -webkit-transform: translateX(-50%)
+      -ms-transform: translateX(-50%)
+      transform: translateX(-50%)
+      height: 3px
+      width: 40px
+      background: #ffffff
+      display: none
+  .section-title
+    margin: 0
+    font-size: 30px
+    color: #f4f7fc
+    font-weight: 700
+    line-height: .78
+    position: relative
+    padding-bottom: 33px
+    margin-top: 30px
+    &::after
+      content: ''
+      position: absolute
+      left: 50%
+      bottom: 0
+      -webkit-transform: translateX(-50%)
+      -ms-transform: translateX(-50%)
+      transform: translateX(-50%)
+      height: 3px
+      width: 40px
+      background: #ffffff
+
+.section-content
+  margin-top: 30px
+  .slick-dots
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    margin: 0
+    padding: 0
+    margin: 15px 0
+    li
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      width: 8px
+      height: 8px
+      border-radius: 50%
+      background: #ffffff
+      &.slick-active
+        background: transparent
+        border: 1px solid #ffffff
+      + li
+        margin-left: 4px
+      button
+        display: none
+
+.title--underlined
+  position: relative
+  padding-bottom: 17px
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 40px
+    height: 3px
+    background: #ff7506
+
+.main-hero-wrapper
+  position: relative
+  height: 400px
+  margin-bottom: -15px
+  &.slick-slider
+    -webkit-user-select: initial
+    -moz-user-select: initial
+    -ms-user-select: initial
+    user-select: initial
+
+.main-hero-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: flex-end
+  -ms-flex-align: end
+  align-items: flex-end
+  position: relative
+  height: 400px
+  &.slick-slide
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+  figure
+    margin: 0
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.main-hero-item-content
+  display: -webkit-inline-flex
+  display: -ms-inline-flexbox
+  display: inline-flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  margin-bottom: 30px
+  position: relative
+  z-index: 19
+  span
+    &.title
+      color: #ffffff
+    &.title--small
+      font-size: 15px
+      color: #ffffff
+      font-weight: normal
+      line-height: 1
+    &.title--medium
+      font-size: 28px
+      color: #ffffff
+      font-weight: normal
+      line-height: 1
+    &.title--big
+      font-size: 45px
+      color: #ffffff
+      font-weight: 700
+      line-height: .8
+      margin-top: 15px
+      word-break: break-word
+      margin-bottom: 5px
+  .read-more-link
+    margin-top: 30px
+  .read-more-link-wrapper
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+
+.main-hero-navigation
+  position: absolute
+  top: 0
+  height: 100%
+  background: red
+  z-index: 18
+  opacity: 0
+  display: none
+  &.prev
+    left: 0
+    width: 50%
+    cursor: url("../img/cursor-left.png") 0 0, pointer
+    /* Legacy
+    cursor: url("../img/cursor-left.png") 0 0, pointer
+    /* FF
+    cursor: -webkit-image-set(url("../img/cursor-left.png") 1x, url("../img/cursor-left@2x.png") 2x) 0 0, pointer
+    /* Webkit
+  &.next
+    right: 0
+    width: 50%
+    cursor: url("../img/cursor-right.png") 0 0, pointer
+    /* Legacy
+    cursor: url("../img/cursor-right.png") 0 0, pointer
+    /* FF
+    cursor: -webkit-image-set(url("../img/cursor-right.png") 1x, url("../img/cursor-right@2x.png") 2x) 0 0, pointer
+    /* Webkit
+
+.home-about-us-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  width: 100%
+  background: #ffffff
+  border-radius: 4px
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+  padding: 20px
+  overflow: hidden
+  position: relative
+  margin-bottom: 20px
+  height: auto
+  > *
+    z-index: 1
+  span.title
+    font-size: 28px
+    color: #000000
+    font-weight: 700
+    line-height: 1
+  p.description
+    font-size: 15px
+    color: #525252
+    font-weight: normal
+    margin: 0
+    line-height: 1.56
+    margin-top: 20px
+  .author-box
+    margin-top: 30px
+
+.home-about-us-box-more
+  margin-top: 30px
+  -webkit-flex-shrink: 0
+  -ms-flex-negative: 0
+  flex-shrink: 0
+
+.home-about-us-box-shape
+  position: absolute
+  z-index: 0
+  pointer-events: none
+  left: 100%
+  bottom: -40%
+  -webkit-transform: translateX(-80px)
+  -ms-transform: translateX(-80px)
+  transform: translateX(-80px)
+
+.shape-at-left
+  .home-about-us-box-shape
+    left: inherit
+  .home-about-us-box-author-wrapper, .home-about-us-box-more-wrapper
+    display: block
+    width: 100%
+  .home-about-us-box .author-box, .home-about-us-box-more
+    float: right
+    width: auto
+  .author-box-name
+    margin-left: initial
+    margin-right: 12px
+    font-weight: 500
+
+.home-about-us-box-shape > svg
+  #outerPoly
+    stroke: #ff7506
+  #innerPoly
+    fill: #ff7506
+
+.services-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  height: 100%
+  -webkit-flex-flow: row wrap
+  /* Safari 6.1+
+  display: flex
+  flex-flow: row wrap
+
+.services-box-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  border-radius: 4px
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+  background: #ffffff
+  cursor: pointer
+  transition: .2s ease-in-out
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  padding: 10px 20px
+  width: 100%
+  + .services-box-item
+    margin-top: 20px
+  &:hover
+    background: #072867
+    i
+      color: #ffffff
+    .services-box-item-content
+      span.title, p.description
+        color: #ffffff
+  i
+    color: #696969
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    transition: .2s ease-in-out
+    font-size: 2em
+    text-align: left
+    margin-right: 0
+    margin-bottom: 15px
+
+.services-box-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  width: 100%
+  span.title
+    font-size: 20px
+    color: #000000
+    font-weight: 700
+    line-height: 1.14
+    transition: .2s ease-in-out
+  p.description
+    display: -webkit-inline-flex
+    display: -ms-inline-flexbox
+    display: inline-flex
+    font-size: 15px
+    color: #525252
+    font-weight: 300
+    margin: 0
+    line-height: 1.5
+    transition: .2s ease-in-out
+    margin-top: 10px
+
+.services-box-item.services-box-item--iconed
+  height: auto
+  padding: 10px 15px
+  &:hover
+    background: #ff7506
+
+.services-box-item--iconed-wrapper
+  margin-bottom: 15px
+
+.main-contentbox
+  margin-top: 30px
+
+.main-contentbox-figure
+  display: block
+  border-radius: 4px
+  overflow: hidden
+  height: 250px
+  position: relative
+  figure
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    margin: 0
+    width: 100%
+    height: 100%
+    position: relative
+    z-index: 1
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background-image: linear-gradient(transparent, #072867)
+
+.main-contentbox-figure-logo
+  position: absolute
+  left: inherit
+  bottom: 20px
+  z-index: 2
+  width: 100%
+  text-align: center
+  img
+    max-width: 100%
+    height: auto
+
+.main-contentbox-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  border-radius: 4px
+  background: #ffffff
+  padding: 20px
+  margin-top: 15px
+  height: auto
+  span.title
+    font-size: 28px
+    color: #000000
+    font-weight: 700
+    line-height: 0.83
+  p.description
+    margin: 0
+    line-height: 1.56
+    margin-top: 30px
+    + p
+      margin-top: 20px
+
+.main-contentbox-link
+  font-size: 15px
+  color: #797979
+  font-weight: 600
+  text-decoration: none
+  line-height: 1
+  margin-top: 35px
+  &:hover
+    color: #6c6c6c
+    text-decoration: none
+
+.featured-services
+  background: #ff7506
+  position: relative
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    top: 100%
+    height: 105px
+    width: 100%
+    background: #ffffff
+    z-index: -1
+  .section-content
+    -webkit-transform: none
+    -ms-transform: none
+    transform: none
+    margin-top: 30px
+
+.featured-services-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  background: #ffffff
+  border-radius: 4px
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.06)
+  z-index: 2
+  position: relative
+  height: auto
+  padding: 15px
+  margin-bottom: 0
+  text-decoration: none
+  &:hover
+    text-decoration: none
+  &.featured-services-item--no-description
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    height: auto
+    .featured-services-item-content
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+
+.featured-services-item-figure
+  margin: 0
+  position: absolute
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  opacity: 0
+  transition: 0.2s ease-in-out
+  z-index: 1
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-image: linear-gradient(to bottom, #ff7506, #000000)
+    opacity: .7
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.featured-services-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  position: relative
+  z-index: 2
+  i
+    color: #ff7506
+    font-size: 3em
+    margin-bottom: 32px
+    transition: 0.2s ease-in-out
+  span.title
+    font-size: 20px
+    color: #000000
+    font-weight: 600
+    line-height: 1.14
+    margin-bottom: 20px
+    transition: 0.2s ease-in-out
+  p.description
+    margin: 0
+    font-size: 15px
+    color: #525252
+    font-weight: 300
+    line-height: 1.5
+    margin-bottom: 30px
+    transition: 0.2s ease-in-out
+
+.featured-services-item-link
+  display: -webkit-inline-flex
+  display: -ms-inline-flexbox
+  display: inline-flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  font-size: 13px
+  color: #9d9d9d
+  font-weight: 600
+  line-height: 1.79
+  text-decoration: none
+  transition: 0.2s ease-in-out
+  &:hover
+    text-decoration: none
+
+.team-members-item::before
+  visibility: hidden
+  opacity: 0
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+
+.team-members
+  overflow: hidden
+  margin-top: 64px
+  padding-bottom: 0
+  background: #072867
+  height: auto
+  .section-content
+    height: auto
+    margin-top: 32px
+  &.color-inverted
+    margin-top: 0
+    background: #ffffff
+    span, p, a
+      color: #ffffff
+    .team-members-item::before
+      background-image: url("../img/team-member-hover-b.png")
+    .slick-dots li
+      background: #000000
+      &.slick-active
+        background: transparent
+        border-color: #000000
+  + div
+    margin-top: 0
+  &.team-members-type-2
+    background: initial
+
+.team-members-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-transform: none
+  -ms-transform: none
+  transform: none
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: -100px
+    width: 100%
+    height: 350px
+    -webkit-transform: scale(1.2)
+    -ms-transform: scale(1.2)
+    transform: scale(1.2)
+    background-image: url("../img/team-member-hover.png")
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: 0 29px
+    display: none
+
+.team-members-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+
+.team-members-item-figure
+  display: block
+  margin: 0
+  width: 100%
+  position: relative
+  border-radius: 4px
+  overflow: hidden
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  height: 250px
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: #072867
+    opacity: .6
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+    display: none
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: center top
+
+.team-members-item-role
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  position: absolute
+  background: #ff7506
+  border-radius: 3px
+  color: #ffffff
+  font-size: 13px
+  color: #ffffff
+  font-weight: 500
+  white-space: nowrap
+  text-overflow: ellipsis
+  overflow: hidden
+  visibility: visible
+  opacity: 1
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  left: 8px
+  right: 8px
+  bottom: 8px
+  width: calc(100% - 16px)
+  height: 40px
+  padding: 0 10px
+
+.team-members-item-name
+  font-size: 16px
+  color: #ffffff
+  font-weight: 700
+  line-height: 1.39
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+  margin-top: 20px
+
+.team-members-item-description
+  font-size: 13px
+  color: #ffffff
+  font-weight: normal
+  line-height: 1.57
+  margin: 0
+  margin-top: 15px
+  transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+
+.team-members-item
+  .app-social-links-wrapper
+    visibility: visible
+    opacity: 1
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    margin-top: 20px
+    margin-bottom: 20px
+  .app-social-link:hover
+    color: #ff7506
+
+.team-members-wrapper
+  margin-top: -50px
+  .page-has-aside .app-pagination
+    margin-top: -15px
+  .team-members-item-wrapper
+    margin-bottom: 30px
+  .team-members-item
+    .team-members-item-name
+      color: #6e6e6e
+    .team-members-item-description
+      color: #a1a1a1
+    .app-social-links-wrapper
+      -webkit-justify-content: flex-start
+      -ms-flex-pack: start
+      justify-content: flex-start
+    .app-social-link
+      color: #b8b8b8
+    &::before
+      display: none
+
+.latest-news
+  background: #efefef
+  padding-bottom: 15px
+  + *
+    margin-top: 0
+
+.latest-news-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  text-decoration: none
+  border-radius: 4px
+  overflow: hidden
+  margin-bottom: 15px
+  &:hover
+    text-decoration: none
+  figure
+    margin: 0
+    width: 100%
+    height: 210px
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.latest-news-box-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding: 15px 10px 5px 10px
+  height: auto
+  background: #ffffff
+  width: 100%
+  a
+    margin-bottom: 5px
+  span.title
+    font-size: 15px
+    color: #000000
+    font-weight: 700
+    margin-bottom: 10px
+    line-height: 1
+  p.description
+    font-size: 15px
+    color: #525252
+    font-weight: 300
+    line-height: 1.5
+    margin: 0
+    margin-bottom: 15px
+  .latest-news-box-info
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    margin-top: auto
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+    .info-text
+      font-size: 13px
+      color: #868686
+      font-weight: 600
+      line-height: 1
+      text-decoration: none
+      margin-bottom: 10px
+      + .info-text
+        margin-left: 0
+      &:hover
+        text-decoration: none
+        color: #797979
+
+.latest-news-box.latest-news-box--small
+  -webkit-flex-direction: row
+  -ms-flex-direction: row
+  flex-direction: row
+  background: #ffffff
+  height: auto
+  figure
+    width: 130px
+    height: auto
+  .latest-news-box-content
+    padding: 15px 10px 5px 10px
+    height: 100%
+    span.title
+      margin-bottom: 13px
+    p.description
+      line-height: 1.4
+      font-size: 13px
+      margin-bottom: 10px
+
+.main-map-wrapper
+  position: relative
+  height: auto
+  max-width: 100%
+  overflow: hidden
+
+.main-map-map
+  border: 0
+  width: 100%
+  background: gray
+  left: 0
+  top: 0
+  z-index: 0
+  position: relative
+  height: 250px
+  + .container
+    position: relative
+
+.main-map-form
+  width: 100%
+  background: #ffffff
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  z-index: 2
+  position: relative
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.07)
+  padding: 20px 15px
+  height: auto
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+
+.main-map-form-title-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  width: 100%
+  margin-bottom: 30px
+  span
+    &.title
+      display: block
+      width: 100%
+      text-align: center
+      font-size: 20px
+      color: #000000
+      font-weight: 700
+      line-height: 1
+    &.form-close
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      margin-left: auto
+      color: #cfd4d9
+      cursor: pointer
+      -webkit-transform: none
+      -ms-transform: none
+      transform: none
+      display: none
+      &:hover
+        color: #b3bbc2
+
+.main-map-form-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  width: 100%
+  position: relative
+  .app-input
+    width: 100%
+
+.main-map-form-item--textarea.main-map-form-item
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  width: 100%
+  margin-top: 20px
+
+.main-map-form-item + .main-map-form-item:not(.main-map-form-item--textarea)
+  margin-top: 20px
+
+.main-map-form-submit
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  width: 57px
+  height: 57px
+  border-radius: 50%
+  border: 2px solid #ff7506
+  color: #ff7506
+  background: #ffffff
+  cursor: pointer
+  transition: .2s ease-in-out
+  position: relative
+  -webkit-transform: none
+  -ms-transform: none
+  transform: none
+  left: 0
+  bottom: 0
+  margin-left: auto
+  margin-right: auto
+  margin-top: 20px
+  i
+    font-size: 1.5em
+  &:hover
+    background: #f2f2f2
+
+.main-map-form.form-active
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-animation-name: op
+  animation-name: op
+  -webkit-animation-duration: .3s
+  animation-duration: .3s
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55)
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55)
+  + .main-map-form-trigger
+    &::before, &::after
+      display: none
+
+.main-map-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-justify-content: flex-end
+  -ms-flex-pack: end
+  justify-content: flex-end
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  z-index: 2
+  width: 100%
+  position: relative
+  top: 0
+
+.main-map-form-trigger
+  width: 85px
+  height: 85px
+  box-shadow: 0 0 57px 0 rgba(0, 0, 0, 0.22)
+  position: relative
+  font-size: 2em
+  position: absolute
+  z-index: 2
+  left: 50%
+  -webkit-transform: translateX(-50%) translateY(50%)
+  -ms-transform: translateX(-50%) translateY(50%)
+  transform: translateX(-50%) translateY(50%)
+  z-index: 2
+  z-index: 0
+  top: calc(412px - 92px)
+  display: none
+  &:active, &:focus
+    box-shadow: none
+    outline: none
+  i
+    position: relative
+  &::before, &::after
+    content: ''
+    position: absolute
+    left: 50%
+    top: 50%
+    -webkit-transform: translateX(-50%) translateY(-50%)
+    -ms-transform: translateX(-50%) translateY(-50%)
+    transform: translateX(-50%) translateY(-50%)
+    border: 2px solid transparent
+    border-radius: 50%
+    -webkit-animation: pulse 3s
+    animation: pulse 3s
+    -webkit-animation-iteration-count: infinite
+    animation-iteration-count: infinite
+    -webkit-animation-timing-function: ease-in-out
+    animation-timing-function: ease-in-out
+    -webkit-animation-fill-mode: forwards
+    animation-fill-mode: forwards
+    z-index: -1
+    border-color: rgba(255, 117, 6, 0.6)
+  &::before
+    width: 111px
+    height: 111px
+  &::after
+    width: 133px
+    height: 133px
+
+.main-map-bottom-bar
+  background: #e5e5e5
+
+.main-map-bottom-bar-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  padding: 20px 0
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+
+.main-map-bottom-bar-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  + .main-map-bottom-bar-item
+    margin-top: 15px
+  i
+    width: 1em
+    color: #ff7506
+    text-align: right
+  .title
+    font-size: 16px
+    color: #000000
+    font-weight: 600
+    line-height: 1
+    text-decoration: none
+    margin-left: 10px
+
+section.our-services
+  margin-bottom: 64px
+
+@media (max-width: 992px)
+  section.our-services, .tab-section
+    margin-bottom: 32px
+
+.main-our-services + *
+  margin-top: 0
+
+.main-our-services-content-wrapper
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  margin: auto
+  padding: 0 15px
+  overflow: hidden
+  height: 100%
+  width: 100%
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+
+.main-our-services-content-item
+  display: none
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  position: relative
+  height: 100%
+  padding-bottom: 40px
+  .icon
+    color: #ff7506
+    font-size: 2em
+    margin-bottom: 20px
+  span.title
+    font-size: 15px
+    color: #202020
+    font-weight: 700
+    line-height: 1
+    margin-bottom: 0
+    text-align: center
+  p.description
+    font-size: 15px
+    color: #525252
+    font-weight: 300
+    line-height: 1.5
+    text-align: center
+    margin: 0
+    display: none
+    width: 100%
+    + p
+      margin-top: 35px
+  a.read-more
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 40px
+    background: none
+    text-align: center
+    text-decoration: none
+    &:hover
+      text-decoration: none
+    span
+      width: 100%
+      position: absolute
+      left: 0
+      top: 0
+      font-size: 11px
+      color: #ffffff
+      font-weight: 600
+      line-height: 1
+      margin-top: 10px
+    svg
+      position: absolute
+      left: 0
+      top: auto
+      width: 100%
+      height: 100%
+      path
+        fill: #ff7506
+  &.active
+    width: 100%
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    i, span.title, p.description
+      -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both
+      animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both
+
+.main-our-services-hexagon--small
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  position: absolute
+  background: transparent
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  margin: auto
+  border-radius: 50%
+  transition: .2s ease-in-out
+  cursor: pointer
+  width: 50px
+  height: 55px
+  -webkit-flex-shrink: 0
+  -ms-flex-negative: 0
+  flex-shrink: 0
+  > svg path
+    stroke: #e7e7e7
+    stroke-width: 15px
+    fill: white
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  &.active
+    path
+      fill: #ff7506
+    i
+      color: #ffffff
+  svg
+    width: 100%
+    height: 100%
+    position: relative
+  i
+    display: block
+    width: 100%
+    position: absolute
+    left: 0
+    text-align: center
+    top: 50%
+    -webkit-transform: translateY(-50%)
+    -ms-transform: translateY(-50%)
+    transform: translateY(-50%)
+    font-size: 1em
+    color: #c8c8c8
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+
+.main-our-services-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  position: relative
+  padding: 70px 0
+
+.main-our-services-hexagon--big
+  width: 55%
+  height: 55%
+  position: relative
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  > svg
+    width: 100%
+    height: 100%
+    path
+      stroke: #ff7506
+      stroke-width: 3px
+
+.page-hero
+  width: 100%
+  position: relative
+  margin-bottom: -50px
+  height: 180px
+  &.full-height
+    height: 100%
+    + .app-offer-box
+      margin-top: 0
+    .page-hero-cover
+      height: 100%
+    .page-hero-wrapper
+      height: 130px
+      padding-bottom: 0
+  &.page-hero--nopull
+    margin-bottom: 0
+
+.page-hero-cover
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 180px
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 100%
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.page-hero-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding-left: 0
+  height: 180px
+  padding-bottom: 50px
+  span.subtitle
+    font-size: 15px
+    color: #ffffff
+    font-weight: normal
+    line-height: 1.14
+    margin-bottom: 10px
+  h2.title
+    font-size: 36px
+    color: #ffffff
+    font-weight: 700
+    line-height: 0.83
+    margin-bottom: 0
+
+.author-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  margin-top: 62px
+  text-decoration: none
+  &:hover
+    text-decoration: none
+  img
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    object-fit: cover
+
+.author-box-name
+  font-size: 13px
+  color: #000000
+  font-weight: 500
+  line-height: 1.79
+  margin-left: 12px
+
+.about-us-content-container
+  background: #ffffff
+  border-radius: 4px
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+
+.about-us-content-wrapper
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding: 15px 10px
+  figure
+    margin: 0
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    width: 100%
+    height: 350px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.about-us-content-main
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding-top: 20px
+  padding-bottom: 20px
+  margin-left: 0
+  width: 100%
+  h2.title
+    font-size: 26px
+    color: #175de3
+    font-weight: 700
+    line-height: 0.89
+    margin: 0
+  span.subtitle
+    font-size: 18px
+    color: #000000
+    font-weight: 500
+    line-height: 1.25
+    margin-top: 15px
+
+.about-us-content-main-text
+  margin: 0
+  font-size: 15px
+  color: #525252
+  font-weight: normal
+  line-height: 1.56
+  margin-top: 20px
+  &.figure
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+
+.about-us-content-main .author-box
+  margin-top: 25px
+  color: #828282
+
+.about-us-content-bottom
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  height: auto
+  border-top: 1px solid #ff7506
+
+.about-us-content-bottom-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  cursor: pointer
+  background: #ffffff
+  transition: 0.2s ease-in-out
+  width: 100%
+  padding: 10px 15px
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  height: auto
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  &.slick-slide
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+  &:hover
+    background: #ff7506
+    i
+      color: #ffffff
+    .item-content
+      span.title, p.description
+        color: #ffffff
+  i
+    font-size: 2em
+    color: #ff7506
+    transition: 0.2s ease-in-out
+  .item-content
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    margin-left: 0
+    margin-top: 15px
+    span.title
+      font-size: 16px
+      color: #000000
+      font-weight: 700
+      line-height: 1.39
+      margin-bottom: 15px
+      line-height: 1
+      transition: 0.2s ease-in-out
+    p.description
+      display: inline-block
+      font-size: 13px
+      color: #525252
+      font-weight: 300
+      line-height: 1.29
+      margin: 0
+      transition: 0.2s ease-in-out
+      height: 3.87em
+
+.about-us-section
+  .slick-dots li
+    background: #000000
+    &.slick-active
+      border-color: #000000
+  &.about-us-section--overflow
+    margin-bottom: -85px
+    .slick-dots li
+      background: #ffffff
+      &.slick-active
+        background: transparent
+        border-color: #ffffff
+    + *
+      padding-top: 145px
+      margin-top: 0
+
+@media (max-width: 992px)
+  section.about-us-section, article.about-us-content
+    margin-bottom: 32px
+
+.services-list-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  border-radius: 4px
+  overflow: hidden
+  height: auto
+  transition: 0.2s ease-in-out
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  text-decoration: none
+  &:hover
+    text-decoration: none
+
+.services-list-item--vert
+  overflow: visible
+  height: 100%
+  &:hover
+    box-shadow: 0px 13px 50px 0 rgba(255, 117, 6, 0.31)
+  .services-list-item-content
+    height: 100%
+    width: 100%
+    padding: 40px 10px 20px 10px
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    span.title
+      font-size: 16px
+      margin-bottom: 15px
+      text-align: center
+    p.description
+      text-align: left
+      font-size: 13px
+      width: 100%
+    .read-more
+      margin-top: auto
+  .services-list-item-icon
+    width: 90px
+    height: 90px
+    left: 50%
+    top: 0
+    -webkit-transform: translateX(-50%) translateY(-50%)
+    -ms-transform: translateX(-50%) translateY(-50%)
+    transform: translateX(-50%) translateY(-50%)
+    box-shadow: none
+    background: #f2f2f2
+    i
+      color: #8c8c8c
+
+@media (max-width: 992px)
+  .services-list-item--vert .services-list-item-content
+    padding: 95px 30px 40px 30px
+
+.services-list-item--vert-wrapper
+  margin-top: 41px
+
+.services-list-item--narrow
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  .services-list-item-figure
+    width: 100%
+  .services-list-item-content
+    padding: 20px
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    span.title
+      margin-bottom: 25px
+    p.description
+      margin-bottom: 30px
+
+.services-list-item:hover
+  .services-list-item-icon
+    background: #ff7506
+    i
+      color: #ffffff
+  .services-list-item-content
+    &::after
+      height: 2px
+    .read-more
+      color: #ff7506
+
+.services-list-item-wrapper
+  margin-bottom: 15px
+
+.services-list-item-figure
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  width: 100%
+  height: 200px
+  -webkit-flex-shrink: 0
+  -ms-flex-negative: 0
+  flex-shrink: 0
+  margin: 0
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.services-list-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding: 20px
+  background: #ffffff
+  position: relative
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 0
+    background: #ff7506
+    transition: 0.2s ease-in-out
+  span.title
+    font-size: 20px
+    color: #000000
+    font-weight: 600
+    line-height: 18px
+    margin-bottom: 15px
+  p.description
+    margin: 0
+    font-size: 15px
+    color: #525252
+    font-weight: 300
+    line-height: 1.5
+    margin-bottom: 30px
+  .read-more
+    font-size: 13px
+    color: #9d9d9d
+    font-weight: 600
+    line-height: 9px
+    text-decoration: none
+    transition: 0.2s ease-in-out
+
+.services-list-item-icon
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  border-radius: 50%
+  background: #ffffff
+  position: absolute
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+  transition: 0.2s ease-in-out
+  width: 50px
+  height: 50px
+  top: -60px
+  left: 15px
+  -webkit-transform: none
+  -ms-transform: none
+  transform: none
+  i
+    color: #ff7506
+    transition: 0.2s ease-in-out
+    font-size: 2em
+
+.app-download-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  border-radius: 4px
+  background: #ff7506
+  position: relative
+  padding: 15px 10px
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: flex-start
+  -ms-flex-align: start
+  align-items: flex-start
+  > * + *
+    margin-top: 10px
+  &.app-download-box--dark
+    background: #424242
+  &.app-download-box--primary
+    background: #175de3
+  &.app-download-box--secondary
+    background: #072867
+
+.app-download-box-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  i
+    color: #ffffff
+    font-size: 2em
+  a.download-link
+    text-decoration: none
+    &:hover
+      color: #ffffff
+      text-decoration: none
+
+.app-download-box
+  .app-download-box-filename, .app-download-box-title
+    font-size: 14px
+    color: #ffffff
+    font-weight: 600
+    line-height: 1.67
+  .app-download-box-title--lighten
+    font-size: 14px
+    color: rgba(255, 255, 255, 0.3)
+    font-weight: 700
+    line-height: 1.79
+
+.article-wrapper
+  width: 100%
+  background: #ffffff
+  border-radius: 4px
+  overflow: hidden
+  .app-download-box
+    margin-top: 40px
+  &.portfolio-article .article-content-wrapper .article-content-main h2.title
+    font-weight: 500
+  .article-figure
+    width: 100%
+    position: relative
+    height: 300px
+    margin: 0
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  .article-figure-icon
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    position: absolute
+    width: 73px
+    height: 73px
+    background: #ffffff
+    border-radius: 50%
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+    left: 30px
+    bottom: 30px
+    i
+      font-size: 2em
+      color: #ff7506
+  .article-content-wrapper
+    padding: 20px 15px
+    .article-content-details
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      margin-bottom: 30px
+      span
+        font-size: 13px
+        color: #9d9d9d
+        font-weight: 500
+        line-height: 1
+        text-decoration: none
+      a
+        font-size: 13px
+        color: #9d9d9d
+        font-weight: 500
+        line-height: 1
+        text-decoration: none
+        &:hover
+          text-decoration: none
+          color: #848484
+      * + *
+        margin-left: 25px
+    .article-content-main
+      h2.title
+        margin: 0
+        display: block
+        font-size: 20px
+        color: #000000
+        font-weight: 700
+        line-height: 1
+        margin-bottom: 15px
+      p
+        font-size: 15px
+        color: #525252
+        font-weight: 300
+        line-height: 1.5
+        margin: 0
+        + p
+          margin-top: 10px
+      figure
+        margin: 25px 0
+        img
+          width: 100%
+          height: auto
+          object-fit: cover
+      .fluid
+        width: calc(100% + 30px)
+        margin-left: -15px
+  &.article--blog
+    .article-content-wrapper
+      padding: 20px 15px
+      .article-content-main h2.title
+        margin-bottom: 20px
+        font-weight: 500
+    .article-figure-icon
+      display: none
+
+.app-aside
+  position: -webkit-sticky
+  position: sticky
+  top: 15px
+  margin-top: 15px
+
+.app-aside-widget
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  background: #ffffff
+  border-radius: 4px
+  overflow: hidden
+  &.no-bg
+    background: transparent
+  + .app-aside-widget
+    margin-top: 15px
+
+.app-aside-widget-search
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  margin: 0
+  padding: 0
+  background: #175de3
+  padding: 0 25px 0 15px
+  .app-input
+    background: transparent
+    border: 0
+    color: #ffffff
+    padding: 0
+    -webkit-flex-grow: 1
+    -ms-flex-positive: 1
+    flex-grow: 1
+    font-size: 13px
+    font-weight: 600
+    padding-right: 15px
+    &.placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &::-webkit-input-placeholder
+      color: #ffffff
+  button.app-aside-widget-search-submit
+    width: 15px
+    height: auto
+    min-width: initial
+    -webkit-justify-content: flex-end
+    -ms-flex-pack: end
+    justify-content: flex-end
+    &:hover
+      background: #175de3
+
+.app-aside-widget-title
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  height: 64px
+  padding-left: 20px
+  position: relative
+  width: 100%
+  &::after
+    content: ''
+    position: absolute
+    right: 0
+    top: 0
+    width: 2px
+    height: 100%
+    background: #175de3
+  span.title
+    font-size: 15px
+    color: #175de3
+    font-weight: 500
+    line-height: 1.56
+
+.app-aside-widget-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  position: relative
+  &.js-aside-slider.slick-slider
+    -webkit-user-select: initial
+    -moz-user-select: initial
+    -ms-user-select: initial
+    user-select: initial
+  .app-download-box
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    -webkit-align-items: flex-start
+    -ms-flex-align: start
+    align-items: flex-start
+    padding: 15px
+    margin: 0
+  .app-download-box-content
+    &.title-box span
+      line-height: 1
+    a.download-link:hover
+      color: rgba(255, 255, 255, 0.7)
+  .app-download-box .app-download-box-title--lighten
+    color: #ffffff
+  .app-download-box-content
+    &.title-box + div
+      margin-top: 20px
+    + .app-download-box-content
+      margin-top: 10px
+  .app-download-box .box-icon
+    position: absolute
+    right: 15px
+    margin: 0
+    top: 15px
+
+.app-aside-widget-rich-menu-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  text-decoration: none
+  border-top: 1px solid #f7f7f7
+  position: relative
+  z-index: 1
+  padding: 10px
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 0px
+    background: #175de3
+    transition: .1s ease-in-out
+    z-index: -1
+    display: none
+  &:hover
+    text-decoration: none
+    &::after
+      height: 47px
+    .date
+      color: #ffffff
+      position: absolute
+      bottom: 15px
+  figure
+    margin: 0
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    margin-right: 10px
+    width: 70px
+    height: 60px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.app-aside-widget-rich-menu-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  .title
+    font-size: 13px
+    color: #252525
+    font-weight: normal
+    line-height: 1.43
+    margin-bottom: 15px
+  .date
+    font-size: 11px
+    color: #aaaaaa
+    font-weight: 500
+    transition: .1s ease-in-out
+    line-height: 1
+
+.app-aside-widget-menu-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  height: 50px
+  padding-left: 20px
+  padding-right: 20px
+  text-decoration: none
+  transition: .2s ease-in-out
+  border-top: 1px solid #f7f7f7
+  background-image: none
+  .page-menu-item-title
+    font-size: 14px
+    color: #6d6d6d
+    font-weight: 500
+    line-height: 1.6
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+  .menu-item-title
+    font-size: 14px
+    color: #6d6d6d
+    font-weight: normal
+    line-height: 1.6
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    margin-right: 10px
+  .menu-item-count
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    width: 32px
+    height: 32px
+    border-radius: 50%
+    background: #f7f7fd
+    font-size: 11px
+    color: rgba(37, 37, 37, 0.47)
+    font-weight: 500
+    margin-left: auto
+    transition: .2s ease-in-out
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+  i
+    color: #6d6d6d
+    margin-right: 15px
+  &:hover
+    text-decoration: none
+    color: #606060
+    padding-left: 25px
+    background-image: linear-gradient(to right, #ffffff, #f7f7fd)
+    .menu-item-count
+      background: #ffffff
+
+.app-aside-widget-abox
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  border-top: 1px solid #f7f7f7
+  padding: 15px
+  img
+    max-width: 100%
+    height: auto
+  a
+    text-decoration: none
+    &:hover
+      text-decoration: none
+
+.app-aside-widget-userbox
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  padding: 23px 20px
+  figure
+    margin: 0
+    width: 70px
+    height: 70px
+    margin-right: 12px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.app-aside-widget-userbox-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding-top: 5px
+  span
+    &.role
+      font-size: 9px
+      color: #848484
+      font-weight: 500
+      margin-bottom: 14px
+      line-height: 1
+    &.name
+      font-size: 15px
+      color: #175de3
+      font-weight: 700
+      line-height: 1
+      margin-bottom: 10px
+
+.app-aside-widget-detailsbox.flat-content-detailsbox
+  float: initial
+  width: 100%
+  background: #175de3
+
+.app-aside-widget-slide
+  width: 100%
+  position: relative
+  height: 400px
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 100%
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent)
+  .slide-img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.app-aside-widget-slide-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  position: absolute
+  left: 25px
+  bottom: 45px
+  right: 80px
+  z-index: 1
+  span.title
+    font-size: 15px
+    color: #ffffff
+    font-weight: 500
+    line-height: 1.56
+    margin-bottom: 13px
+  p.description
+    font-size: 13px
+    color: #b4b4b4
+    font-weight: 500
+    line-height: 1.71
+    margin: 0
+
+.app-aside-widget
+  .aside-carousel-navigation
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    position: absolute
+    right: 19px
+    bottom: 22px
+    z-index: 19
+  .aside-carousel-navigation-btn
+    display: block
+    text-align: center
+    width: 36px
+    height: 36px
+    border-radius: 50%
+    min-width: auto
+    background: transparent
+    border: 3px solid #ffffff
+    padding: 0
+    i
+      color: #ffffff
+      font-size: 1.5em
+    + .aside-carousel-navigation-btn
+      margin-top: 13px
+    &:hover, &:active, &:focus
+      background: #ffffff
+    &:hover i, &:active i, &:focus i
+      color: #969696
+  &.flat-widget .app-aside-widget-title
+    height: 47px
+    &::after
+      display: none
+    span.title
+      font-size: 14px
+      color: #3f3f3f
+      font-weight: 600
+
+.blog-list-container .app-pagination
+  margin-top: 15px
+
+.blog-list-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  border-radius: 4px
+  overflow: hidden
+  position: relative
+  height: 100%
+  text-decoration: none
+
+.blog-list-item--wide
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  .blog-list-item-figure
+    height: 180px
+    width: 100%
+    span.blog-list-item-figure-icon
+      width: 55px
+      height: 55px
+      right: 5px
+      top: 15px
+    img.avatar
+      -webkit-transform: none
+      -ms-transform: none
+      transform: none
+      right: 5px
+      bottom: 15px
+  .blog-list-item-content
+    position: relative
+    padding: 15px 10px
+
+.blog-list-item--wrapper
+  margin-bottom: 30px
+  .blog-list-item--wrapper:last-of-type + .col-12
+    margin-top: -30px
+
+.blog-list-item:hover
+  text-decoration: none
+  .blog-list-item-content
+    span.title, .read-more
+      color: #ff7506
+    &::after
+      height: 3px
+
+.blog-list-item-figure
+  width: 100%
+  height: 230px
+  position: relative
+  margin: 0
+  -webkit-flex-shrink: 0
+  -ms-flex-negative: 0
+  flex-shrink: 0
+  img.thumbnail
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.blog-list-item-figure-icon
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  border-radius: 50%
+  position: absolute
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+  background: #ffffff
+  right: 10px
+  top: 10px
+  width: 50px
+  height: 50px
+  i
+    font-size: 2em
+    color: #ff7506
+
+.blog-list-item-figure img.avatar
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  object-fit: cover
+  position: absolute
+  right: 10px
+  bottom: 10px
+  -webkit-transform: none
+  -ms-transform: none
+  transform: none
+
+.blog-list-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  padding: 15px 10px
+  background: #ffffff
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 0px
+    background: #ff7506
+    transition: 0.2s ease-in-out
+  span.title
+    font-size: 18px
+    color: #000000
+    font-weight: 600
+    line-height: 1.25
+    transition: 0.2s ease-in-out
+    margin-bottom: 10px
+
+.blog-list-item-content-detail
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  margin-bottom: 15px
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  span
+    font-size: 11px
+    color: #9d9d9d
+    font-weight: 500
+    line-height: 1
+    margin-right: 10px
+    margin-bottom: 5px
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    word-break: break-all
+
+.blog-list-item-content
+  p.description
+    font-size: 15px
+    color: #525252
+    font-weight: 300
+    line-height: 1.5
+    margin: 0
+    margin-bottom: 25px
+  .read-more
+    font-size: 13px
+    color: #9d9d9d
+    font-weight: 600
+    line-height: 1
+    transition: 0.2s ease-in-out
+
+.comments-section
+  .section-content
+    margin-top: 30px
+  .section-title-wrapper
+    margin-top: 30px
+    -webkit-align-items: flex-start
+    -ms-flex-align: start
+    align-items: flex-start
+    .section-title
+      margin-top: 0
+      padding-bottom: 0
+      margin-bottom: 15px
+      &::after
+        display: none
+    span.subtitle
+      font-size: 15px
+      color: #858585
+      font-weight: 500
+      padding-bottom: 18px
+      &::after
+        display: block
+        left: 0
+        -webkit-transform: none
+        -ms-transform: none
+        transform: none
+  form.comment-form
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    .input-row
+      width: calc((100% - 15px)/2)
+      button.app-btn[type='submit']
+        border-radius: 0
+        font-size: 15px
+        color: #ffffff
+        font-weight: 600
+      &.full-row
+        width: 100%
+        margin-left: 0
+        margin-top: 15px
+      + .input-row:not(.full-row)
+        margin-left: 15px
+      input
+        height: 50px
+      textarea
+        padding: 20px 35px
+        min-height: 90px
+      input, textarea
+        width: 100%
+        border-radius: 0
+        border-color: transparent
+        font-size: 13px
+        color: #175de3
+        font-weight: normal
+      input.placeholder, textarea.placeholder, input:-moz-placeholder, textarea:-moz-placeholder, input::-moz-placeholder, textarea::-moz-placeholder, input:-ms-input-placeholder, textarea:-ms-input-placeholder, input::-webkit-input-placeholder, textarea::-webkit-input-placeholder
+        color: #313131
+        font-weight: 500
+      input:focus, textarea:focus
+        border-color: #175de3
+  .app-comment-box
+    border-radius: 4px
+    background: #ffffff
+    position: relative
+    display: block
+    padding: 10px 15px
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 0px
+      background: #175de3
+      transition: .1s ease-in-out
+    + .app-comment-box
+      margin-top: 30px
+    &.comment--reply
+      margin-left: 50px
+    figure.avatar
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      margin: 0
+      width: 70px
+      height: 70px
+      -webkit-flex-shrink: 0
+      -ms-flex-negative: 0
+      flex-shrink: 0
+      float: left
+      margin-right: 10px
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+  .app-comment-box-content
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    padding-top: 5px
+    display: block
+    .comment-head
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      -webkit-justify-content: space-between
+      -ms-flex-pack: justify
+      justify-content: space-between
+      margin-bottom: 10px
+      .date
+        font-size: 13px
+        color: #939393
+        font-weight: 600
+        line-height: 1
+      .reply
+        font-size: 11px
+        color: #939393
+        font-weight: 500
+        text-decoration: none
+        line-height: 1
+        &:hover
+          text-decoration: none
+          color: #175de3
+    .comment-person
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      margin-bottom: 10px
+      -webkit-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      -webkit-align-items: flex-start
+      -ms-flex-align: start
+      align-items: flex-start
+      .name
+        font-size: 13px
+        color: #242424
+        font-weight: 600
+        line-height: 1.2
+      .role
+        font-size: 10px
+        color: #939393
+        font-weight: 600
+        line-height: 1
+        margin-left: 0
+        margin-top: 10px
+    p.description
+      font-size: 12px
+      color: #757575
+      font-weight: normal
+      margin: 0
+      + p
+        margin-top: 20px
+
+.portfolio-items-wrapper
+  margin-bottom: -30px
+  margin-top: -50px
+
+.portfolio-list-item
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  position: relative
+  border-radius: 4px
+  overflow: hidden
+  text-decoration: none
+
+.portfolio-list-item--type2 .portfolio-list-item-content span.title
+  font-size: 18px
+
+.portfolio-list-item--type3
+  .portfolio-item-details
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+  .portfolio-list-item-content span.title
+    font-size: 16px
+  &:hover span.title
+    color: #ff7506
+
+.portfolio-list-lightbox a:hover span.read-more
+  color: #ff7506
+
+.portfolio-list-item
+  &:hover
+    text-decoration: none
+    &::after
+      height: 2px
+    .read-more
+      color: #ff7506
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 0px
+    background: #ff7506
+    transition: 0.1s ease-in-out
+  figure.thumbnail
+    width: 100%
+    height: 295px
+    margin: 0
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.portfolio-list-item-content
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  background: #ffffff
+  padding: 15px
+  margin-bottom: 30px
+  span.title
+    font-size: 20px
+    color: #000000
+    font-weight: 500
+    line-height: 1.14
+    margin-bottom: 15px
+    transition: 0.1s ease-in-out
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+  .portfolio-item-details
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    span, a
+      font-size: 11px
+      color: #9d9d9d
+      font-weight: 600
+      line-height: 1
+      text-decoration: none
+      -webkit-flex-shrink: 0
+      -ms-flex-negative: 0
+      flex-shrink: 0
+      margin-right: 10px
+      margin-bottom: 5px
+    span:hover, a:hover
+      text-decoration: none
+
+.small-article-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  position: relative
+  height: 200px
+  background: #ffffff
+  text-decoration: none
+  border-radius: 4px
+  margin-top: 50px
+  &:hover
+    text-decoration: none
+    .small-article-thumbnail
+      opacity: 1
+    span.small-article-title
+      color: #ffffff
+    .small-article-btn
+      background: #ff7506
+  .small-article-thumbnail
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    margin: 0
+    z-index: 1
+    transition: 0.2s ease-in-out
+    opacity: 1
+    border-radius: 4px
+    overflow: hidden
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background: rgba(0, 0, 0, 0.6)
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background: rgba(7, 40, 103, 0.65)
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      mix-blend-mode: luminosity
+  .small-article-btn
+    display: -webkit-inline-flex
+    display: -ms-inline-flexbox
+    display: inline-flex
+    position: absolute
+    top: 50%
+    z-index: 2
+    background: #072867
+    padding: 0 30px
+    min-width: 120px
+    font-size: 10px
+    color: #ffffff
+    font-weight: 700
+    transition: 0.2s ease-in-out
+  &.prev .small-article-btn
+    left: 50%
+    top: 0
+    -webkit-transform: translateX(-50%) translateY(-50%)
+    -ms-transform: translateX(-50%) translateY(-50%)
+    transform: translateX(-50%) translateY(-50%)
+  &.next .small-article-btn
+    right: 50%
+    top: 0
+    -webkit-transform: translateX(50%) translateY(-50%)
+    -ms-transform: translateX(50%) translateY(-50%)
+    transform: translateX(50%) translateY(-50%)
+  span
+    &.small-article-date
+      font-size: 13px
+      font-weight: 700
+      color: #cacaca
+      z-index: 2
+      transition: 0.2s ease-in-out
+    &.small-article-title
+      width: 250px
+      font-size: 20px
+      font-weight: normal
+      line-height: 1.5
+      text-align: center
+      margin-top: 25px
+      z-index: 2
+      color: #ffffff
+      transition: 0.2s ease-in-out
+
+.author-social-links
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+  a.app-social-link
+    font-size: .8em
+    color: #bababb
+    + a
+      margin-left: 15px
+    &:hover
+      color: #175de3
+
+.mb-60
+  margin-bottom: 60px
+
+.mb-64
+  margin-bottom: 64px
+
+/* Additionanl Media Queries
+@media (max-width: 992px)
+  .mb-64
+    margin-bottom: 32px
+  .section-title-wrapper .section-title, .page-hero-wrapper h2.title
+    line-height: 1
+
+/* Links
+
+.latest-news-box a, span.info-text a, .read-more a, .latest-news-box a:hover, span.info-text a:hover, .read-more a:hover
+  text-decoration: none
+  color: inherit
+
+form span.error
+  margin-left: 15px
+  color: #dc3545
+
+@media (min-width: 350px)
+  .app-pricing-item-heading
+    span.item-title
+      font-size: 18px
+    .price-wrapper span
+      &.price
+        font-size: 45px
+      &.symbol
+        font-size: 28px
+      &.amount
+        font-size: 15px
+  .app-pricing-item-content-row span.title
+    font-size: 15px
+  .app-pricing-item-content
+    p.description
+      font-size: 13px
+    .select-plan-btn
+      padding: 0 45px
+      font-size: 15px
+  .app-download-box
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    > * + *
+      margin-top: 0
+    .box-icon
+      margin-left: 10px
+  .blog-list-item-content-detail span
+    font-size: 13px
+
+@media (min-width: 400px)
+  .app-elements-page .app-button-list button.app-btn
+    width: 48%
+  .main-our-services-content-item
+    .icon
+      font-size: 3em
+    span.title
+      font-size: 22px
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: 400px)
+  .main-our-services-hexagon--big
+    width: 300px !important
+    height: 300px !important
+
+@media (min-width: 576px)
+  .app-elements-page .app-button-list
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    button.app-btn
+      margin-right: 15px
+      width: 30%
+  .app-footer-wrapper .app-footer-text + .app-footer-text
+    margin-left: 15px
+  .app-author-box-content
+    .author-head-info
+      .name
+        font-size: 15px
+      .role
+        font-size: 13px
+    p.description
+      font-size: 13px
+  .app-pricing-item--wide .app-pricing-item-content
+    padding: 40px 40px 25px 35px
+  .app-design-guide-heading-wrapper
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    h1, h2, h3, h4, h5, h6
+      margin: 0
+  .app-design-guide-colors
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+    .color-item + .color-item
+      margin-top: 0px
+  .app-tabnav--vert .app-tabnav--navs
+    width: 100px
+  .flat-content-detailsbox
+    padding: 15px
+    display: block
+    width: 200px
+    margin: 0 15px 5px 0
+    float: left
+    span.title
+      text-align: left
+      -webkit-flex-basis: auto
+      -ms-flex-preferred-size: auto
+      flex-basis: auto
+      margin-bottom: 30px
+  .flat-content-detailsbox-item
+    margin-bottom: 0
+    width: auto
+    + .flat-content-detailsbox-item
+      margin-top: 30px
+    .item-title
+      font-size: 10px
+    .item-content
+      font-size: 15px
+  .team-members-wrapper .page-has-aside .app-pagination
+    margin-top: 0px
+  .main-our-services-content-wrapper
+    padding: 0 30px
+  .main-our-services-hexagon--small
+    width: 65px
+    height: 80px
+    i
+      font-size: 2em
+  .main-our-services-wrapper
+    padding: 130px 0 80px 0
+  .comments-section .app-comment-box-content
+    .comment-person
+      -webkit-flex-direction: row
+      -ms-flex-direction: row
+      flex-direction: row
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      .name
+        font-size: 15px
+      .role
+        font-size: 13px
+        margin-top: 0
+        margin-left: 30px
+    p.description
+      font-size: 13px
+
+@media screen and (min-width: 768px)
+  .app-elements-page .app-tabnav--vert
+    margin-top: 0
+  .page-has-aside
+    &.page-aside--left
+      -webkit-order: 2
+      -ms-flex-order: 2
+      order: 2
+    .services-list-item-wrapper + .app-pagination
+      margin-top: 0
+    .app-design-guide-colors .color-item span.color
+      width: 60px
+      height: 60px
+      margin-right: 10px
+  .headbar
+    background: #ffffff
+  .headbar-text
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    color: #919191
+  .headbar-mail-link
+    color: #175de3
+  .headbar .app-social-links-wrapper
+    margin-top: 10px
+    margin-bottom: 10px
+    display: inherit
+  .app-pagination
+    margin-top: 34px
+  ul.pagination li.page-item
+    height: 48px
+    .page-link
+      padding: 0 8px
+    + .page-item
+      margin-left: 13px
+  .app-statistics-item, .app-statistics-item-figure
+    height: 160px
+  .app-statistics-item-content
+    margin-top: 50px
+    span.amount
+      font-size: 40px
+  .app-author-box
+    padding: 28px
+    figure
+      margin-right: 20px
+  .app-offer-box
+    padding: 60px 0
+    margin-top: 64px
+  .app-offer-box-content
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+  .app-offer-box-left
+    span.title
+      line-height: 1.2
+    p.description
+      margin-top: 30px
+  .app-offer-box-right
+    margin-top: 0
+    margin-left: 0
+    margin-right: 0
+  .app-tab-filter
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-transform: none
+    -ms-transform: none
+    transform: none
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    margin: 50px 0
+    height: auto
+    background: none
+    border: 0
+    padding: 0
+    overflow: auto
+  .app-tab-filter-wrapper .mobile-tab-toggle
+    display: none
+  .app-tab-filter-item + .app-tab-filter-item
+    margin-left: 40px
+  .app-accordion .card
+    + .card
+      margin-top: 32px
+    .card-header
+      .accordion-link
+        padding: 0 70px
+      .accordion-icon
+        right: 30px
+    .card-body
+      padding: 35px 70px 40px 70px
+  .app-pricing-item-heading
+    padding: 90px 10px 65px 10px
+    span
+      &.item-icon
+        width: 100px
+        height: 100px
+      &.item-title
+        font-size: 23px
+  .app-pricing-item-content
+    padding: 50px 35px 30px 35px
+  .app-pricing-item-content-row + .app-pricing-item-content-row
+    margin-top: 30px
+  .app-pricing-item-content
+    p.description
+      margin-bottom: 30px
+      margin-top: 60px
+    .select-plan-btn
+      min-width: 170px
+  .app-pricing-item--wide .app-pricing-item-heading .item-icon
+    width: 80px
+    height: 80px
+  .app-contact-wrapper
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    form.contact-form-wrapper
+      padding: 35px 25px
+    .contact-form-details
+      padding: 35px 25px
+      width: 400px
+    .contact-form-details-item
+      + .contact-form-details-item
+        margin-top: 40px
+      i
+        margin-right: 35px
+  .app-design-guide-subrow
+    margin-top: 40px
+  .app-design-guide-row .chars-wrapper * + *
+    margin-left: 25px
+  .app-design-guide-colors .color-item
+    span.color
+      width: 70px
+      height: 70px
+      margin-right: 30px
+    .color-item-content span
+      &.hex
+        font-size: 24px
+      &.color-detail
+        font-size: 16px
+  .page-404-wrapper
+    .title
+      font-size: 250px
+    .title-shadow
+      font-size: 250px
+      text-shadow: 8px 13px 0 rgba(199, 199, 199, 0.65)
+  .main-hero-wrapper
+    height: 795px
+    margin-bottom: -75px
+  .main-hero-item
+    height: 795px
+  .main-hero-item-content
+    margin-bottom: 210px
+    span
+      &.title--small
+        font-size: 22px
+      &.title--medium
+        font-size: 45px
+      &.title--big
+        font-size: 110px
+        margin-bottom: 0
+        line-height: 112px
+  .home-about-us-box
+    height: 100%
+  .home-about-us-box-shape
+    -webkit-transform: translateX(-100px) translateY(-20px)
+    -ms-transform: translateX(-100px) translateY(-20px)
+    transform: translateX(-100px) translateY(-20px)
+  .main-contentbox
+    margin-top: 64px
+  .main-contentbox-figure
+    height: 628px
+  .main-contentbox-figure-logo
+    width: auto
+    text-align: left
+    left: 100px
+    bottom: 67px
+  .main-contentbox-content
+    padding: 40px 25px
+    height: 628px
+    margin-top: 0
+    p.description
+      margin-top: auto
+      + p
+        margin-top: 40px
+  .main-contentbox-link
+    margin-top: auto
+  .team-members-item-role
+    left: 15px
+    right: 15px
+    bottom: 15px
+    width: calc(100% - 30px)
+    height: 40px
+    padding: 0 20px
+  .team-members-wrapper
+    .page-has-aside .app-pagination
+      margin-top: 65px
+    .team-members-item-wrapper
+      margin-bottom: 30px
+  .latest-news-box.latest-news-box--small .latest-news-box-content
+    span.title
+      margin-bottom: 18px
+    .latest-news-box-info
+      margin-top: 0px
+    p.description
+      margin-bottom: 30px
+    .info-text:last-of-type
+      margin-left: 45px
+  .main-map-form
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    padding: 30px 50px
+  .main-map-form-title-wrapper
+    margin-bottom: 60px
+  .main-map-form-item
+    width: calc((100% - 70px)/3)
+    + .main-map-form-item:not(.main-map-form-item--textarea)
+      margin-left: auto
+      margin-top: 0
+  .main-our-services
+    padding-bottom: 60px
+  .main-our-services-content-wrapper
+    padding: 0 15px
+  .main-our-services-content-item
+    .icon, span.title
+      margin-bottom: 15px
+    p.description
+      display: block
+      + p
+        margin-top: 20px
+    a.read-more
+      height: 60px
+      span
+        margin-top: 20px
+        font-size: 15px
+  .main-our-services-hexagon--small
+    width: 80px
+    height: 90px
+  .main-our-services-hexagon--big
+    width: 50%
+    height: 50%
+  .page-hero
+    height: 265px
+    &.full-height .page-hero-wrapper
+      height: 215px
+  .page-hero-cover
+    height: 265px
+  .page-hero-wrapper
+    height: 265px
+    padding-left: 65px
+    padding-bottom: 0
+    span.subtitle
+      font-size: 20px
+      margin-bottom: 20px
+    h2.title
+      font-size: 60px
+  .about-us-content
+    margin-bottom: 64px
+  .about-us-content-wrapper
+    padding: 30px 30px
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    figure
+      height: auto
+      width: 300px
+  .about-us-content-main
+    margin-left: 30px
+    span.subtitle
+      margin-top: 30px
+  .about-us-content-main-text
+    margin-top: 30px
+  .about-us-content-bottom
+    height: 155px
+  .about-us-content-bottom-item
+    width: 25%
+    padding: 0 35px
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    height: 155px
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    i
+      font-size: 3.5em
+    .item-content
+      margin-left: 30px
+      margin-top: 0
+  .services-list-item--vert
+    .services-list-item-content
+      span.title
+        font-size: 20px
+        margin-bottom: 25px
+        line-height: 22px
+      p.description
+        text-align: center
+        font-size: 15px
+    .services-list-item-icon
+      height: 100px
+      width: 100px
+  .services-list-item-wrapper
+    margin-bottom: 30px
+  .services-list-item-content span.title
+    margin-bottom: 40px
+  .app-download-box
+    padding: 30px 45px 30px 30px
+  .app-download-box-content i
+    font-size: 3em
+  .article-wrapper .article-content-wrapper .article-content-main
+    h2.title
+      margin-bottom: 25px
+    p + p
+      margin-top: 20px
+  .app-aside
+    margin-top: 0
+  .app-aside-widget-abox
+    padding: 20px
+  .app-aside-widget-slide
+    height: 475px
+  .blog-list-container .app-pagination
+    margin-top: 34px
+  .portfolio-pagination.app-pagination
+    margin-top: 64px
+  .services-list-pagination.app-pagination
+    margin-top: 0px
+  .blog-list-item-figure
+    height: 345px
+  .blog-list-item-figure-icon
+    width: 82px
+    height: 82px
+    right: 40px
+    top: 25px
+  .blog-list-item-figure img.avatar
+    -webkit-transform: translateY(50%)
+    -ms-transform: translateY(50%)
+    transform: translateY(50%)
+    bottom: 0
+  .blog-list-item-content
+    padding: 30px 20px
+    span.title
+      margin-bottom: 25px
+  .blog-list-item-content-detail
+    margin-bottom: 20px
+    span
+      margin-right: 0
+      margin-bottom: 0
+  .blog-list-item-content p.description
+    margin-bottom: 40px
+  .comments-section
+    form.comment-form .input-row
+      width: calc((100% - 30px)/2)
+      &.full-row
+        margin-top: 30px
+      + .input-row:not(.full-row)
+        margin-left: 30px
+    .app-comment-box-content .comment-person
+      margin-bottom: 20px
+  .portfolio-items-wrapper
+    margin-top: 0
+  .portfolio-list-item-content .portfolio-item-details
+    -webkit-flex-wrap: nowrap
+    -ms-flex-wrap: nowrap
+    flex-wrap: nowrap
+    span, a
+      margin-right: 0
+      margin-bottom: 0
+    * + *
+      margin-left: 25px
+    .read-more
+      margin-left: auto
+  .small-article-box
+    margin-top: 64px
+
+@media (min-width: 800px)
+  .main-our-services-content-item
+    .icon
+      margin-bottom: 35px
+    span.title
+      margin-bottom: 30px
+
+@media screen and (min-width: 992px)
+  body.navbar--fixed .app-aside
+    top: 105px
+  .divider
+    margin: 64px 0
+  .divider-2
+    margin: 64px 0px 48px 0px
+  .app-elements-page .app-button-list
+    margin-top: 50px
+    -webkit-flex-wrap: nowrap
+    -ms-flex-wrap: nowrap
+    flex-wrap: nowrap
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    button.app-btn
+      margin-bottom: 0
+  .page-hero:not(.page-hero--nopull) + [class*='col'] aside.app-aside
+    margin-top: -50px
+  .page-has-aside
+    .team-members-item-wrapper:nth-child(-n+3)
+      margin-top: 50px
+    .services-list-item-wrapper + .app-pagination
+      margin-top: 34px
+    .services-list-item:not(.services-list-item--vert)
+      .services-list-item-figure
+        width: 200px
+      .services-list-item-content
+        padding: 30px 30px 30px 50px
+      .services-list-item-icon
+        width: 80px
+        height: 80px
+    .app-design-guide-colors
+      -webkit-flex-wrap: nowrap
+      -ms-flex-wrap: nowrap
+      flex-wrap: nowrap
+  .headbar
+    height: 45px
+  .headbar-container
+    height: 45px
+    -webkit-flex-wrap: nowrap
+    -ms-flex-wrap: nowrap
+    flex-wrap: nowrap
+    padding: 0
+  .headbar .app-social-links-wrapper
+    margin-top: 0
+    margin-bottom: 0
+  .app-navbar
+    height: 90px
+  .headbar-with-logo + .app-navbar
+    height: 60px
+  .app-navbar-container
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    height: 90px
+    -webkit-flex-wrap: nowrap
+    -ms-flex-wrap: nowrap
+    flex-wrap: nowrap
+  .headbar-with-logo + .app-navbar .app-navbar-container
+    height: 60px
+  .app-navbar-logo
+    height: 100%
+    img
+      height: auto
+  .app-navbar-ul
+    height: 100% !important
+    &.menu-open
+      overflow-y: inherit
+    position: relative
+    left: inherit
+    top: inherit
+    width: inherit
+    opacity: 1
+    visibility: visible
+    -webkit-flex-basis: inherit
+    -ms-flex-preferred-size: inherit
+    flex-basis: inherit
+    -webkit-order: inherit
+    -ms-flex-order: inherit
+    order: inherit
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    border-top: inherit
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    height: 100%
+    overflow: hidden
+  .app-navbar-ul-link
+    height: 100%
+    width: auto
+    padding: inherit
+    &.has-child
+      -webkit-flex-direction: row
+      -ms-flex-direction: row
+      flex-direction: row
+      -webkit-align-items: center
+      -ms-flex-align: center
+      align-items: center
+      &:last-of-type .app-navbar-dropdown
+        left: inherit
+        right: -50%
+      .app-navbar-dropdown
+        width: auto
+        background: #ffffff
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+        position: absolute
+        left: 0
+        top: 100%
+        -webkit-transform: translateY(20%)
+        -ms-transform: translateY(20%)
+        transform: translateY(20%)
+        margin: 0
+        height: auto
+        transition: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s, opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s
+        pointer-events: inherit
+    &.active::before
+      display: block
+    a
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      width: inherit
+    + .app-navbar-ul-link
+      margin-left: 20px
+      border-top: inherit
+  .app-navbar-search
+    position: relative
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    button
+      &.app-navbar-search-btn.app-btn i
+        color: #ffffff
+      &.app-navbar-search-btn-close
+        margin-right: inherit
+    input
+      height: 40px
+      background: #eee
+      border-radius: 30px
+      &:focus
+        border-radius: 30px
+    .input-wrapper
+      transition: .2s ease-in-out
+      top: inherit
+      left: inherit
+      right: 0
+      border: none
+      &.active
+        top: inherit
+        border: inherit
+        width: 800px
+  .app-navbar-trigger
+    display: none
+  .app-footer-wrapper
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    padding: 33px 0
+    .app-footer-text
+      margin-right: 0
+      margin-top: 0
+  .app-footer .app-social-links-wrapper
+    -webkit-flex-basis: auto
+    -ms-flex-preferred-size: auto
+    flex-basis: auto
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+  .app-footer-content
+    -webkit-flex-wrap: nowrap
+    -ms-flex-wrap: nowrap
+    flex-wrap: nowrap
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+  .app-statistics-wrapper
+    height: 180px
+    padding-top: 0
+  .app-statistics-item
+    margin-bottom: 0
+    height: 180px
+    &:hover
+      .app-statistics-item-icon
+        visibility: visible
+        opacity: 1
+      .app-statistics-item-figure
+        visibility: visible
+        -webkit-transform: translateY(-64px)
+        -ms-transform: translateY(-64px)
+        transform: translateY(-64px)
+        opacity: 1
+      span
+        &.title, &.amount
+          color: #ffffff
+  .app-statistics-item-figure
+    visibility: hidden
+    -webkit-transform: translateY(-32px)
+    -ms-transform: translateY(-32px)
+    transform: translateY(-32px)
+    opacity: 0
+    height: 265px
+  .app-statistics-item-content
+    padding: 0
+    margin-top: 0
+    span
+      &.amount
+        color: #404040
+      &.title
+        color: #b1b1b1
+        margin-top: 0
+        text-align: left
+  .app-statistics-item-icon
+    visibility: hidden
+    opacity: 0
+    top: 30px
+    font-size: 3em
+  .app-brands-item
+    width: calc((100% - 90px)/4)
+    + .app-brands-item
+      margin-left: 30px
+  .app-accordion.bordered-accordion .card
+    .card-header .accordion-link
+      padding: 0 55px 0 30px
+    .card-body
+      padding: 40px 30px
+  .app-pricing-item
+    margin-top: 80px
+    &:hover
+      margin-top: 0px
+      box-shadow: 0px 7px 59px 0 rgba(0, 0, 0, 0.1)
+      .app-pricing-item-heading
+        padding-top: 170px
+        background: #ff7506
+        .item-icon
+          -webkit-transform: translateX(-50%)
+          -ms-transform: translateX(-50%)
+          transform: translateX(-50%)
+          top: 50px
+          i
+            color: #ff7506
+  .app-pricing-item-heading .price-wrapper span.price
+    font-size: 70px
+  .app-pricing-item--wide
+    margin-top: 50px
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    &:hover
+      margin-top: 50px
+      .app-pricing-item-heading
+        padding-top: 0
+        .item-icon
+          -webkit-transform: translateX(50%) translateY(-50%)
+          -ms-transform: translateX(50%) translateY(-50%)
+          transform: translateX(50%) translateY(-50%)
+          margin: 0
+          top: 50%
+    .app-pricing-item-heading
+      padding: 0
+      width: 220px
+      border-radius: 4px 0 0 4px
+      .item-icon
+        right: 0
+        top: 50%
+        -webkit-transform: translateX(50%) translateY(-50%)
+        -ms-transform: translateX(50%) translateY(-50%)
+        transform: translateX(50%) translateY(-50%)
+  .app-pricing-item--wide-wrapper:nth-last-child(-n+2) .app-pricing-item--wide
+    margin-top: 35px
+  .app-contact-wrapper
+    form.contact-form-wrapper
+      padding: 95px 70px 50px 70px
+    .contact-form-details
+      padding: 95px 70px 95px 100px
+      width: 600px
+    .contact-form-details-item
+      padding: 35px 40px
+  .app-design-guide span.row-title
+    margin-top: 64px
+  .app-design-guide-wrapper
+    padding: 15px 70px 50px 100px
+  .app-design-guide-row
+    margin-top: 65px
+  .app-tabnav--content
+    padding: 25px 25px 45px 25px
+  .app-tabnav .nav-link
+    min-height: 60px
+    padding: 0 40px
+  .app-tabnav--vert
+    .app-tabnav--content
+      padding: 40px 35px
+    .app-tabnav--navs
+      width: 140px
+  .page-404-wrapper
+    padding-top: 145px
+    margin-bottom: 70px
+    p.description
+      margin-top: 95px
+      padding: 0 75px
+    a.app-btn
+      margin-top: 30px
+  .flat-content-detailsbox
+    padding: 30px
+    margin: 0 30px 25px 0
+  .section-title-wrapper
+    margin-top: 64px
+    &.mt-reduce
+      margin-top: 50px
+      + .section-content
+        margin-top: 50px
+  .section-content
+    margin-top: 64px
+  .main-hero-navigation
+    display: block
+  .home-about-us-box
+    padding: 30px 35px
+    margin-bottom: 0
+    p.description
+      margin-top: 65px
+    .author-box
+      margin-top: 62px
+  .home-about-us-box-shape
+    -webkit-transform: translateX(-150px) translateY(-40px)
+    -ms-transform: translateX(-150px) translateY(-40px)
+    transform: translateX(-150px) translateY(-40px)
+  .services-box-item
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+    padding: 30px 60px
+    + .services-box-item
+      margin-top: 30px
+    i
+      font-size: 3em
+      text-align: center
+      margin-right: 45px
+      margin-bottom: 0
+  .services-box-item-content p.description
+    margin-top: 20px
+  .services-box-item.services-box-item--iconed
+    padding: 30px 20px 30px 50px
+    height: 145px
+  .services-box-item--iconed-wrapper
+    margin-bottom: 30px
+  .main-contentbox-content
+    padding: 94px 64px
+  .featured-services
+    margin-bottom: 105px
+    .section-content
+      -webkit-transform: translateY(135px)
+      -ms-transform: translateY(135px)
+      transform: translateY(135px)
+      margin-top: -71px
+  .featured-services-item
+    margin-bottom: 30px
+    &:hover
+      .featured-services-item-figure
+        opacity: 1
+      .featured-services-item-content
+        i, span.title, p.description, .featured-services-item-link
+          color: #ffffff
+  .team-members
+    background: linear-gradient(180deg, #072867 550px, #ffffff 0, #ffffff calc(100% - 550px))
+    padding-bottom: 64px
+    .section-content
+      height: 550px
+    &.color-inverted
+      background: linear-gradient(180deg, #ffffff 550px, #072867 0, #072867 calc(100% - 550px))
+  .team-members-item
+    -webkit-transform: translateY(32px)
+    -ms-transform: translateY(32px)
+    transform: translateY(32px)
+    &::before
+      display: block
+    &:hover
+      -webkit-transform: translateY(0)
+      -ms-transform: translateY(0)
+      transform: translateY(0)
+      &::before
+        visibility: visible
+        opacity: 1
+        top: 0
+      .team-members-item-figure
+        height: 415px
+        &::before
+          opacity: 0
+      .team-members-item-role
+        visibility: visible
+        opacity: 1
+      .app-social-links-wrapper
+        visibility: visible
+        opacity: 1
+        display: block
+  .team-members-item-figure
+    height: 315px
+    &::before
+      display: block
+  .team-members-item-role
+    visibility: hidden
+    opacity: 0
+  .team-members-item-name
+    color: #6e6e6e
+    margin-top: 65px
+  .team-members-item-description
+    color: #a1a1a1
+    margin-top: 30px
+  .team-members-item .app-social-links-wrapper
+    padding-top: 30px
+    margin-bottom: 0
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    visibility: hidden
+    opacity: 0
+    display: none
+  .team-members-wrapper
+    margin-top: 0
+    .team-members-item-wrapper
+      margin-bottom: 0
+    .team-members-item
+      -webkit-transform: translateY(0px)
+      -ms-transform: translateY(0px)
+      transform: translateY(0px)
+      padding-bottom: 32px
+      margin-bottom: 32px
+      &:hover
+        -webkit-transform: translateY(-32px)
+        -ms-transform: translateY(-32px)
+        transform: translateY(-32px)
+        .team-members-item-figure
+          box-shadow: 0px 10px 43px 0 rgba(0, 0, 0, 0.46)
+  .latest-news
+    padding-bottom: 64px
+  .latest-news-box
+    margin-bottom: 0
+    figure
+      height: 365px
+  .latest-news-box-content
+    padding: 24px 70px
+    height: 173px
+    span.title, p.description
+      margin-bottom: 20px
+    .latest-news-box-info
+      -webkit-flex-wrap: nowrap
+      -ms-flex-wrap: nowrap
+      flex-wrap: nowrap
+      -webkit-justify-content: flex-start
+      -ms-flex-pack: start
+      justify-content: flex-start
+      .info-text
+        margin-bottom: 0
+        + .info-text
+          margin-left: 45px
+        &:last-of-type
+          margin-left: auto
+  .latest-news-box.latest-news-box--small
+    height: 160px
+    + .latest-news-box--small
+      margin-top: 30px
+    figure
+      height: 100%
+      width: 150px
+    .latest-news-box-content
+      padding: 30px
+  .main-map-wrapper
+    height: 600px
+  .main-map-map
+    position: absolute
+    height: 100%
+  .main-map-form
+    display: none
+    height: 405px
+    padding: 65px 100px
+  .main-map-form-title-wrapper span.form-close
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-transform: translateX(55px)
+    -ms-transform: translateX(55px)
+    transform: translateX(55px)
+  .main-map-form-item--textarea.main-map-form-item
+    margin-top: 30px
+  .main-map-form-item + .main-map-form-item:not(.main-map-form-item--textarea)
+    margin-left: 35px
+  .main-map-form-submit
+    -webkit-transform: translateX(-50%) translateY(50%)
+    -ms-transform: translateX(-50%) translateY(50%)
+    transform: translateX(-50%) translateY(50%)
+    position: absolute
+    left: 50%
+    bottom: 0
+    margin-left: 0
+    margin-right: 0
+    margin-top: 0
+  .main-map-content
+    position: absolute
+    top: 95px
+  .main-map-form-trigger
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+  .main-map-bottom-bar-wrapper
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    padding: 25px 0
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+  .main-map-bottom-bar-item
+    + .main-map-bottom-bar-item
+      margin-top: 0
+    i
+      text-align: left
+      width: auto
+    .title
+      line-height: 1.39
+  .main-our-services
+    padding-bottom: 64px
+  .main-our-services-wrapper
+    padding: 170px 0
+  .main-our-services-hexagon--big
+    width: 40%
+    height: 40%
+  .about-us-content-wrapper
+    padding: 64px
+    figure
+      width: 500px
+  .about-us-content-bottom-item .item-content p.description
+    height: auto
+  .services-list-item
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+  .services-list-item--vert
+    .services-list-item-content
+      padding: 85px 10px 20px 10px
+    .services-list-item-icon
+      height: 120px
+      width: 120px
+  .services-list-item--narrow
+    -webkit-flex-direction: row-reverse
+    -ms-flex-direction: row-reverse
+    flex-direction: row-reverse
+    .services-list-item-figure
+      width: 205px
+    .services-list-item-content
+      padding: 105px 45px 105px 70px
+      p.description
+        margin-bottom: 55px
+  .services-list-item-figure
+    width: 470px
+    height: auto
+  .services-list-item-content
+    padding: 48px 75px 48px 100px
+    span.title
+      margin-bottom: 60px
+  .services-list-item-icon
+    width: 102px
+    height: 102px
+    top: 50%
+    left: 0
+    -webkit-transform: translateX(-50%) translateY(-50%)
+    -ms-transform: translateX(-50%) translateY(-50%)
+    transform: translateX(-50%) translateY(-50%)
+    i
+      font-size: 3em
+  .article-wrapper
+    .article-figure
+      height: 485px
+    .article-figure-icon
+      left: 100px
+      bottom: 50px
+    .article-content-wrapper
+      padding: 64px
+      .article-content-main
+        figure
+          margin: 65px 0
+        .fluid
+          width: calc(100% + 140px)
+          margin-left: -70px
+    &.article--blog .article-content-wrapper
+      padding: 32px
+  .app-aside-widget + .app-aside-widget
+    margin-top: 30px
+  .app-aside-widget-content .app-download-box
+    padding: 35px 80px 50px 30px
+    .box-icon
+      top: 35px
+  .app-aside-widget-rich-menu-item
+    padding: 15px
+    &::after
+      display: block
+    figure
+      width: 100px
+      height: 90px
+  .app-aside-widget-rich-menu-item-content
+    .title
+      margin-bottom: 22px
+    .date
+      line-height: 2
+  .app-aside-widget-abox
+    padding: 40px
+  .blog-list-item--wide
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    .blog-list-item-figure
+      height: 100%
+      width: 300px
+    .blog-list-item-content
+      padding: 50px 50px 50px 35px
+  .blog-list-item-content
+    padding: 30px 20px 50px 30px
+  .comments-section
+    .app-comment-box
+      padding: 35px 40px 45px 30px
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      &.comment--reply
+        margin-left: 100px
+      figure.avatar
+        margin-right: 20px
+        float: inherit
+    .app-comment-box-content
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+  .portfolio-list-item-content
+    padding: 30px 35px
+    .portfolio-item-details
+      span, a
+        font-size: 13px
+  .small-article-box
+    .small-article-thumbnail
+      opacity: 0
+    .small-article-btn
+      min-width: inherit
+      padding: 0 20px
+    &.prev .small-article-btn
+      top: 50%
+      left: 0
+      -webkit-transform: translateX(-50%) translateY(-50%)
+      -ms-transform: translateX(-50%) translateY(-50%)
+      transform: translateX(-50%) translateY(-50%)
+    &.next .small-article-btn
+      right: 0
+      top: 50%
+      -webkit-transform: translateX(50%) translateY(-50%)
+      -ms-transform: translateX(50%) translateY(-50%)
+      transform: translateX(50%) translateY(-50%)
+    span.small-article-title
+      color: #4a4a4a
+
+@media (min-width: 1100px)
+  .app-navbar-ul-link + .app-navbar-ul-link
+    margin-left: 40px
+
+@media screen and (min-width: 1200px)
+  .page-has-aside .services-list-item:not(.services-list-item--vert) .services-list-item-figure
+    width: 250px
+  .app-navbar-search
+    margin-left: 65px
+    .input-wrapper.active
+      width: 970px
+  .app-footer-wrapper .app-footer-text
+    line-height: 1.56
+    font-size: 15px
+  .app-pricing-item--wide .app-pricing-item-heading
+    width: 300px
+    min-width: 300px
+    .item-icon
+      width: 100px
+      height: 100px
+  .home-about-us-box
+    padding: 64px
+  .home-about-us-box-shape
+    -webkit-transform: translateX(-203px) translateY(-115px)
+    -ms-transform: translateX(-203px) translateY(-115px)
+    transform: translateX(-203px) translateY(-115px)
+  .featured-services-item
+    height: 290px
+    padding: 30px
+  .main-our-services-content-wrapper
+    display: block
+    padding: 70px 70px 0 70px
+  .main-our-services-content-item
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    padding-bottom: 0
+    .icon
+      margin-bottom: 65px
+    span.title
+      margin-bottom: 70px
+      font-size: 28px
+      line-height: .83
+    p.description + p
+      margin-top: 35px
+    a.read-more
+      bottom: 2px
+      height: 110px
+      span
+        margin-top: 45px
+        font-size: 15px
+  .main-our-services-hexagon--small
+    width: 100px
+    height: 110px
+  .main-our-services-hexagon--big
+    width: 568px
+    height: 603px
+  .services-list-item--vert .services-list-item-content
+    padding: 95px 30px 40px 30px
+  .blog-list-item--wide .blog-list-item-figure
+    width: 370px
+  .blog-list-item-content-detail
+    -webkit-flex-wrap: nowrap
+    -ms-flex-wrap: nowrap
+    flex-wrap: nowrap
+    margin-bottom: 30px
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: 1200px) and (max-height: 950px)
+  .main-our-services-hexagon--big
+    width: 468px !important
+    height: 496px !important
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: 1200px) and (min-height: 950px)
+  .main-our-services-hexagon--big
+    width: 568px !important
+    height: 603px !important
+
+@media (min-width: 1200px) and (max-height: 950px)
+  .main-our-services-content-wrapper
+    padding: 70px 15px 0 15px
+  .main-our-services-content-item
+    .icon, span.title
+      margin-bottom: 30px
+    p.description + p
+      margin-top: 20px
+  .main-our-services-hexagon--big
+    width: 40%
+    height: 40%
+
+@media (max-width: 1199px)
+  .portfolio-list-item--type3 .portfolio-list-item-content
+    padding: 15px
+
+@media (max-width: 992px)
+  .team-members.color-inverted
+    .team-members-item-name
+      color: #6e6e6e
+    .team-members-item-description
+      color: #a1a1a1
+    .app-social-links-wrapper a.app-social-link
+      color: #b8b8b8
+  .team-members-item .app-social-links-wrapper a
+    color: #ffffff
+
+@media (max-width: 991px)
+  .page-has-aside .app-design-guide-colors
+    margin-top: 25px
+  .app-navbar-search button.app-navbar-search-btn.app-btn
+    background: transparent
+    &:hover, &:focus
+      background: transparent
+  .featured-services-item.featured-services-item--no-description
+    margin-bottom: 30px
+  .team-members-item.js-team-member-h
+    height: auto !important
+  .team-members-wrapper
+    + .container
+      margin-top: -30px
+    .team-members-item
+      .team-members-item-role
+        font-size: 11px
+      .app-social-links-wrapper
+        margin-top: 10px
+        margin-bottom: 0
+  .app-aside-widget-content .app-download-box .box-icon i
+    font-size: 2em
+
+@media (max-width: 991px) and (max-width: 575px)
+  .team-members-wrapper .team-members-item .app-social-links-wrapper .app-social-link + .app-social-link
+    margin-left: 25px
+
+@media (max-width: 767px)
+  .page-has-aside .app-design-guide-colors .color-item + .color-item
+    margin-top: 15px
+  .app-tab-filter-wrapper
+    position: fixed
+    left: 0
+    bottom: 0
+    height: auto
+    z-index: 18
+    width: 100%
+  .app-tab-filter-item
+    padding: 10px 15px
+    border: 1px solid transparent
+    height: 35px
+    text-align: center
+    white-space: nowrap
+    -webkit-flex-shrink: 0
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    &.active
+      border-color: #175de3
+
+@media (max-width: 577px)
+  .main-our-services .section-title
+    margin-top: 15px
+    padding-bottom: 18px
+
+@media (max-width: 576px)
+  .app-pricing-item--wrapper
+    &:nth-child(2n)
+      padding-left: 5px
+    &:nth-child(2n+1)
+      padding-right: 5px
+
+@media (max-width: 400px)
+  .team-members-wrapper
+    .team-members-item-wrapper:not(:last-of-type)
+      border-bottom: 1px solid #e4e4e4
+      padding-bottom: 30px
+    .col-6
+      -webkit-flex: 0 0 100%
+      -ms-flex: 0 0 100%
+      flex: 0 0 100%
+      max-width: 100%
+  .comments-section form.comment-form .input-row input
+    padding: 0 10px
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (max-width: 399px)
+  .main-our-services-hexagon--big
+    width: 250px !important
+    height: 250px !important
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (max-width: 320px)
+  .main-our-services-hexagon--big
+    width: 200px !important
+    height: 200px !important
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: 768px) and (max-width: 991px)
+  .main-our-services-hexagon--big
+    width: 470px !important
+    height: 500px !important
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: 992px) and (max-width: 1199px)
+  .main-our-services-hexagon--big
+    width: 468px !important
+    height: 496px !important
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none)
+  .app-navbar-search button.app-navbar-search-btn-close
+    top: 0
+  body
+    overflow-x: hidden
+
+@media (hover: hover)
+  .comments-section .app-comment-box:hover::after
+    height: 2px

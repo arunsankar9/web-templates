@@ -1,0 +1,52 @@
+.alert
+  display: flex
+  align-items: center
+  justify-content: space-between
+  border: 0
+  border-radius: 4px
+  padding: 15px 35px
+  @include setFont(15px,#ffffff,500)
+  line-height: 1.67
+  min-height: 50px
+  button.close
+    @include setFont(14px,#ffffff,700)
+    text-shadow: none
+    display: flex
+    align-items: center
+    opacity: 1
+  &-default
+    color: #ffffff
+    background-color: $app-primary-color_3
+    border-color: $app-primary-color_3
+  &-primary
+    color: #ffffff
+    background-color: $app-primary-color_1
+    border-color: $app-primary-color_1
+  &-secondary
+    color: #ffffff
+    background-color: $app-primary-color_2
+    border-color: $app-primary-color_2
+  &-success
+    color: #ffffff
+    background-color: #11b672
+    border-color: #11b672
+  &-danger
+    color: #ffffff
+    background-color: #cd3757
+    border-color: #cd3757
+  &-warning
+    color: #ffffff
+    background-color: #eab946
+    border-color: #eab946
+  &-info
+    color: #ffffff
+    background-color: #1565c0
+    border-color: #1565c0
+  &-dark
+    color: #ffffff
+    background-color: #494e4f
+    border-color: #494e4f
+  &-light
+    color: #ffffff
+    background-color: #9a9a9a
+    border-color: #9a9a9a

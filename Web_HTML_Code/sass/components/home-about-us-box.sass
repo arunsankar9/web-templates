@@ -1,0 +1,56 @@
+.home-about-us-box
+    display: flex
+    flex-direction: column
+    width: 100%
+    background: #ffffff
+    border-radius: 4px
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1)
+    padding: 20px
+    overflow: hidden
+    position: relative
+    margin-bottom: 20px
+    height: auto
+    @include mq("tablet")
+        height: 100%
+    @include mq("desktop")
+        padding: 30px 35px
+        margin-bottom: unset
+    @include mq("large")
+      padding: 61px 70px
+    & > *
+        z-index: 1
+    span.title
+        @include setFont(30px,#000000,700)
+        line-height: 1
+    p.description
+        @include setFont(16px,#525252,normal)
+        margin: 0
+        line-height: 1.56
+        margin-top: 20px
+        @include mq("desktop")
+          margin-top: 65px
+    .author-box
+      margin-top: 30px
+      @include mq("desktop")
+        margin-top: 62px
+    &-more
+        margin-top: 30px
+        flex-shrink: 0
+    &-shape
+        position: absolute
+        z-index: 0
+        pointer-events: none
+        left: 100%
+        bottom: -40%
+        transform: translateX(-80px) 
+        @include mq("tablet")
+            transform: translateX(-100px) translateY(-20px)
+        @include mq("desktop")
+            transform: translateX(-150px) translateY(-40px)
+        @include mq("large")
+            transform: translateX(-203px) translateY(-115px)
+        & > svg
+            #outerPoly
+                stroke: $app-primary-color_3
+            #innerPoly
+                fill: $app-primary-color_3
